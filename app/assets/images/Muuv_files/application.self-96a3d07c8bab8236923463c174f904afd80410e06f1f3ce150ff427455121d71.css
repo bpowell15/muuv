@@ -10,9 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 body {
       font-family: -apple-system,system-ui,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
@@ -77,10 +78,4 @@ html, html a {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}
-
-.login-input {
-  margin: 6px;
-border: 1px;
-padding: 12px 10px 12px 10px;
 }
