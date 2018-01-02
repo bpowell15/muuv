@@ -17,7 +17,7 @@ body {
       font-family: -apple-system,system-ui,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 html {
-  background: url('background-login2.jpg') no-repeat center center fixed;
+  /* background: url('background-login2.jpg') no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
