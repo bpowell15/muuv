@@ -17,14 +17,18 @@ import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
 const App = () => (
   <div>
-    <header>
+    <div className="nav-bar">
+    <header className="inner-nav-bar">
       <Link to="/" className="header-link">
         <h1>muuv</h1>
       </Link>
       <GreetingContainer />
     </header>
-    <AuthRoute path="/login" component={SessionFormContainer} />
-    <AuthRoute path="/signup" component={SessionFormContainer} />
+    </div>
+    <main className="main-page">
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
+    </main>
   </div>
 );
 
