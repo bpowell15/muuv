@@ -46,3 +46,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+button {
+  background:none;
+ border:none;
+ font-size:1em;
+ color:blue;
+}

@@ -11,8 +11,12 @@ const sessionLinks = () => (
 
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
-    <h2 className="header-name">{currentUser.email.charAt(0).toUpperCase()}</h2>
-    <button className="header-button" onClick={logout}>Log Out</button>
+    <div className="dropdown">
+      <h2 className="dropbtn">{currentUser.email.charAt(0).toUpperCase()}</h2>
+      <div className="dropdown-content">
+        <button className="header-button" onClick={logout}>Log Out</button>
+      </div>
+    </div>
 	</hgroup>
 );
 
