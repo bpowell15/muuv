@@ -27,7 +27,7 @@ const App = () => (
     </div>
     <main className="main-page">
       <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormModalContainer} />
     </main>
   </div>
 );
