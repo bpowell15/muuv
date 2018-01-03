@@ -13,9 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+
 body {
       font-family: -apple-system,system-ui,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
       font-size: 12px;
+      height: 100%;
+      width: 100%;
 
 }
 
@@ -63,7 +67,22 @@ html, html a {
   margin-top: 60px;
 }
 
-.form-title {
+.signup-form-container {
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 3px;
+  margin-top: 60px;
+  height: 475px;
+  width: 435px;
+}
+
+.signup-form-box {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 30px 30px;
+}
+
+.login-form-title {
   background-color: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   min-height: 76px;
@@ -75,6 +94,19 @@ html, html a {
   padding: 20px 30px 20px 30px;
 }
 
+.signup-form-title {
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 32px;
+  margin: 20px 0px 12px 0px;
+}
+
+.signup-form-title h3 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
 .login-form  {
   color: white;
   display: flex;
@@ -84,6 +116,22 @@ html, html a {
   height: 316px;
     width: 300px;
     padding: 50px;
+}
+
+.signup-form  {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* height: 316px;
+  width: 300px;
+  padding: 50px; */
+}
+
+.signup-form label {
+  align-self: left;
+  font-size: 17px;
+  margin-bottom: 10px;
 }
 
 .login-input {
@@ -98,6 +146,20 @@ html, html a {
   font-weight: 600;
 }
 
+
+.signup-input {
+  margin: 6px;
+  border: 1px;
+  padding: 12px 10px 12px 10px;
+  min-width: 350px;
+  height: 28px;
+  border: 1px solid #ccccd1;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
 .login-input:focus {
   background-color: white;
   font: 400 11px system-ui;
@@ -105,15 +167,29 @@ html, html a {
   font-size: 15px;
 }
 
+/* .signup-input:focus {
+  border-color: black;
+} */
+
 .login-input::placeholder {
   font-size: 15px;
   font-weight: 400;
 }
 
+/* .signup-input::placeholder {
+  font-size: 15px;
+  font-weight: 400;
+} */
+
 .login-input::selection {
   background-color: #f7452e;
   color: white;
 }
+
+/* .signup-input::selection {
+  background-color: #f7452e;
+  color: white;
+} */
 
 .login-submit-button {
   width: 300px;
@@ -132,6 +208,23 @@ cursor: pointer,
 /* outline: none; */
 }
 
+.signup-submit-button {
+  height:44px;
+  width: 121px;
+  border-radius: 3px;
+  margin-top: 20px;
+  background-color: #fc4c02;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #fc4c02;
+  padding: 10px 30px 10px 30px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
 .login-submit-button:active:focus {
   /* outline: none; */
 }
@@ -146,11 +239,14 @@ cursor: pointer,
   /* outline: none; */
 }
 
-.border-top-line {
+.login-border-top-line {
   border-top: 1px solid rgba(60,60,60,0.75);
   padding: 10px 30px 10px;
   margin: 30px -30px -30px;
   width: 300px;
+}
+.signup-border-top-line {
+
 }
 
 .login-error {
@@ -169,6 +265,7 @@ cursor: pointer,
 }
 
 .login-signup {
+  position: relative;
   background-color: #fff;
   border: 1px solid #ccccd1;
   border-radius: 1px;
@@ -249,4 +346,25 @@ cursor: pointer,
     border: 1px 1px 1px 0;
     border-color: #e6e6eb;
     cursor: pointer;
+}
+
+.modal{
+  float: true
+}
+
+
+
+
+
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  will-change: opacity, transform;
+  -webkit-animation: fadeIn 0.4s ease;
+  animation: fadeIn 0.4s ease;
+  align-self: center;
+  position: absolute;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.5);
 }

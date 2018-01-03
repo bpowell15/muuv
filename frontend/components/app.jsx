@@ -10,23 +10,42 @@ import {
 
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
+import SessionModalContainer from './session_form/session_modal_container';
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
-const App = () => (
-  <div>
-    <div className="nav-bar">
-    <header className="inner-nav-bar">
-      <Link to="/" className="header-link">
-        <h1>muuv</h1>
-      </Link>
-      <GreetingContainer />
-    </header>
-    </div>
-    <main className="main-page">
-      <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
-    </main>
-  </div>
-);
+class App extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+  }
+
+  toggleModal() {
+      return (this.setState({
+        isOpen: !this.state.isOpen
+      }));
+    }
+
+  render(){
+    return (
+      <div>
+        <div className="nav-bar">
+        <header className="inner-nav-bar">
+          <Link to="/" className="header-link">
+            <h1>muuv</h1>
+          </Link>
+          <GreetingContainer />
+        </header>
+        </div>
+        <main className="main-page">
+          <AuthRoute path="/login" component={SessionFormContainer} />
+          <AuthRoute path="/signup" component={SessionFormContainer} />
+        </main>
+      </div>
+  );}
+}
+
+
 
 export default App;
