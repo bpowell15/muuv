@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 const sessionLinks = () => (
   <nav className="login-signup">
-    <Link to="/login">Login</Link>
-    &nbsp;or&nbsp;
-    <Link to="/signup">Sign up!</Link>
+    <Link to="/signup">Sign up</Link>
   </nav>
 );
 
@@ -21,3 +19,7 @@ const Greeting = ({ currentUser, logout }) => (
 );
 
 export default Greeting;
+
+
+// <Link to="/login">Login</Link>
+// &nbsp;or&nbsp;
