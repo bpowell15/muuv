@@ -232,7 +232,7 @@ cursor: pointer,
 }
 
 .dropdown-content button:hover {
-  background-color: #e6e6eb
+  background-color: #e6e6eb;
   cursor: pointer;
 
 }
