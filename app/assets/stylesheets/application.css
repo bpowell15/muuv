@@ -129,21 +129,21 @@ margin-top: 20px;
 border: 1px solid #fc4c02;
 padding: 9px 10px 9px 10px;
 cursor: pointer,
-outline: none;
+/* outline: none; */
 }
 
 .login-submit-button:active:focus {
-  outline: none;
+  /* outline: none; */
 }
 
 .login-submit-button:hover {
   background-color: #e64501;
-  outline: none;
+  /* outline: none; */
 }
 
 .login-submit-button:active {
   background-color: #f36b31;
-  outline: none;
+  /* outline: none; */
 }
 
 .border-top-line {
