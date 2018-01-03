@@ -15,9 +15,11 @@
  */
 body {
       font-family: -apple-system,system-ui,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-size: 12px;
+
 }
 html {
-  background: url('background-login2.jpg') no-repeat center center fixed;
+  background: url('http://res.cloudinary.com/bpowell15/image/upload/v1514938395/background-login2_kkpnbs.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -52,7 +54,7 @@ html, html a {
 }
 
 .login-form-container {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   max-width: 400px;
   margin: 0 auto;
   border-radius: 3px;
@@ -77,10 +79,51 @@ html, html a {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 316px;
+    width: 300px;
+    padding: 50px;
 }
 
 .login-input {
   margin: 6px;
 border: 1px;
 padding: 12px 10px 12px 10px;
+min-width: 278px;
+background-color: rgba(0, 0, 0, 0.5);
+border: 1px solid #666666;
+color: #ccc;
+}
+
+.login-input::placeholder {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.login-submit-button {
+  width: 300px;
+min-height: 40px;
+line-height: inherit;
+border-radius: 3px;
+/* margin-top: 20px; */
+background-color: #fc4c02;
+color: white;
+font-size: 15px;
+font-weight: bold;
+margin-top: 20px;
+border: 1px solid #fc4c02;
+padding: 9px 10px 9px 10px;
+}
+
+.border-top-line {
+  border-top: 1px solid rgba(60,60,60,0.75);
+  padding: 10px 30px 10px;
+  margin: 30px -30px -30px;
+  width: 300px;
+}
+
+.login-errors {
+  background-color: #d9534f;
+  line-height: 1.5em;
+  text-align: center;
+  padding: 16px;
 }
