@@ -50,38 +50,20 @@ class SessionModal extends React.Component {
     }
 
 
-    const backdropStyle = {
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: 'rgba(0,0,0,0.3)',
-      padding: 50
-    };
-
-    // The modal "window"
-    const modalStyle = {
-      backgroundColor: '#fff',
-      borderRadius: 5,
-      maxWidth: 500,
-      minHeight: 300,
-      margin: '0 auto',
-      padding: 5000
-    };
-
 
 
     return (
-      <div className="backdrop" style={this.backdropStyle}>
-              <div className="modal" style={this.modalStyle}>
+
+      <div className="backdrop animate-opacity" >
+              <div className="modal" >
                 {this.props.children}
-                <div className="signup-modal">
+                <div className="signup-modal form-animate-opacity">
 
                       <div className='signup-form-container'>
                         <form onSubmit={this.handleSubmit} className='signup-form-box'>
-                          <a onClick= {this.props.onClose} className='modal-close' href="#"></a>
+                          <button onClick= {this.props.onClose} className='modal-close'></button>
                           <div className='signup-form-title'>Sign Up</div>
+                          <p className='signup-description'>Join today to start tracking your muuvments.</p>
                           <br/>
                           {this.renderErrors()}
                           <div className='signup-form'>
