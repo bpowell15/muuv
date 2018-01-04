@@ -10,7 +10,6 @@ import {
 
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
-import SessionModalContainer from './session_form/session_modal_container';
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
 class App extends React.Component{
@@ -21,11 +20,6 @@ class App extends React.Component{
     };
   }
 
-  toggleModal() {
-      return (this.setState({
-        isOpen: !this.state.isOpen
-      }));
-    }
 
   render(){
     return (
