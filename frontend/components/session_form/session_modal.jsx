@@ -1,9 +1,47 @@
 import React from 'react';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../../api_util/route_util';
+import {Route} from 'react-router-dom';
 
 
 class SessionModal extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+
+  renderErrors() {
+    if (this.props.errors) {
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="signup-error">
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = this.state;
+    this.props.processForm({user});
+  }
+
   render() {
 
     // Render nothing if the "show" prop is false
@@ -31,18 +69,46 @@ class SessionModal extends React.Component {
       margin: '0 auto',
       padding: 30
     };
+
+
+
     return (
       <div className="backdrop" style={this.backdropStyle}>
-        <div className="modal" style={this.modalStyle}>
-          {this.props.children}
-          <div className="signup-modal">
-            <form onSubmit={this.props.onClose}>
-              <a onClick= {this.props.onClose}>x</a>
-              <AuthRoute path="/signup" component={SessionFormContainer} />
-            </form>
-          </div>
-        </div>
-      </div>
+              <div className="modal" style={this.modalStyle}>
+                {this.props.children}
+                <div className="signup-modal">
+                  <form onSubmit={this.props.onClose}>
+                      <div className='signup-form-container'>
+                        <form onSubmit={this.handleSubmit} className='signup-form-box'>
+                          <a onClick= {this.props.onClose} className='modal-close' href="#"></a>
+                          <div className='signup-form-title'>Sign Up</div>
+                          <br/>
+                          {this.renderErrors()}
+                          <div className='signup-form'>
+                            <br/>
+                            <label>Email</label>
+                              <input type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                className='signup-input'
+                              />
+                            <br/>
+                            <label>New Password</label>
+                              <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                className='signup-input'
+                              />
+
+                            <br/>
+                            <input type="submit" value="Sign Up" className='signup-submit-button' />
+                          </div>
+                        </form>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
     );
   }
 }

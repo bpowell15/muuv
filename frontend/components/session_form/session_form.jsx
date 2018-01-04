@@ -36,10 +36,9 @@ class SessionForm extends React.Component {
   }
 
   demoSubmit(e) {
-    debugger
     e.preventDefault();
-    const user = {email: 'demouser@demoemail.com', password: 'password'};
-    this.props.processForm(user);
+    const demoUser = {user: {email: 'demouser@demoemail.com', password: 'password'}};
+    this.props.processForm(demoUser);
   }
 
   // navLink() {
@@ -133,35 +132,35 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className={`${this.toggleFormClass()}-form-container`}>
-        <form onSubmit={this.handleSubmit} className={`${this.toggleFormClass()}-form-box`}>
-          <div className={`${this.toggleFormClass()}-form-title`}>{this.toggleFormTitle()}</div>
+      <div className='login-form-container'>
+        <form onSubmit={this.handleSubmit} className='login-form-box'>
+          <div className='login-form-title'>Log In</div>
           <br/>
           {this.renderErrors()}
-          <div className={`${this.toggleFormClass()}-form`}>
+          <div className='login-form'>
             <br/>
-            <label>{this.toggleInputLabels('Email')}</label>
+            <label></label>
               <input type="text"
                 value={this.state.email}
-                placeholder= {`${this.toggleInputPlaceholder('Your Email')}`}
+                placeholder= 'Your Email'
                 onChange={this.update('email')}
-                className={`${this.toggleFormClass()}-input`}
+                className='login-input'
               />
             <br/>
-            <label>{this.toggleInputLabels('New Password')}</label>
+            <label></label>
               <input type="password"
-                placeholder={`${this.toggleInputPlaceholder('Password')}`}
+                placeholder='Password'
                 value={this.state.password}
                 onChange={this.update('password')}
-                className={`${this.toggleFormClass()}-input`}
+                className='login-input'
               />
 
             <br/>
-            <input type="submit" value={`${this.toggleButtonValue()}`} className={`${this.toggleFormClass()}-submit-button`} />
-            <span className={`${this.toggleFormClass()}-border-top-line`}></span>
+            <input type="submit" value="Log In" className='login-submit-button' />
+            <span className='login-border-top-line'></span>
+            <button className="demo-button" onClick={this.demoSubmit}>Demo login?</button>
           </div>
         </form>
-        <button onClick={this.demoSubmit}>Demo login?</button>
       </div>
     );
   }

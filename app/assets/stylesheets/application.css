@@ -14,6 +14,7 @@
  *= require_self
  */
 
+* {outline:0 !important;}
 
 body {
       font-family: -apple-system,system-ui,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -65,6 +66,9 @@ html, html a {
   margin: 0 auto;
   border-radius: 3px;
   margin-top: 60px;
+  display: flex;
+  /* align-items: ; */
+  flex-direction: column;
 }
 
 .signup-form-container {
@@ -115,7 +119,7 @@ html, html a {
   align-items: center;
   height: 316px;
     width: 300px;
-    padding: 50px;
+    padding: 50px 50px 0 50px;
 }
 
 .signup-form  {
@@ -294,19 +298,63 @@ cursor: pointer,
    background-color: #f5f5fa;
 }
 
+.demo-button {
+  align-self: center;
+  margin-top: 15px;
+  font-size: 12px;
+  color: white;
+  font-weight: 500;
+}
+.demo-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 
 
 
 
 .dropbtn {
-    font-size: 16px;
-    cursor: pointer;
+  border: 1px solid black;
+border-radius: 50%;
+height: 32px;
+width: 32px;
+text-align: center;
+/* padding-top: 14px; */
+display: flex;
+align-items: center;
+justify-content: center;
+border-width: thin;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+}
+
+.dropdown:hover .dropdown-sprite{
+  background: url('nav_sprite.png') no-repeat 0 -30px;
+	width: 9px;
+	height: 5px;
+}
+
+
+.modal-close:hover {
+  background: url('modal-close.svg') no-repeat -3px -27px;
+	width: 18px;
+	height: 18px;
+}
+.dropdown-sprite {
+  background: url('nav_sprite.png') no-repeat 0 0;
+  	width: 9px;
+  	height: 5px;
+    margin-left: 3px;
+  }
+
+.dropdown-sprite:hover {
+  background: url('nav_sprite.png') no-repeat 0 -30px;
+	width: 9px;
+	height: 5px;
 }
 
 .dropdown-content {
@@ -348,9 +396,6 @@ cursor: pointer,
     cursor: pointer;
 }
 
-.modal{
-  float: true
-}
 
 
 
@@ -358,13 +403,66 @@ cursor: pointer,
 
 
 .backdrop {
+  position: fixed;
+  left: 0%;
+  top: 0%;
   width: 100vw;
   height: 100vh;
-  will-change: opacity, transform;
-  -webkit-animation: fadeIn 0.4s ease;
-  animation: fadeIn 0.4s ease;
+
   align-self: center;
   position: absolute;
   z-index: 500;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+.modal-close {
+  background: url('modal-close.svg') no-repeat -3px -3px;
+	width: 18px;
+	height: 18px;
+  align-self: flex-end;
+  margin-top: -14px;
+  margin-right: -16px;
+}
+
+.modal-close:hover {
+  background: url('modal-close.svg') no-repeat -3px -27px;
+	width: 18px;
+	height: 18px;
+}
+.dropdown-sprite {
+  background: url('nav_sprite.png') no-repeat 0 0;
+  	width: 9px;
+  	height: 5px;
+    margin-left: 3px;
+  }
+
+.dropdown-sprite:hover {
+  background: url('nav_sprite.png') no-repeat 0 -30px;
+	width: 9px;
+	height: 5px;
+}
+
+
+
+.sprites {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+
+/* #home img {
+  border: none;
+}
+
+#home {
+  width: 12px;
+  padding: -4px;
+  height: 10px;
+  background: url(nav_sprite.png) 0 0;
+  border: none;
+} */
