@@ -2,8 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-* {outline:0 !important;}
-
+/* * {outline:0 !important;} */
+html, body {margin: 0; height: 100%; overflow: hidden}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,

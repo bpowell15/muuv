@@ -1,18 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import SessionModalContainer from '../session_form/session_modal_container';
-
-
-
 
 class Greeting extends React.Component {
   constructor(props){
-
     super(props);
     this.state = {
       isOpen: false
     };
-    this.sessionLinks = this.sessionLinks.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.profilePicture = this.profilePicture.bind(this);
   }
@@ -23,22 +18,6 @@ class Greeting extends React.Component {
   });
 }
 
-
-
-  sessionLinks (){
-
-    return (
-      <div>
-        <nav className="login-signup">
-          <Link to="/login">Login</Link>
-        </nav>
-        <nav className="login-signup">
-          <a onClick={this.toggleModal}>Sign up</a>
-        </nav>
-          <SessionModalContainer show={this.state.isOpen} onClose={this.toggleModal} />
-      </div>
-    );
-  }
 
   profilePicture () {
   //   if (this.props.currentuser.picture) {
@@ -63,9 +42,42 @@ class Greeting extends React.Component {
     	</hgroup>
     );
   }
+
   render(){
+    let sessionLink;
+    if (this.props.currentUser) {
+      sessionLink = this.personalGreeting(this.props.currentUser, this.props.logout);
+    } else if ( this.props.location.pathname === '/login' ) {
+      sessionLink = (
+        <div>
+          <nav className="login-signup">
+            <a onClick={this.toggleModal}>Sign up</a>
+          </nav>
+
+        </div>
+      );
+    } else {
+    sessionLink= (
+        <div className="session-nav">
+          <h3>Here to join?</h3>
+          <div >
+            <nav className="signup-root">
+              <a onClick={this.toggleModal}>Sign Up</a>
+            </nav>
+            <nav className="login-root">
+              <Link to="/login">Log In</Link>
+            </nav>
+          </div>
+        </div>
+
+    );
+  }
     return (
-      this.props.currentUser ? this.personalGreeting(this.props.currentUser, this.props.logout) : this.sessionLinks()
+      <div>
+        {sessionLink}
+        <SessionModalContainer show={this.state.isOpen} onClose={this.toggleModal} />
+      </div>
+      // this.props.currentUser ? this.personalGreeting(this.props.currentUser, this.props.logout) : this.sessionLinks()
     );
   }
 }
