@@ -7,7 +7,7 @@ import SessionModalContainer from '../session_form/session_modal_container';
 
 class Greeting extends React.Component {
   constructor(props){
-    debugger
+
     super(props);
     this.state = {
       isOpen: false
@@ -22,6 +22,8 @@ class Greeting extends React.Component {
     isOpen: !this.state.isOpen
   });
 }
+
+
 
   sessionLinks (){
 

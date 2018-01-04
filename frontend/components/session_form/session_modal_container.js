@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     formType
   };
 };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
