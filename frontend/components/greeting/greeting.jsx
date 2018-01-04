@@ -23,11 +23,15 @@ class Greeting extends React.Component {
 
   sessionLinks (){
     return (
-      <nav className="login-signup">
-        <Link to="/login">Login</Link>
-        <Link to="/signup" onClick={this.toggleModal}>Sign up</Link>
-        <SessionModalContainer show={this.state.isOpen} onClose={this.toggleModal} />
-      </nav>
+      <div>
+        <nav className="login-signup">
+          <Link to="/login">Login</Link>
+        </nav>
+        <nav className="login-signup">
+          <a onClick={this.toggleModal}>Sign up</a>
+        </nav>
+          <SessionModalContainer show={this.state.isOpen} onClose={this.toggleModal} />
+      </div>
     );
   }
 
@@ -35,7 +39,7 @@ class Greeting extends React.Component {
     return(
     	<hgroup className="header-group">
         <div className="dropdown">
-          <h2 className="dropbtn">{currentUser.email.charAt(0).toUpperCase()}</h2>
+          <div className="sprites dropdown"><h2 className="dropbtn">{currentUser.email.charAt(0).toUpperCase()}</h2><img className='dropdown-sprite' src="#"></img></div>
           <div className="dropdown-content">
             <button className="header-button" onClick={logout}>Log Out</button>
           </div>
