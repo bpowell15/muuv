@@ -32,6 +32,15 @@
    background-size: cover;
  }
 
+ .splash-background{
+   background: url('background-login5.jpeg') no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   overflow: visible;
+ }
+
  html, html a {
    -webkit-font-smoothing: antialiased;
    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);

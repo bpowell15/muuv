@@ -1,6 +1,31 @@
+
+.splash-title {
+  color: white;
+font-size: 30px;
+letter-spacing: -2px;
+font-weight: 900;
+margin-left: 50px;
+    margin-top: 10px;
+
+}
+
+.splash-hook {
+  font-size: 52px;
+line-height: 75.84px;
+color: white;
+    font-weight: 650;
+    letter-spacing: -3px;
+    max-width: 470px;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+
 .nav-bar {
+  position: relative;
   background-color: white;
   margin: 0;
+  min-width: 100vw;
 }
 
 .prof-pic {
@@ -12,6 +37,68 @@
   overflow: hidden;
 }
 
+.signup-root {
+  font-size: 1.1em !important;
+    color: #60605a;
+    line-height: 46px;
+    white-space: nowrap;
+    text-decoration: underline;
+  &:hover {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.login-root {
+  right: 0;
+  color: #fff;
+  font-weight: 700;
+  background-color: #fc4c02;
+  text-align: left;
+  text-transform: uppercase;
+  height: 64px;
+  width: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 33px;
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: -1px;
+    &:visited {
+      text-decoration: none;
+    }
+  }
+}
+
+.session-nav {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  max-width: 195px;
+  width: 941px;
+  max-width: 100%;
+  background-color: white;
+
+  div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-right: 24px;
+    width: 47%;
+  }
+}
+
+.login-sprite {
+  background: image-url('login-button-sprite.png') no-repeat 0 0;
+	width: 13px;
+	height: 13px;
+  opacity: 0;
+}
 
 
 .inner-nav-bar {
@@ -22,6 +109,15 @@
   align-items: center;
   margin: 0 auto;
   background-color: inherit;
+  h3 {
+    font-weight: 100;
+/* font-weight: 100; */
+font-family: 'MaisonNeue', 'Helvetica', Arial, sans-serif;
+/* background-color: white; */
+font-size: 17.8px;
+line-height: 30.08px;
+
+  }
 }
 
 .header-link {
@@ -134,9 +230,17 @@
   height: 28px;
   border: 1px solid #ccccd1;
   color: black;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   border-radius: 3px;
+  &:active {
+    border-color: black;
+    outline:0 !important;
+  }
+  &:focus {
+    border-color: black;
+    outline:0 !important;
+  }
 }
 
 .login-input {
@@ -184,6 +288,13 @@
   border: 1px solid #fc4c02;
   padding: 9px 10px 9px 10px;
   cursor: (pointer,);
+  &:active {
+    outline:0 !important;
+  }
+  &:focus {
+    outline:0 !important;
+    background-color: #fd6f34;
+  }
 }
 
 .signup-submit-button {
@@ -251,26 +362,33 @@
   background-color: #fff;
   border: 1px solid #ccccd1;
   border-radius: 1px;
-  color: #2d2d32;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
   position: relative;
   white-space: nowrap;
   box-sizing: border-box;
-  font-size: 13px;
+  font-size: 14px;
   min-height: 34px;
   padding: 9px 10px;
-  a {
-    text-decoration: none;
-    color: #2d2d32;
-    &:visited {
-      text-decoration: none;
-    }
-  }
+  color: #606065;
+  font-weight: 450;
   &:hover {
     background-color: #f5f5fa;
+    color: black;
   }
+  a {
+    text-decoration: none;
+
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+    &:hover {
+      color: black;
+    }
+  }
+
 }
 
 .demo-button {
@@ -352,6 +470,8 @@
   height: 18px;
 }
 
+
+
 .dropdown-sprite {
   background: image-url('nav_sprite.png') no-repeat 0 0;
   width: 9px;
@@ -415,6 +535,7 @@
 
 .modal-close {
   background: image-url('modal-close.svg') no-repeat -3px -3px;
+  opacity: 0.5;
   width: 18px;
   height: 18px;
   align-self: flex-end;
@@ -424,6 +545,8 @@
     background: image-url('modal-close.svg') no-repeat -3px -27px;
     width: 18px;
     height: 18px;
+    opacity: 1;
+    cursor: pointer;
   }
 }
 
