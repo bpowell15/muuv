@@ -10,11 +10,8 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSubmit = this.demoSubmit.bind(this);
-    this.toggleFormTitle = this.toggleFormTitle.bind(this);
-    this.toggleFormClass = this.toggleFormClass.bind(this);
-    this.toggleButtonValue = this.toggleButtonValue.bind(this);
-    this.toggleInputLabels = this.toggleInputLabels.bind(this);
-    this.toggleInputPlaceholder = this.toggleInputPlaceholder.bind(this);
+
+    // this.toggleInputPlaceholder = this.toggleInputPlaceholder.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -64,69 +61,19 @@ class SessionForm extends React.Component {
     // return null;
   }
 
-  toggleFormTitle(){
-    if (this.props.formType === 'signup') {
-      return (
-        <div>
-        <h1>Sign up for Free</h1>
-        <h3>Join now, track your muuvments today!</h3>
-        </div>
-      );
-    } else {
-      return (
-        <h1>Log In</h1>
-      );
-    }
-  }
 
-  toggleFormClass(){
-    if (this.props.formType === 'signup') {
-      return (
-        'signup'
-      );
-    } else {
-      return (
-        'login'
-      );
-    }
-  }
-
-  toggleButtonValue(){
-    if (this.props.formType === 'signup') {
-      return (
-        'Sign Up'
-      );
-    } else {
-      return (
-        'Log In'
-      );
-    }
-  }
-  toggleInputLabels(label){
-    if (this.props.formType === 'signup') {
-
-      return (
-        label
-      );
-    } else {
-      return (
-        ''
-      );
-    }
-  }
-
-  toggleInputPlaceholder(placeholder){
-    if (this.props.formType === 'login') {
-
-      return (
-        placeholder
-      );
-    } else {
-      return (
-        ''
-      );
-    }
-  }
+  // toggleInputPlaceholder(placeholder){
+  //   if (this.props.formType === 'login') {
+  //
+  //     return (
+  //       placeholder
+  //     );
+  //   } else {
+  //     return (
+  //       ''
+  //     );
+  //   }
+  // }
 
 
 

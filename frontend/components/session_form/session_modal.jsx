@@ -49,7 +49,7 @@ class SessionModal extends React.Component {
       return null;
     }
 
-    // The gray background
+
     const backdropStyle = {
       position: 'absolute',
       top: 0,
@@ -67,7 +67,7 @@ class SessionModal extends React.Component {
       maxWidth: 500,
       minHeight: 300,
       margin: '0 auto',
-      padding: 30
+      padding: 5000
     };
 
 
@@ -77,7 +77,7 @@ class SessionModal extends React.Component {
               <div className="modal" style={this.modalStyle}>
                 {this.props.children}
                 <div className="signup-modal">
-                  <form onSubmit={this.props.onClose}>
+
                       <div className='signup-form-container'>
                         <form onSubmit={this.handleSubmit} className='signup-form-box'>
                           <a onClick= {this.props.onClose} className='modal-close' href="#"></a>
@@ -105,7 +105,7 @@ class SessionModal extends React.Component {
                           </div>
                         </form>
                       </div>
-                  </form>
+
                 </div>
               </div>
             </div>
@@ -113,6 +113,6 @@ class SessionModal extends React.Component {
   }
 }
 
-
+// removeed on submit for listener, if things go wrong add again.
 
 export default SessionModal;
