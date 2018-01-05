@@ -35,18 +35,18 @@ class App extends React.Component{
     return (
 
         <div>
-          <div className="nav-bar">
+
           <header className="inner-nav-bar">
             <SplashGreetingContainer />
             <GreetingContainer />
           </header>
-          </div>
           <main className="main-page">
             <AuthRoute path="/login" component={SessionFormContainer} />
             <AuthRoute path="/signup" component={SessionFormContainer} />
             <HookGreetingContainer />
           </main>
         </div>
+
 
   );}
 }

@@ -48,15 +48,24 @@ sessionLinks(){
     return(
       <div className="session-nav">
         <h3>Here to join?</h3>
-        <div>
-            <button className="signup-root"
-              onClick={this.toggleModal}>Sign Up
-            </button>
+        <button className="signup-root"
+          onClick={this.toggleModal}>Sign Up
+        </button>
+        <div className="splash-login">
             <Link to="/login" className="login-root">Log In</Link>
         </div>
       </div>
     );
   }
+}
+
+classToggle(){
+  if (this.props.location.pathname === '/') {
+    if (this.props.currentUser === null) {
+      return '-splash';
+    }
+  }
+  return '';
 }
 
 
@@ -76,13 +85,12 @@ sessionLinks(){
             </button>
           </div>
         </div>
-
     );
   }
 
   render(){
     return (
-      <div>
+      <div className={`nav-bar${this.classToggle()}`}>
         {this.sessionLinks()}
         <SessionModalContainer
           show={this.state.isOpen} onClose={this.toggleModal}

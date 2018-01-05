@@ -10,22 +10,28 @@ margin-left: 50px;
 }
 
 .splash-hook {
-  font-size: 52px;
-line-height: 75.84px;
-color: white;
-    font-weight: 650;
-    letter-spacing: -3px;
-    max-width: 470px;
-    margin-left: 100px;
-    margin-top: 100px;
+
+  color: white;
+  font-weight: 650;
+  letter-spacing: -3px;
+  max-width: 470px;
+  margin-left: 100px;
+  margin-top: 100px;
+  font-size: 86px;
+  line-height: 96px;
+  letter-spacing: -4px;
+}
+
+.splash-login {
+  position: absolute;
+  right: 5%;
 }
 
 
-.nav-bar {
-  position: relative;
+.nav-bar-splash {
   background-color: white;
   margin: 0;
-  min-width: 100vw;
+  min-width: 100%;
 }
 
 .prof-pic {
@@ -50,11 +56,8 @@ color: white;
 }
 
 .login-root {
-  right: 0;
-  color: #fff;
   font-weight: 700;
   background-color: #fc4c02;
-  text-align: left;
   text-transform: uppercase;
   height: 64px;
   width: 112px;
@@ -68,7 +71,7 @@ color: white;
   font-size: 14px;
   letter-spacing: -1px;
   &:visited {
-    text-decoration: none;  
+    text-decoration: none;
   }
 }
 
@@ -76,19 +79,14 @@ color: white;
   position: relative;
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  max-width: 195px;
-  width: 941px;
-  max-width: 100%;
+  justify-content: space-evenly;
+  min-width: 100%;
   background-color: white;
-
-  div {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding-right: 24px;
-    width: 47%;
+  h3 {
+    margin-top: 41px;
+    margin-bottom: 42px;
   }
+
 }
 
 .login-sprite {
@@ -100,21 +98,25 @@ color: white;
 
 
 .inner-nav-bar {
-  max-width: 600px;
+  min-width: 100%;
   min-height: 55px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 0 auto;
-  background-color: inherit;
+  background-color: white;
+  // min-width: 100%;
+  // min-height: 55px;
+  // display: flex;
+  // justify-content: space-evenly;
+  // align-items: center;
+  // background-color: white
   h3 {
     font-weight: 100;
-/* font-weight: 100; */
-font-family: 'MaisonNeue', 'Helvetica', Arial, sans-serif;
-/* background-color: white; */
-font-size: 17.8px;
-line-height: 30.08px;
-
+    /* font-weight: 100; */
+    font-family: 'MaisonNeue', 'Helvetica', Arial, sans-serif;
+    /* background-color: white; */
+    font-size: 17.8px;
+    line-height: 30.08px;
   }
 }
 
