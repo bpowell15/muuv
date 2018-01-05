@@ -63,14 +63,12 @@ color: white;
   align-items: center;
   margin-top: 16px;
   margin-bottom: 33px;
-  a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: -1px;
-    &:visited {
-      text-decoration: none;
-    }
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: -1px;
+  &:visited {
+    text-decoration: none;  
   }
 }
 
