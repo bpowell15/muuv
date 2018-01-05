@@ -17,6 +17,8 @@ class Greeting extends React.Component {
   });
 }
 
+
+
   profilePicture () {
   //   if (this.props.currentuser.picture) {
   //     return (
@@ -37,7 +39,12 @@ sessionLinks(){
         onClick={this.toggleModal}>Sign up
       </button>
     );
-  } else {
+  } else if (this.props.location.pathname === '/signup') {
+    return (
+      <Link to="/login" className="login-signup">Log In</Link>
+    );
+  }
+  else {
     return(
       <div className="session-nav">
         <h3>Here to join?</h3>

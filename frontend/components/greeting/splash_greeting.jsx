@@ -9,7 +9,7 @@ class SplashGreeting extends React.Component {
   }
 
   title() {
-    if (this.props.location.pathname === '/login' || this.props.currentUser) {
+    if (this.props.location.pathname === '/login' || this.props.location.pathname === '/signup' || this.props.currentUser) {
       return <Link to="/" className="header-link"><h1>muuv</h1></Link>;
     }
   }
