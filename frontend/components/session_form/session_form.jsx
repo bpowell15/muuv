@@ -56,14 +56,23 @@ class SessionForm extends React.Component {
     // return null;
   }
 
-
+  toggleFormLabels(label){
+    if (this.props.formType === 'signup') {
+      if (label === "title") {
+        return "Join muuv today, it's Free.";
+      } else {
+        return "Sign Up";
+      }
+    }
+    return "Log In";
+  }
 
 
 
   render() {
     return (
         <form onSubmit={this.handleSubmit} className='login-form-container login-form-box'>
-          <div className='login-form-title'>Log In</div>
+          <div className='login-form-title'>{this.toggleFormLabels("title")}</div>
           <br/>
           {this.renderErrors()}
           <div className='login-form'>
@@ -82,7 +91,7 @@ class SessionForm extends React.Component {
                 className='login-input'
               />
             <br/>
-            <input type="submit" value="Log In"
+            <input type="submit" value={this.toggleFormLabels()}
               className='login-submit-button'
              />
             <span className='login-border-top-line'></span>
