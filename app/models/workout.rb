@@ -10,9 +10,10 @@
 #  user_id     :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  speed       :float
 #
 
 class Workout < ApplicationRecord
-  validates :title, :description, :distance, :duration, presence: true 
+  validates :title, :description, :distance, :duration, presence: true
   belongs_to :user
 end
