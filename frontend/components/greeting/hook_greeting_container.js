@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { logout } from '../../actions/session_actions';
-import SplashGreeting from './splash_greeting';
+import HookGreeting from './hook_greeting';
 
 const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(SplashGreeting));
+)(HookGreeting));

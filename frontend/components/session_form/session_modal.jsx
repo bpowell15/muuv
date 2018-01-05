@@ -1,5 +1,4 @@
 import React from 'react';
-import SessionFormContainer from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../../api_util/route_util';
 import {Route} from 'react-router-dom';
 

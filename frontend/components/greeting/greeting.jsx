@@ -4,6 +4,7 @@ import SessionModalContainer from '../session_form/session_modal_container';
 
 class Greeting extends React.Component {
   constructor(props){
+
     super(props);
     this.state = {
       isOpen: false
@@ -18,6 +19,13 @@ class Greeting extends React.Component {
   });
 }
 
+title() {
+
+  if (this.props.location.pathname === '/login' || this.props.currentUser) {
+    return <Link to="/" className="header-link"><h1>muuv</h1></Link>;
+     }
+}
+
 
   profilePicture () {
   //   if (this.props.currentuser.picture) {
@@ -28,6 +36,11 @@ class Greeting extends React.Component {
     return (<a className="prof-pic"></a>);
   // }
 }
+
+
+
+
+
 
   personalGreeting(currentUser, logout){
 
@@ -76,8 +89,10 @@ class Greeting extends React.Component {
       <div>
         {sessionLink}
         <SessionModalContainer show={this.state.isOpen} onClose={this.toggleModal} />
+
       </div>
       // this.props.currentUser ? this.personalGreeting(this.props.currentUser, this.props.logout) : this.sessionLinks()
+
     );
   }
 }
