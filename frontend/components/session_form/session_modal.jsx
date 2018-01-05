@@ -12,6 +12,9 @@ class SessionModal extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  // componentDidMount(){
+  //   this.props.clearErrors();
+  // }
 
   renderErrors() {
     if (this.props.errors) {
@@ -35,13 +38,14 @@ class SessionModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = this.state;
-    this.props.processForm({user});
-
-    if (this.props.loggedIn) {
-      this.state.email = "";
-      this.state.password = "";
-    }
+    const user = Object.assign({}, this.state);
+    // delete user['hidden'];
+    // delete user['emailError'];
+    // delete user['passwordError'];
+    this.props.processForm({user}).then(() => {
+      this.props.onClose();
+      // this.props.history.push("/");
+    });
   }
 
   render() {
@@ -59,7 +63,7 @@ class SessionModal extends React.Component {
 
                 <div className='signup-form-container'>
                   <form onSubmit={this.handleSubmit} className='signup-form-box'>
-                    <button onClick= {this.props.onClose} className='modal-close'></button>
+                    <a onClick= {this.props.onClose} className='modal-close'></a>
                     <div className='signup-form-title'>Sign Up</div>
                     <p className='signup-description'>Join today to start tracking your muuvments.</p>
                     <br/>
@@ -81,7 +85,10 @@ class SessionModal extends React.Component {
                         />
 
                       <br/>
-                      <input type="submit" value="Sign Up" className='signup-submit-button' />
+                      <input type="submit"
+                         value="Sign Up"
+                         className='signup-submit-button'>
+                       </input>
                     </div>
                   </form>
                 </div>
