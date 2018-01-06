@@ -15,7 +15,7 @@
  */
 
 
- button { outline: 0;}
+ * { outline: 0;}
  body {
        font-family: -apple-system,system-ui,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
        font-size: 12px;
