@@ -9,6 +9,7 @@ class Greeting extends React.Component {
       isOpen: false
     };
     this.toggleModal = this.toggleModal.bind(this);
+    this.clearErrorsOpenModal = this.clearErrorsOpenModal.bind(this);
   }
 
   toggleModal(){
@@ -30,13 +31,18 @@ class Greeting extends React.Component {
   // when implementing, put current user variable back in callback def and call
 }
 
+  clearErrorsOpenModal() {
+    this.props.clearErrors();
+    this.toggleModal();
+  }
+
 sessionLinks(){
   if (this.props.currentUser) {
     return this.currentUserLinks(this.props.logout);
   } else if ( this.props.location.pathname === '/login' ) {
     return  (
       <button className="login-signup"
-        onClick={this.toggleModal}>Sign up
+        onClick={this.clearErrorsOpenModal}>Sign up
       </button>
     );
   } else if (this.props.location.pathname === '/signup') {
@@ -49,11 +55,9 @@ sessionLinks(){
       <div className="session-nav">
         <h3>Here to join?</h3>
         <button className="signup-root"
-          onClick={this.toggleModal}>Sign Up
+          onClick={this.clearErrorsOpenModal}>Sign Up
         </button>
-        <div className="splash-login">
-            <Link to="/login" className="login-root">Log In</Link>
-        </div>
+            <Link to="/login" className="login-root splash-login"><div className="splash-login-sprite"></div>Log In</Link>
       </div>
     );
   }

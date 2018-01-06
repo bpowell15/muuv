@@ -7,26 +7,52 @@ class SessionModal extends React.Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      showPassword: "password"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.showHidePassword = this.showHidePassword.bind(this);
     this.update = this.update.bind(this);
   }
 
   renderEmailErrors() {
-    if ( this.props.errors.length === 2 ) {
-      if (this.state.email.length !== 0 ) {
-        return (
-          <p className="email-error">This email address is already taken</p>
-        );
-      } else if (this.state.email === "") {
-        return (
-          <p className="email-error">Enter an email</p>
-        );
+
+    if ((this.state.email.includes('@') &&
+  this.state.email.includes('.'))) {
+    return "";
+  }
+
+    if (this.props.errors.length > 0 &&
+      this.state.email.length > 0 &&(
+      !this.state.email.includes('@') ||
+      !this.state.email.includes('.'))
+    ) {
+      return (<p className="email-error">
+        Sorry, the email you entered is invalid
+      </p>
+    );
+  } else if ( this.props.errors.length > 0
+          && this.state.email.length !== 0
+      ) {
+      return (
+            <p className="email-error">This email address is already taken</p>
+          );
+        } else if (this.props.errors.length > 0 && this.state.email === "") {
+          return (
+            <p className="email-error">Enter an email</p>
+          );
+        } else {
+        return "";
       }
+    }
+
+
+  showHidePassword(){
+    if ( this.state.showPassword === "text" ) {
+      this.setState({showPassword: "password"});
     } else {
-      return null;
+      this.setState({showPassword: "text"});
     }
   }
 
@@ -36,7 +62,10 @@ class SessionModal extends React.Component {
 
 
   renderPasswordErrors(){
-    if ( this.props.errors.length > 0 && this.state.password.length < 5 && this.state.password.length > 0 ) {
+    if ( this.props.errors.length > 0 &&
+        this.state.password.length < 5 &&
+        this.state.password.length > 0
+      ) {
         return (<p className="password-error">
         Your password must be at least 5 characters long</p>
         );
@@ -51,21 +80,19 @@ class SessionModal extends React.Component {
 
   toggleEmailErrors(){
     if ( this.props.errors.length === 2  ||
-      this.props.errors[0] !== "Password is too short (minimum is 5 characters)"
-    && this.props.errors.length !== 0 )  {
+      (this.props.errors[0] !== "Password is too short (minimum is 5 characters)"
+      && this.props.errors.length !== 0 ))  {
       return "-email";
     }
     return "";
   }
 
   togglePasswordErrors(){
-
     if ( this.props.errors.length === 2 ||
-      this.props.errors[0] == "Password is too short (minimum is 5 characters)"
+      this.props.errors[0] === "Password is too short (minimum is 5 characters)"
       || this.renderPasswordErrors() ) {
       return "-password";
     }
-
     return "";
   }
 
@@ -84,7 +111,8 @@ class SessionModal extends React.Component {
       this.props.onClose();
       this.setState({
         email: '',
-        password: ''
+        password: '',
+        showPassword: "password"
       });
     });
   }
@@ -94,7 +122,8 @@ class SessionModal extends React.Component {
     this.props.onClose();
     this.setState({
       email: '',
-      password: ''
+      password: '',
+      showPassword: "password"
     });
     this.props.clearErrors();
   }
@@ -128,8 +157,13 @@ class SessionModal extends React.Component {
                         />
                       {this.renderEmailErrors()}
                       <br/>
-                      <label>New Password</label>
-                        <input type="password"
+                      <label className="password-show-hide">New Password<div onClick={this.showHidePassword}>
+                        <a className={`${this.state.showPassword === "password" ? "show" : "hide"}-sprite`}></a>
+                        <a className={this.state.showPassword}>
+                          {(this.state.showPassword === "password" ? "Show" : "Hide")}</a>
+                        </div>
+                      </label>
+                        <input type={this.state.showPassword}
                           value={this.state.password}
                           onClick={this.props.clearErrors}
                           onChange={this.update('password')}
