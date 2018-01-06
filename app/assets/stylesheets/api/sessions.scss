@@ -210,6 +210,13 @@ margin-left: 50px;
   }
 }
 
+
+
+
+
+
+
+
 .login-input {
   margin: 6px;
   border: 1px;
@@ -243,6 +250,34 @@ margin-left: 50px;
   }
 }
 
+.email-error, .password-error {
+  color: #db001b;
+  font-size: 12px;
+  align-self: left;
+}
+
+.signup-input-email, .signup-input-password {
+  color: #db001b;
+  border: 1px solid #db001b;
+  margin: 6px;
+  padding: 12px 10px 12px 10px;
+  min-width: 350px;
+  height: 28px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
 .login-input {
   &:focus {
     background-color: white;
@@ -260,19 +295,7 @@ margin-left: 50px;
   }
 }
 
-/* .signup-input:focus {
-  border-color: black;
-} */
 
-/* .signup-input::placeholder {
-  font-size: 15px;
-  font-weight: 400;
-} */
-
-/* .signup-input::selection {
-  background-color: #f7452e;
-  color: white;
-} */
 
 .login-submit-button {
   width: 300px;
