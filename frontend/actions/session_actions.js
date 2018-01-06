@@ -18,8 +18,7 @@ export const receiveErrors = errors => {
   });
 };
 
-const clearErrors = () => {
-  debugger
+export const clearErrors = () => {
   return {
       type: CLEAR_ERRORS
     };

@@ -10,31 +10,26 @@ class SessionModal extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.update = this.update.bind(this);
   }
 
 
-  componentWillMount(){
-    this.props.clearErrors();
-  }
 
   renderEmailErrors() {
 
-
-    if (this.props.errors.length === 0 || this.props.errors[0] === "Password is too short (minimum is 5 characters)") {
+    if ( this.props.errors.length === 2 ) {
+      if (this.state.email.length !== 0 ) {
+        return (
+          <p className="email-error">This email address is already taken</p>
+        );
+      } else if (this.state.email === "") {
+        return (
+          <p className="email-error">Enter an email</p>
+        );
+      }
+    } else {
       return null;
-    }
-
-
-    if (this.state.email.length !== 0 ) {
-      return (
-        <p className="email-error">This email address is already taken</p>
-      );
-    }
-    if (this.state.email === "") {
-      return (
-        <p className="email-error">Enter an email</p>
-      );
     }
 }
 
@@ -42,35 +37,41 @@ class SessionModal extends React.Component {
 
 
   renderPasswordErrors(){
-    if (this.props.errors.length === 0 || this.props.errors[0] !== "Password is too short (minimum is 5 characters)")  {
+    if ( this.props.errors.length === 2 ) {
+      if (this.state.password.length < 5) {
+        return (<p className="password-error">
+        Your password must be at least 5 characters long</p>
+        );
+      } else {
+        return (
+          <p className="password-error">Enter a password</p>
+        );
+      }
+    }
       return null;
-    }
-
-    if (this.state.password.length < 5) {
-      return (<p className="password-error">
-      Your password must be at least 5 characters long</p>
-      );
-    } else {
-      return (
-        <p className="password-error">Enter a password</p>
-      );
-    }
   }
 
 
   toggleEmailErrors(){
-    if (this.props.errors.length === 0 || this.props.errors[0] === "Password is too short (minimum is 5 characters)" ) {
+    if ( this.props.errors.length === 2 ) {
+      return "-email";
+    } else if (this.props.errors.length === 0)
+     {
       return "";
     }
 
-    if (this.renderEmailErrors()) {
+    if (this.props.errors[0] !== "Password is too short (minimum is 5 characters)") {
       return "-email";
     }
   }
 
   togglePasswordErrors(){
+
+    if ( this.props.errors.length === 2 ) {
+      return "-password";
+    }
     if (this.props.errors.length === 0 ||
-      this.props.errors[0] !== "Password is too short (minimum is 5 characters)"
+      (this.props.errors[0] !== "Password is too short (minimum is 5 characters)")
     ) {
       return "";
     }
@@ -94,8 +95,21 @@ class SessionModal extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.processForm({user}).then(() => {
       this.props.onClose();
-      this.setState()
+      this.setState({
+        email: '',
+        password: ''
+      });
     });
+  }
+
+
+  handleClose () {
+    this.props.onClose();
+    this.setState({
+      email: '',
+      password: ''
+    });
+    this.props.clearErrors();
   }
 
   render() {
@@ -110,10 +124,9 @@ class SessionModal extends React.Component {
         <div className="modal" >
           {this.props.children}
           <div className="signup-modal form-animate-opacity">
-
                 <div className='signup-form-container'>
                   <form onSubmit={this.handleSubmit} className='signup-form-box'>
-                    <a onClick= {this.props.onClose} className='modal-close'></a>
+                    <a onClick= {this.handleClose} className='modal-close'></a>
                     <div className='signup-form-title'>Sign Up</div>
                     <p className='signup-description'>Cyclist? Runner? Join the muuvment today.</p>
                     <br/>
@@ -122,6 +135,7 @@ class SessionModal extends React.Component {
                       <label>Email</label>
                         <input type="text"
                           value={this.state.email}
+                          onClick={this.props.clearErrors}
                           onChange={this.update('email')}
                           className={`signup-input${this.toggleEmailErrors()}`}
                         />
@@ -130,6 +144,7 @@ class SessionModal extends React.Component {
                       <label>New Password</label>
                         <input type="password"
                           value={this.state.password}
+                          onClick={this.props.clearErrors}
                           onChange={this.update('password')}
                           className={`signup-input${this.togglePasswordErrors()}`}
                         />
