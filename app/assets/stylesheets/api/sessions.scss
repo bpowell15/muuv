@@ -24,7 +24,31 @@ margin-left: 50px;
 
 .splash-login {
   position: absolute;
-  right: 5%;
+right: 5%;
+font-weight: 700;
+background-color: #fc4c02;
+text-transform: uppercase;
+height: 64px;
+width: 112px;
+display: flex;
+/* align-items: center; */
+/* align-content: baseline; */
+justify-content: center;
+align-items: center;
+margin-top: 16px;
+margin-bottom: 33px;
+color: white;
+text-decoration: none;
+font-size: 14px;
+letter-spacing: -1px;
+}
+
+.splash-login-sprite {
+  background: image-url('login-button-sprite.svg') no-repeat 0 0;
+	width: 12px;
+	height: 14px;
+  transform: scale(0.9);
+  padding-right: 3px
 }
 
 
@@ -57,15 +81,7 @@ margin-left: 50px;
 
 .login-root {
   font-weight: 700;
-  background-color: #fc4c02;
   text-transform: uppercase;
-  height: 64px;
-  width: 112px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 16px;
-  margin-bottom: 33px;
   color: white;
   text-decoration: none;
   font-size: 14px;
@@ -89,12 +105,6 @@ margin-left: 50px;
 
 }
 
-.login-sprite {
-  background: image-url('login-button-sprite.png') no-repeat 0 0;
-	width: 13px;
-	height: 13px;
-  opacity: 0;
-}
 
 
 .inner-nav-bar {
@@ -264,14 +274,68 @@ margin-left: 50px;
   min-width: 350px;
   height: 28px;
   font-size: 16px;
-  font-weight: 400;
   border-radius: 3px;
+  font-weight: 500;
 }
 
 
 
+.password-show-hide {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    div {
+    display: flex;
+    &:hover {
+      cursor: pointer;
+    }
+    }
+}
 
+.password {
+  color: #99999e;
+  font-size: 12px;
+  font-weight: 600;
+  padding-left: 4px;
+  padding-top: 2px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
 
+.text {
+  color: black;
+  font-size: 12px;
+  font-weight: 400;
+  padding-left: 4px;
+  padding-top: 2px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.show-sprite {
+  background: image-url('hide-password-sprite.svg') no-repeat -2px -5px;
+  width: 20px;
+  height: 14px;
+  transform: scale(.8);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.hide-sprite {
+  background: image-url('show-pasword-sprite.svg') no-repeat -2px -5px;
+  width: 20px;
+  height: 14px;
+  transform: scale(.8);
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 
 
@@ -488,11 +552,7 @@ margin-left: 50px;
   flex-direction:  column;
 }
 
-.modal-close:hover {
-  background: url('modal-close.svg') no-repeat -3px -27px;
-  width: 18px;
-  height: 18px;
-}
+
 
 
 
@@ -573,6 +633,8 @@ margin-left: 50px;
     cursor: pointer;
   }
 }
+
+
 
 .dropdown-sprite {
   background: image-url('nav_sprite.png') no-repeat 0 0;
