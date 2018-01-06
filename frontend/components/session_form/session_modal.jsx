@@ -40,7 +40,7 @@ class SessionModal extends React.Component {
         return (<p className="password-error">
         Your password must be at least 5 characters long</p>
         );
-      } else if (this.state.password.length  ===  0 ) {
+      } else if ( this.props.errors.length > 0 && this.state.password.length  ===  0 ) {
         return (
           <p className="password-error">Enter a password</p>
         );
