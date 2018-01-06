@@ -4,6 +4,7 @@ import React from 'react';
 class SessionModal extends React.Component {
   constructor (props) {
     super(props);
+
     this.state = {
       email: '',
       password: ''
@@ -12,23 +13,75 @@ class SessionModal extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.props.clearErrors();
-  // }
 
-  renderErrors() {
-    if (this.props.errors) {
-      return(
-        <ul>
-          {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="login-error">
-              {error}
-            </li>
-          ))}
-        </ul>
+  componentWillMount(){
+    this.props.clearErrors();
+  }
+
+  renderEmailErrors() {
+
+
+    if (this.props.errors.length === 0 || this.props.errors[0] === "Password is too short (minimum is 5 characters)") {
+      return null;
+    }
+
+
+    if (this.state.email.length !== 0 ) {
+      return (
+        <p className="email-error">This email address is already taken</p>
+      );
+    }
+    if (this.state.email === "") {
+      return (
+        <p className="email-error">Enter an email</p>
+      );
+    }
+}
+
+
+
+
+  renderPasswordErrors(){
+    if (this.props.errors.length === 0 || this.props.errors[0] !== "Password is too short (minimum is 5 characters)")  {
+      return null;
+    }
+
+    if (this.state.password.length < 5) {
+      return (<p className="password-error">
+      Your password must be at least 5 characters long</p>
+      );
+    } else {
+      return (
+        <p className="password-error">Enter a password</p>
       );
     }
   }
+
+
+  toggleEmailErrors(){
+    if (this.props.errors.length === 0 || this.props.errors[0] === "Password is too short (minimum is 5 characters)" ) {
+      return "";
+    }
+
+    if (this.renderEmailErrors()) {
+      return "-email";
+    }
+  }
+
+  togglePasswordErrors(){
+    if (this.props.errors.length === 0 ||
+      this.props.errors[0] !== "Password is too short (minimum is 5 characters)"
+    ) {
+      return "";
+    }
+
+    if (this.renderPasswordErrors()) {
+      return "-password";
+    }
+  }
+
+
+
 
   update(field) {
     return e => this.setState({
@@ -39,12 +92,9 @@ class SessionModal extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    // delete user['hidden'];
-    // delete user['emailError'];
-    // delete user['passwordError'];
     this.props.processForm({user}).then(() => {
       this.props.onClose();
-      // this.props.history.push("/");
+      this.setState()
     });
   }
 
@@ -65,25 +115,25 @@ class SessionModal extends React.Component {
                   <form onSubmit={this.handleSubmit} className='signup-form-box'>
                     <a onClick= {this.props.onClose} className='modal-close'></a>
                     <div className='signup-form-title'>Sign Up</div>
-                    <p className='signup-description'>Join today to start tracking your muuvments.</p>
+                    <p className='signup-description'>Cyclist? Runner? Join the muuvment today.</p>
                     <br/>
-                    {this.renderErrors()}
                     <div className='signup-form'>
                       <br/>
                       <label>Email</label>
                         <input type="text"
                           value={this.state.email}
                           onChange={this.update('email')}
-                          className='signup-input'
+                          className={`signup-input${this.toggleEmailErrors()}`}
                         />
+                      {this.renderEmailErrors()}
                       <br/>
                       <label>New Password</label>
                         <input type="password"
                           value={this.state.password}
                           onChange={this.update('password')}
-                          className='signup-input'
+                          className={`signup-input${this.togglePasswordErrors()}`}
                         />
-
+                      {this.renderPasswordErrors()}
                       <br/>
                       <input type="submit"
                          value="Sign Up"
