@@ -15,7 +15,6 @@ class SessionModal extends React.Component {
   }
 
   renderEmailErrors() {
-
     if ( this.props.errors.length === 2 ) {
       if (this.state.email.length !== 0 ) {
         return (
@@ -29,57 +28,46 @@ class SessionModal extends React.Component {
     } else {
       return null;
     }
-}
+  }
+
+  // Email is invalid", "Password is too short (minimum is 5 characters)"]
 
 
 
 
   renderPasswordErrors(){
-    if ( this.props.errors.length === 2 ) {
-      if (this.state.password.length < 5) {
+    if ( this.props.errors.length > 0 && this.state.password.length < 5 && this.state.password.length > 0 ) {
         return (<p className="password-error">
         Your password must be at least 5 characters long</p>
         );
-      } else {
+      } else if (this.state.password.length  ===  0 ) {
         return (
           <p className="password-error">Enter a password</p>
         );
       }
-    }
-      return null;
+      return "";
   }
 
 
   toggleEmailErrors(){
-    if ( this.props.errors.length === 2 ) {
-      return "-email";
-    } else if (this.props.errors.length === 0)
-     {
-      return "";
-    }
-
-    if (this.props.errors[0] !== "Password is too short (minimum is 5 characters)") {
+    if ( this.props.errors.length === 2  ||
+      this.props.errors[0] !== "Password is too short (minimum is 5 characters)"
+    && this.props.errors.length !== 0 )  {
       return "-email";
     }
+    return "";
   }
 
   togglePasswordErrors(){
 
-    if ( this.props.errors.length === 2 ) {
+    if ( this.props.errors.length === 2 ||
+      this.props.errors[0] == "Password is too short (minimum is 5 characters)"
+      || this.renderPasswordErrors() ) {
       return "-password";
-    }
-    if (this.props.errors.length === 0 ||
-      (this.props.errors[0] !== "Password is too short (minimum is 5 characters)")
-    ) {
-      return "";
     }
 
-    if (this.renderPasswordErrors()) {
-      return "-password";
-    }
+    return "";
   }
-
-
 
 
   update(field) {
@@ -87,6 +75,7 @@ class SessionModal extends React.Component {
       [field]: e.currentTarget.value
     });
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
