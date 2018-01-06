@@ -18,6 +18,10 @@ class SessionForm extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -28,6 +32,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm({user});
+    this.props.clearErrors();
   }
 
   demoSubmit(e) {
@@ -37,7 +42,8 @@ class SessionForm extends React.Component {
         email: 'demouser@demoemail.com',
         password: 'password'
       }};
-    this.props.processForm(demoUser);
+      this.props.processForm(demoUser);
+      this.props.clearErrors();
   }
 
 

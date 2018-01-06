@@ -14,8 +14,6 @@ class SessionModal extends React.Component {
     this.update = this.update.bind(this);
   }
 
-
-
   renderEmailErrors() {
 
     if ( this.props.errors.length === 2 ) {
