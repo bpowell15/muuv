@@ -11,9 +11,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  speed       :float
+#  route_id    :integer
 #
 
 class Workout < ApplicationRecord
-  validates :title, :description, :distance, :duration, presence: true
+  validates :title, :description, :distance, :duration, :speed, presence: true
   belongs_to :user
+  belongs_to :route
 end
