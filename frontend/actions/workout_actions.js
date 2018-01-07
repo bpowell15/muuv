@@ -29,7 +29,7 @@ export const removeWorkout = (workoutID) => {
 export const receiveErrors = (errors) => {
   return {
     type: RECEIVE_WORKOUT_ERRORS,
-    errors 
+    errors
   };
 };
 
@@ -37,4 +37,44 @@ export const clearERRORS = () => {
   return {
     type: CLEAR_ERRORS
   };
+};
+
+export const requestWorkouts = () => dispatch => {
+  return WorkoutAPIUtil.fetchWorkouts().then((workouts) => {
+    dispatch(receiveWorkouts(workouts));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
+  });
+};
+
+export const requestWorkout = id => dispatch => {
+  return WorkoutAPIUtil.fetchWorkout(id).then((workout) => {
+    dispatch(receiveWorkout(workout));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
+  });
+};
+
+export const createWorkout = workout => dispatch => {
+  return WorkoutAPIUtil.createWorkout(workout).then((response) => {
+    dispatch(receiveWorkout(response));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
+  });
+};
+
+export const updateWorkout = workout => dispatch => {
+  return WorkoutAPIUtil.updateWorkout(workout).then((response) => {
+    dispatch(receiveWorkout(response));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
+  });
+};
+
+export const deleteWorkout = id => dispatch => {
+  return WorkoutAPIUtil.deleteWorkout(id).then(() => {
+    dispatch(removeWorkout(id));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
+  });
 };

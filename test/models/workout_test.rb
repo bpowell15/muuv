@@ -15,6 +15,8 @@
 #  duration_minutes :integer          not null
 #  duration_seconds :integer          not null
 #  sport            :string           not null
+#  date             :datetime         not null
+#  time             :datetime         not null
 #
 
 require 'test_helper'

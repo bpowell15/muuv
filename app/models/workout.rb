@@ -15,9 +15,11 @@
 #  duration_minutes :integer          not null
 #  duration_seconds :integer          not null
 #  sport            :string           not null
+#  date             :datetime         not null
+#  time             :datetime         not null
 #
 
 class Workout < ApplicationRecord
-  validates :title, :description, :distance, :duration_hours, :duration_minutes, :duration_seconds, :speed, :sport, presence: true
+  validates :title, :description, :distance, :duration_hours, :duration_minutes, :duration_seconds, :speed, :sport, :date, :time presence: true
   belongs_to :user
 end
