@@ -61,7 +61,7 @@ sessionLinks(){
       </div>
     );
   }
-}
+}ffj
 
 classToggle(){
   if (this.props.location.pathname === '/') {
