@@ -20,17 +20,24 @@ class WorkoutForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleSubmit(e){
     e.preventDefault();
     const workout = this.state;
-    this.props.processForm({workout});
-    this.props.clearErrors();
+    this.props.processForm(workout).then(() => {
+      this.props.history.push('/workouts');
+      this.props.clearErrors();
+    }
+    );
+
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return(
+      e => this.setState({
+        [field]: e.currentTarget.value
+      })
+    );
   }
 
   render () {
@@ -44,24 +51,24 @@ class WorkoutForm extends React.Component {
           <div className="distance-input">
             <label className="input-label">Distance</label><br></br>
             <div className="distance">
-              <input type="number" max='9999' min='0' onChange={this.update('distance')} value={this.props.distance} />
-              <Dropdown className="unit-dropdown distance-drop" options={['kilometers', 'meters', 'miles', 'yards']} onChange={this._onSelect} value={this.state.sport} placeholder="miles" />
+              <input type="number" max='9999' min='0' onChange={this.update('distance')} value={this.state.distance} />
+              <Dropdown className="unit-dropdown distance-drop" options={['kilometers', 'meters', 'miles', 'yards']} onChange={this._onSelect} value={this.state.distance_unit} placeholder="miles" />
               </div>
           </div>
 
           <div className="duration-input">
             <label className="input-label">Duration</label><br></br>
             <div className="distance">
-              <input type="number" max='9999' min='0'className="hour-input" onChange={this.update('duration_hours')} value={this.props.durationHours} placeholder="hr"  />
-              <input type="number" max='59' min='0' className="minute-input" onChange={this.update('duration_minutes')} value={this.props.durationMinutes} placeholder="m" />
-              <input type="number" max='59' min='0' className="second-input" onChange={this.update('duration_seconds')} value={this.props.durationHours} placeholder="s" />
+              <input type="number" max='9999' min='0'className="hour-input" onChange={this.update('duration_hours')} value={this.state.durationHours} placeholder="hr"  />
+              <input type="number" max='59' min='0' className="minute-input" onChange={this.update('duration_minutes')} value={this.state.durationMinutes} placeholder="m" />
+              <input type="number" max='59' min='0' className="second-input" onChange={this.update('duration_seconds')} value={this.state.durationHours} placeholder="s" />
             </div>
           </div>
             <div className="elevation-input">
               <label className="input-label">Elevation</label><br></br>
                 <div className="distance">
-                <input type="number" max='99999' min='0' onChange={this.update('elevation')} value={this.props.elevation} />
-                <Dropdown className="unit-dropdown" options={['meters', 'feet']} onChange={this._onSelect} value={this.props.sport} placeholder="feet" />
+                <input type="number" max='99999' min='0' onChange={this.update('elevation')} value={this.state.elevation} />
+                <Dropdown className="unit-dropdown" options={['meters', 'feet']} onChange={this._onSelect} value={this.state.distance_unit} placeholder="feet" />
                 </div>
           </div>
         </div>
@@ -71,7 +78,7 @@ class WorkoutForm extends React.Component {
         <div className="row">
           <div className="activity_type">
             <label className="input-label">Sport</label>
-            <Dropdown className="sport-dropdown" options={['Ride', 'Run', 'Swim', 'Code']} onChange={this._onSelect} value={this.props.sport} placeholder="Run" />
+            <Dropdown className="sport-dropdown" options={['Ride', 'Run', 'Swim', 'Code']} onChange={this._onSelect} value={this.state.sport} placeholder="Run" />
 
 
           </div>
@@ -85,7 +92,7 @@ class WorkoutForm extends React.Component {
 
         <div className="row workout-title">
           <label className="input-label">Title</label>
-            <input className="title-input" type="text" onChange={this.update('title')} value={this.props.title} placeholder="Afternoon Ride" />
+            <input className="title-input" type="text" onChange={this.update('title')} value={this.state.title} placeholder="Afternoon Ride" />
 
         </div>
 
@@ -93,7 +100,7 @@ class WorkoutForm extends React.Component {
 
         <div className="description-row">
           <label className="input-label">Description</label>
-              <textarea className="workout-description" onChange={this.update('description')} value={this.props.description} placeholder="How did it go? See anything cool?"></textarea>
+              <textarea className="workout-description" onChange={this.update('description')} value={this.state.description} placeholder="How did it go? See anything cool?"></textarea>
         </div>
 
         <div className="input-seperator"></div>

@@ -14,8 +14,10 @@ import SplashGreetingContainer from './greeting/splash_greeting_container';
 import SessionModalContainer from './session_form/session_modal_container';
 import HookGreetingContainer from './greeting/hook_greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
+import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutCreateForm from './workout_form/workout_form_container';
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
+
 
 class App extends React.Component{
   constructor(props) {
@@ -31,6 +33,7 @@ class App extends React.Component{
             <GreetingContainer />
           </header>
           <main className="main-page">
+
             <Link to='/workouts/new' >Create Workout</Link>
             <AuthRoute path="/login" component={SessionFormContainer} />
             <AuthRoute path="/signup" component={SessionFormContainer} />
@@ -38,6 +41,8 @@ class App extends React.Component{
             <ProtectedRoute path="/workouts/new"
               component={WorkoutCreateForm}
             />
+          <ProtectedRoute exact path="/workouts" component={WorkoutIndexContainer} />
+
           </main>
         </div>
   );}
