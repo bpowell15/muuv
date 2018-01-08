@@ -31,8 +31,10 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
-    this.props.clearErrors();
+    this.props.processForm({user}).then(()=>{
+      this.props.history.push('/workouts');
+      this.props.clearErrors();
+    });
   }
 
   demoSubmit(e) {
@@ -42,8 +44,10 @@ class SessionForm extends React.Component {
         email: 'demouser@demoemail.com',
         password: 'password'
       }};
-      this.props.processForm(demoUser);
-      this.props.clearErrors();
+      this.props.processForm(demoUser).then(()=>{
+        this.props.history.push('/workouts');
+        this.props.clearErrors();
+      });
   }
 
 

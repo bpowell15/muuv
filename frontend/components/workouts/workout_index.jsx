@@ -3,7 +3,7 @@ import WorkoutIndexItem from './workout_index_item';
 
 class WorkoutIndex extends React.Component {
   constructor(props){
-    debugger
+
     super(props);
   }
 
@@ -13,11 +13,13 @@ class WorkoutIndex extends React.Component {
 
   render () {
       return (
-        <div>
+        <div className="workout-feed">
+          <h1>Activity Feed</h1>
+
           <ul>
           {
             this.props.workouts.map((workout) => (
-              <WorkoutIndexItem key={workout.id} deletePost={this.props.deleteWorkout} workout={workout} />
+              <WorkoutIndexItem key={workout.id} deletePost={this.props.deleteWorkout} workout={workout} user={this.props.user} />
             ))
           }
         </ul>

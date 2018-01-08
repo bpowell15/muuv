@@ -16,6 +16,7 @@ import HookGreetingContainer from './greeting/hook_greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutCreateForm from './workout_form/workout_form_container';
+import BackgroundImage from './background_image';
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
 
@@ -33,16 +34,19 @@ class App extends React.Component{
             <GreetingContainer />
           </header>
           <main className="main-page">
+            <div>
 
+              <AuthRoute path="/login" component={SessionFormContainer} />
+              <AuthRoute path="/signup" component={SessionFormContainer} />
+            </div>
             <Link to='/workouts/new' >Create Workout</Link>
-            <AuthRoute path="/login" component={SessionFormContainer} />
-            <AuthRoute path="/signup" component={SessionFormContainer} />
-            <HookGreetingContainer />
-            <ProtectedRoute path="/workouts/new"
-              component={WorkoutCreateForm}
-            />
-          <ProtectedRoute exact path="/workouts" component={WorkoutIndexContainer} />
 
+            <HookGreetingContainer />
+            <Switch>
+              <ProtectedRoute path="/workouts/new"
+                component={WorkoutCreateForm}/>
+              <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
+            </Switch>
           </main>
         </div>
   );}
@@ -51,3 +55,11 @@ class App extends React.Component{
 
 
 export default App;
+
+
+// <Switch>
+//   <Route path="/" component={BackgroundImage} image="background-login2" />
+//   <Route path="/login" component={BackgroundImage} />
+//   <Route path="/signup" component={BackgroundImage} />
+// </Switch>
+//

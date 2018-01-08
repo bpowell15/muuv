@@ -1,0 +1,9 @@
+if (window['google'] != undefined && window['google']['loader'] != undefined) {
+if (!window['google']['gdata']) {
+window['google']['gdata'] = {};
+google.gdata.Version = '1.10';
+google.gdata.JSHash = '208a907929e7936990d2bf48205aa8d8';
+google.gdata.LoadArgs = 'file\x3dgdata\x26v\x3d1.x';
+}
+google.loader.writeLoadTag("script", google.loader.ServiceBase + "/api/gdata/1.10/208a907929e7936990d2bf48205aa8d8/core,mediarss,geo,opensearch,atom,threading,app,gdata,finance,contacts,analytics,blogger,maps,gbase,acl,calendar,default.I.js", false);
+}
