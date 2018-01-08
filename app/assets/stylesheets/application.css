@@ -18,34 +18,34 @@
 
 }
 .background-image-1 {
-   background: url('background-login5.jpeg') no-repeat center center fixed;
+   background: url('background-login6.jpeg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
  }
  .background-image-2  {
-   background: url('background-login5.jpg') no-repeat center center fixed;
+   background: url('background-login7.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
  }
- .background-image-3 {
+ .background-image {
    background: url('background-login2.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
  }
- .background-image-4 {
+ .background-image-3 {
    background: url('background-login3.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
  }
- .background-image-5 {
+ .background-image-4 {
    background: url('background-login4.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;

@@ -1,0 +1,91 @@
+.workout-feed {
+  background-color: white;
+  padding-left: 16px;
+  padding-right: 16px;
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 300;
+  }
+}
+
+.workoutItem {
+  background-color: white;
+  margin: 50px 0;
+  padding-left: 68px;
+}
+
+.name-date {
+  padding-top: 6px;
+  padding-bottom: 8px;
+  h3{
+    font-weight: 500;
+    color:black;
+    font-size: 13px;
+    line-height: 1.38em;
+  }
+  p{
+    margin-top: 2px;
+    color: #99999e;
+    font-size: 13px;
+    line-height: 1.38em;
+  }
+}
+
+.workout-mini-stats {
+  margin-top: 10px;
+  h3 {
+
+  }
+  ul{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    li{
+    font-weight: 500;
+    font-size: 13px;
+    color: #606065;
+    margin-right: 9.75px;
+  }
+  }
+  a{
+    font-weight: 700;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    &:hover {
+      color: #007FB6;
+      text-decoration: underline;
+    }
+  }
+  p{
+    display: flex;
+    align-items: baseline;
+    a {
+      font-size: 13px;
+      font-weight: 400;
+    }
+  }
+}
+
+.bike-sprite {
+  background: image-url('bike-sprite.svg') no-repeat 0 -29px;
+	width: 24px;
+	height: 17px;
+  margin-top: 14px;
+  margin-left: 5px;
+}
+.run-sprite {
+  background: image-url('run-sprite.svg') no-repeat -1px -27px;
+	width: 23px;
+	height: 18px;
+  margin-top: 14px;
+  margin-left: 5px;
+}
+
+
+.user-image-type {
+  float: left;
+    margin-left: -67px;
+}
