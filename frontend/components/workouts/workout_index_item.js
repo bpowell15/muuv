@@ -1,5 +1,5 @@
 import React from 'react';
-
+import moment from 'moment';
 
 class WorkoutIndexItem extends React.Component {
   constructor(props){
@@ -44,6 +44,11 @@ class WorkoutIndexItem extends React.Component {
     }
   }
 
+  parseDate(){
+    debugger
+    return (moment(this.props.workout.date).calendar());
+  }
+
   render () {
     return(
 
@@ -54,7 +59,7 @@ class WorkoutIndexItem extends React.Component {
       </div>
         <div className="name-date">
           <h3>{this.props.user.fname} {this.props.user.lname}</h3>
-          <p>{this.props.workout.date} at {this.props.workout.time}</p>
+          <p>{this.parseDate()}</p>
         </div>
         <div className="workout-mini-stats">
           <a href="#">{this.props.workout.title}</a>
