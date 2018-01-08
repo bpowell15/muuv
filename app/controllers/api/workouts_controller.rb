@@ -43,6 +43,7 @@ class Api::WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:title, :description, :duration_hours, :duration_minutes, :duration_seconds, :distance, :elevation, :date, :time, :speed, :sport, :distance_unit, :elevation_unit)
+    debugger
+    params.require(:workout).permit(:title, :description, :duration_hours, :duration_minutes, :duration_seconds, :distance, :elevation, :date, :time, :sport, :distance_unit, :elevation_unit)
   end
 end

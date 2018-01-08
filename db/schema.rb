@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108041147) do
+ActiveRecord::Schema.define(version: 20180108161320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20180108041147) do
     t.string "distance_unit", default: "miles", null: false
     t.string "elevation_unit", default: "feet", null: false
     t.index ["route_id"], name: "index_workouts_on_route_id"
-    t.index ["user_id"], name: "index_workouts_on_user_id", unique: true
+    t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
 end

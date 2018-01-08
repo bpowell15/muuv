@@ -7,9 +7,9 @@ class WorkoutForm extends React.Component {
     super(props);
     this.state = {
       distance: 0,
-      durationHours: 0,
-      durationMinutes: 0,
-      durationSeconds: 0,
+      duration_hours: 0,
+      duration_minutes: 0,
+      duration_seconds: 0,
       elevation: 0,
       sport: 'Ride',
       date: "",
@@ -45,16 +45,16 @@ class WorkoutForm extends React.Component {
             <label className="input-label">Distance</label><br></br>
             <div className="distance">
               <input type="number" max='9999' min='0' onChange={this.update('distance')} value={this.props.distance} />
-              <Dropdown className="unit-dropdown distance-drop" options={['kilometers', 'meters', 'miles', 'yards']} onChange={this._onSelect} value={this.props.sport} placeholder="miles" />
+              <Dropdown className="unit-dropdown distance-drop" options={['kilometers', 'meters', 'miles', 'yards']} onChange={this._onSelect} value={this.state.sport} placeholder="miles" />
               </div>
           </div>
 
           <div className="duration-input">
             <label className="input-label">Duration</label><br></br>
             <div className="distance">
-              <input type="number" max='9999' min='0'className="hour-input" onChange={this.update('durationHours')} value={this.props.durationHours} placeholder="hr"  />
-              <input type="number" max='59' min='0' className="minute-input" onChange={this.update('durationMinutes')} value={this.props.durationMinutes} placeholder="m" />
-              <input type="number" max='59' min='0' className="second-input" onChange={this.update('durationSeconds')} value={this.props.durationHours} placeholder="s" />
+              <input type="number" max='9999' min='0'className="hour-input" onChange={this.update('duration_hours')} value={this.props.durationHours} placeholder="hr"  />
+              <input type="number" max='59' min='0' className="minute-input" onChange={this.update('duration_minutes')} value={this.props.durationMinutes} placeholder="m" />
+              <input type="number" max='59' min='0' className="second-input" onChange={this.update('duration_seconds')} value={this.props.durationHours} placeholder="s" />
             </div>
           </div>
             <div className="elevation-input">
@@ -100,7 +100,7 @@ class WorkoutForm extends React.Component {
 
         <div className="row submit-workout">
           <input className="submit-button"type="submit" value="Create" />
-          <Link to="/">Cancel</Link>
+          <Link to="/workouts">Cancel</Link>
         </div>
       </form>
     </div>
