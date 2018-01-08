@@ -15,27 +15,42 @@ input:-moz-placeholder {
    color:#666;
  }
 
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.hour-input, .minute-input, .second-input {
+      width: 58.3px;
+
+}
+
 
 .page-container {
   width: 1248px;
   min-width: 0;
   padding-left: 195px;
-  margin: 30px auto 80px;
+
   background-color: white;
   flex-direction: column;
   justify-content: space-around;
-  input {
+  input, .sport-dropdown, .unit-dropdown {
     border: 1px solid #ccccd1;
     height: 30px;
     padding: 1px 10px;
+    margin-top: 5px;
     &:focus {
       border-color: #007FB6;
       outline: 0;
   }
   }
   h1 {
-    margin-top: 20px;
-    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
     font-size: 24px;
     font-weight: 300;
   }
@@ -46,22 +61,27 @@ input:-moz-placeholder {
   min-height: 77px;
   width: 1068px;
 }
+
+.description-row, .workout-title {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
 .input-label {
   color: #2d2d32;
   font-size: 11px;
   margin-top: 0;
   margin-bottom: 5px;
   width: 237px;
-
 }
 
 .title-input {
-  width: 50%;
+  width: 504px;
 }
 
 .workout-description {
     border: 1px solid #ccccd1;
-    width: 50%;
+    width: 504px;
     height: 125px;
     resize: vertical;
     overflow: auto;
@@ -81,14 +101,24 @@ input:-moz-placeholder {
   }
 }
 
+.distance-input {
+  margin-right: 50px
+}
+
+.distance {
+  display: flex
+}
+
 .duration-input  {
-  width: 237px;
-  input {
-    width: 31%;
-  }
+    width: 237px;
+    margin-right: 50px;
   .minute-input {
     border-right: none;
     border-left: none;
+    &:focus {
+      border-left: 1px solid #007FB6;
+      border-right: 1px solid #007FB6;
+    }
   }
 }
 
@@ -111,6 +141,9 @@ row.workout {
   }
 }
 
+.activity_type {
+  width: 237px;
+}
 .submit-button {
   margin-top: 16px;
   margin-bottom: 16px;
@@ -125,4 +158,42 @@ row.workout {
   font-weight: 600;
   line-height: 1.4em;
   min-height: 34px;
+}
+
+.sport-dropdown, .unit-dropdown {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.unit-dropdown.Dropdown-root {
+  width: 59px;
+  border-left: none;
+  &:focus {
+    border: 1px solid #007FB6;
+  }
+}
+
+
+
+.input-seperator {
+  height: 1px;
+  background-color: #ccccd1;
+  margin: 30px 0;
+  width: 1038px
+}
+
+.date-time {
+  margin-left: 50px;
+}
+
+.date-time-input {
+  width: 96.5px;
+}
+
+#time {
+  border-left: none;
+  &:focus {
+    border-left: 1px solid #007FB6;
+  }
 }
