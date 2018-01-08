@@ -31,11 +31,12 @@ class App extends React.Component{
             <GreetingContainer />
           </header>
           <main className="main-page">
+            <Link to='/workouts/new' >Create Workout</Link>
             <AuthRoute path="/login" component={SessionFormContainer} />
             <AuthRoute path="/signup" component={SessionFormContainer} />
             <HookGreetingContainer />
             <ProtectedRoute path="/workouts/new"
-              component={WorkoutCreateForm} 
+              component={WorkoutCreateForm}
             />
           </main>
         </div>

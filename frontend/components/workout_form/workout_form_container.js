@@ -7,7 +7,7 @@ import WorkoutForm from './workout_form';
 
 const mapStateToProps = (state) => {
   return {
-  
+    
   };
 };
 

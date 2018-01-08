@@ -56,16 +56,16 @@ export const requestWorkout = id => dispatch => {
 };
 
 export const createWorkout = workout => dispatch => {
-  return WorkoutAPIUtil.createWorkout(workout).then((response) => {
-    dispatch(receiveWorkout(response));
+  return WorkoutAPIUtil.createWorkout(workout).then((payload) => {
+    dispatch(receiveWorkout(payload));
   }, (errors) => {
     dispatch(receiveErrors(errors));
   });
 };
 
 export const updateWorkout = workout => dispatch => {
-  return WorkoutAPIUtil.updateWorkout(workout).then((response) => {
-    dispatch(receiveWorkout(response));
+  return WorkoutAPIUtil.updateWorkout(workout).then((payload) => {
+    dispatch(receiveWorkout(payload));
   }, (errors) => {
     dispatch(receiveErrors(errors));
   });

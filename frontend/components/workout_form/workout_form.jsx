@@ -44,8 +44,8 @@ class WorkoutForm extends React.Component {
           <div className="distance-input">
             <label className="input-label">Distance</label><br></br>
             <div className="distance">
-              <input type="number" max='9999' min='0.01' onChange={this.update('distance')} value={this.props.distance} />
-              <Dropdown className="unit-dropdown" options={['kilometers', 'meters', 'miles', 'yards']} onChange={this._onSelect} value={this.props.sport} placeholder="miles" />
+              <input type="number" max='9999' min='0' onChange={this.update('distance')} value={this.props.distance} />
+              <Dropdown className="unit-dropdown distance-drop" options={['kilometers', 'meters', 'miles', 'yards']} onChange={this._onSelect} value={this.props.sport} placeholder="miles" />
               </div>
           </div>
 
@@ -60,8 +60,8 @@ class WorkoutForm extends React.Component {
             <div className="elevation-input">
               <label className="input-label">Elevation</label><br></br>
                 <div className="distance">
-                <input type="number" max='99999' min='0.01' onChange={this.update('elevation')} value={this.props.elevation} />
-                <Dropdown className="unit-dropdown" options={['meters', 'feet']} onChange={this._onSelect} value={this.props.sport} placeholder="feet">&#9660;</Dropdown>
+                <input type="number" max='99999' min='0' onChange={this.update('elevation')} value={this.props.elevation} />
+                <Dropdown className="unit-dropdown" options={['meters', 'feet']} onChange={this._onSelect} value={this.props.sport} placeholder="feet" />
                 </div>
           </div>
         </div>
@@ -77,8 +77,8 @@ class WorkoutForm extends React.Component {
           </div>
           <div className="date-time">
             <label className="input-label">Date & Time</label><br></br>
-              <input className="date-time-input" type="text" onChange={this.update('date')} placeholder="01/01/18" />
-              <input className="date-time-input" id="time" type="text" onChange={this.update('time')} placeholder="00:00:00" />
+              <input className="date-time-input" type="date" onChange={this.update('date')} placeholder="" />
+              <input className="date-time-input" id="time" type="time" onChange={this.update('time')} placeholder="" />
 
           </div>
         </div>
