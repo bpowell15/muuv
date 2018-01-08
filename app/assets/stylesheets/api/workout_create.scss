@@ -1,3 +1,128 @@
-.create-workout-form {
-  background-color: yellow;
+::-webkit-input-placeholder {
+  color:#666;
+  font-size: 14px;
+ }
+::-moz-placeholder {
+  color:#666;
+  font-size: 14px;
+ } /* firefox 19+ */
+:-ms-input-placeholder {
+  color:#666;
+  font-size: 14px;
+ } /* ie */
+input:-moz-placeholder {
+   font-size: 14px;
+   color:#666;
+ }
+
+
+.page-container {
+  width: 1248px;
+  min-width: 0;
+  padding-left: 195px;
+  margin: 30px auto 80px;
+  background-color: white;
+  flex-direction: column;
+  justify-content: space-around;
+  input {
+    border: 1px solid #ccccd1;
+    height: 30px;
+    padding: 1px 10px;
+    &:focus {
+      border-color: #007FB6;
+      outline: 0;
+  }
+  }
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 300;
+  }
+}
+
+.row {
+  display: flex;
+  min-height: 77px;
+  width: 1068px;
+}
+.input-label {
+  color: #2d2d32;
+  font-size: 11px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  width: 237px;
+
+}
+
+.title-input {
+  width: 50%;
+}
+
+.workout-description {
+    border: 1px solid #ccccd1;
+    width: 50%;
+    height: 125px;
+    resize: vertical;
+    overflow: auto;
+    vertical-align: top;
+    padding: 10px;
+    &:focus {
+      border-color: #007FB6;
+      outline: 0;
+    }
+
+}
+
+.distance-input, .elevation-input {
+  width: 237px;
+  input {
+    width: 60%
+  }
+}
+
+.duration-input  {
+  width: 237px;
+  input {
+    width: 31%;
+  }
+  .minute-input {
+    border-right: none;
+    border-left: none;
+  }
+}
+
+row.workout {
+  min-width: 237px;
+}
+
+.submit-workout {
+  display: flex;
+  align-items: baseline;
+  a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #007FB6;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+  }
+}
+
+.submit-button {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #fc4c02;
+  border-color: #fc4c02;
+  color: white;
+  width: auto;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4em;
+  min-height: 34px;
 }

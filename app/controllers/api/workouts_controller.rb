@@ -10,7 +10,6 @@ class Api::WorkoutsController < ApplicationController
 
   def create
     @user = current_user
-    debugger
     @workout = Workout.new(workout_params)
     @workout.user_id = @user.id
     if @workout.save
