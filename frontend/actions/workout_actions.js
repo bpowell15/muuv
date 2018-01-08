@@ -39,7 +39,7 @@ export const clearErrors = () => {
   };
 };
 
-export const requestWorkouts = () => dispatch => {
+export const fetchWorkouts = () => dispatch => {
   return WorkoutAPIUtil.fetchWorkouts().then((workouts) => {
     dispatch(receiveWorkouts(workouts));
   }, (errors) => {
@@ -47,7 +47,7 @@ export const requestWorkouts = () => dispatch => {
   });
 };
 
-export const requestWorkout = id => dispatch => {
+export const fetchWorkout = id => dispatch => {
   return WorkoutAPIUtil.fetchWorkout(id).then((workout) => {
     dispatch(receiveWorkout(workout));
   }, (errors) => {

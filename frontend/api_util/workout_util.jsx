@@ -12,7 +12,7 @@ export const fetchWorkout = (id) => {
   });
 };
 
-export const createWorkout = ({workout}) => {
+export const createWorkout = (workout) => {
   return $.ajax({
     method: 'POST',
     url: 'api/workouts',
