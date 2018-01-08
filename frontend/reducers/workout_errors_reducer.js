@@ -1,4 +1,4 @@
-import { RECEIVE_WORKOUT_ERRORS, CLEAR_ERRORS}
+import { RECEIVE_WORKOUT_ERRORS, CLEAR_ERRORS }
   from '../actions/workout_actions';
 
 const workoutErrorsReducer = (state=[], action) => {

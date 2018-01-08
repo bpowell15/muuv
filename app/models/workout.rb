@@ -20,6 +20,6 @@
 #
 
 class Workout < ApplicationRecord
-  validates :title, :description, :distance, :duration_hours, :duration_minutes, :duration_seconds, :speed, :sport, :date, :time presence: true
+  validates :title, :description, :distance, :duration_hours, :duration_minutes, :duration_seconds, :speed, :sport, :date, :time, presence: true
   belongs_to :user
 end
