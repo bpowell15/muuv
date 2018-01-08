@@ -34,6 +34,7 @@ input::-webkit-inner-spin-button {
   width: 1248px;
   min-width: 0;
   padding-left: 195px;
+  border-top: 1px solid #ccccd1;
 
   background-color: white;
   flex-direction: column;
@@ -160,11 +161,23 @@ row.workout {
   min-height: 34px;
 }
 
-.sport-dropdown, .unit-dropdown {
+.sport-dropdown {
   font-size: 14px;
   display: flex;
   align-items: center;
+  background: image-url('dropdownarrow.svg') 97% 50% no-repeat;
+  background-size: 8px 8px;
+  margin-top: 87px;
 }
+
+.unit-dropdown {
+ font-size: 14px;
+ display: flex;
+ align-items: center;
+ background: image-url('dropdownarrow.svg') 92% 50% no-repeat;
+ background-size: 8px 8px;
+}
+
 
 .unit-dropdown.Dropdown-root {
   width: 59px;
@@ -172,6 +185,21 @@ row.workout {
   &:focus {
     border: 1px solid #007FB6;
   }
+}
+
+
+
+.sport-dropdown > .Dropdown-menu {
+  margin-top: 87px;
+  width: 235px;
+}
+
+.sport-dropdown > .Dropdown-control {
+  width: 227px;
+}
+
+.distance-drop > .Dropdown-menu {
+  margin-top: 87px;
 }
 
 
@@ -188,12 +216,49 @@ row.workout {
 }
 
 .date-time-input {
-  width: 96.5px;
+
 }
 
 #time {
   border-left: none;
   &:focus {
     border-left: 1px solid #007FB6;
+  }
+}
+
+
+.Dropdown-control {
+  position: absolute;
+  width: 78px;
+  height:34px;
+  display: flex;
+  align-items: center;
+}
+
+.Dropdown-menu{
+  width: 77px;
+  background-color: white;
+  position: absolute;
+  margin-top: 52px;
+  margin-left: -11px;
+  border-bottom: 1px solid #ccccd1;
+  border-right: 1px solid #ccccd1;
+  border-left: 1px solid #ccccd1
+}
+
+.Dropdown-option {
+  font-size: 14px;
+  background-color: white;
+  min-height: 35px;
+  padding: 9px 10px;
+  box-sizing: border-box;
+  line-height: 1.2;
+  display: block;
+  color: #2d2d32;
+  border: none;
+  width: 100%;
+  text-align: left;
+  &:hover {
+    background-color: #e6e6eb
   }
 }
