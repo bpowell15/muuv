@@ -12,13 +12,14 @@ class WorkoutIndex extends React.Component {
   }
 
   render () {
+    const reverse = this.props.workouts.reverse();
       return (
         <div className="workout-feed">
           <h1>Activity Feed</h1>
 
           <ul>
           {
-            this.props.workouts.map((workout) => (
+            reverse.map((workout) => (
               <WorkoutIndexItem key={workout.id} deletePost={this.props.deleteWorkout} workout={workout} user={this.props.user} />
             ))
           }
