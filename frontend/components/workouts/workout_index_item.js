@@ -62,9 +62,9 @@ class WorkoutIndexItem extends React.Component {
           <p>{this.parseDate()}</p>
         </div>
         <div className="workout-mini-stats">
-          <a href="#">{this.props.workout.title}</a>
+          <a href={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</a>
           <ul><li>{this.props.workout.distance}{this.props.workout.distance_unit}</li><li>{this.props.workout.elevation}{this.props.workout.elevation_unit}</li></ul>
-          <p><a href="#">{this.props.workout.description}</a><h3>({this.duration()})</h3></p>
+          <p><a href={`/workouts/${this.props.workout.id}`}>{this.props.workout.description}</a><h3>({this.duration()})</h3></p>
         </div>
         <div className="route-map"></div>
       </div>
