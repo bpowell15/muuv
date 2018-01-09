@@ -12,14 +12,23 @@ class WorkoutIndex extends React.Component {
   }
 
   render () {
-    const reverse = this.props.workouts.reverse();
+    let workouts = this.props.workouts;
+    let chronologicalOrder = workouts.reverse();
+    if (workouts.length === 0) {
+      return (
+      <div className="workout-feed">
+        <h1>Activity Feed</h1>
+        <h2>Create your first workout now!(try the + dropdown)</h2>
+      </div>
+    );
+    }
       return (
         <div className="workout-feed">
           <h1>Activity Feed</h1>
 
           <ul>
           {
-            reverse.map((workout) => (
+            chronologicalOrder.map((workout) => (
               <WorkoutIndexItem key={workout.id} deletePost={this.props.deleteWorkout} workout={workout} user={this.props.user} />
             ))
           }

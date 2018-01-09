@@ -15,8 +15,9 @@
  */
 
 #map-container {
-  height: 93vh;
+  height: 100vh;
   width: 100vw;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -29,6 +30,10 @@
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -100;
  }
  .background-image-2  {
    background: url('background-login2.jpg') no-repeat center center fixed;
@@ -36,6 +41,10 @@
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -100;
  }
  .background-image-8 {
    background: image-url ('background-login2.jpg') no-repeat center center fixed;
@@ -43,6 +52,10 @@
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -100;
  }
  .background-image-3 {
    background: url('background-login3.jpg') no-repeat center center fixed;
@@ -50,6 +63,10 @@
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -100;
  }
  .background-image-4 {
    background: url('background-login4.jpg') no-repeat center center fixed;
@@ -57,6 +74,10 @@
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -100;
  }
 
 
@@ -71,12 +92,12 @@
 
  }
 
+ html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
- /* html, body {
-   height: 100%,
-   margin: 0;
-   padding: 0;
- } */
+
 
  /* .splash-background{
    background: url('background-login5.jpeg') no-repeat center center fixed;

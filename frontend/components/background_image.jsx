@@ -2,6 +2,8 @@ import React from 'react';
 
 class BackgroundImage extends React.Component {
   constructor(props) {
+    debugger
+    
     super(props);
   }
 

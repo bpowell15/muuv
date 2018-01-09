@@ -42,6 +42,7 @@ class WorkoutIndexItem extends React.Component {
     } else if (this.props.workout.sport === 'Run') {
       return 'run-sprite';
     }
+    return 'swim-sprite';
   }
 
   parseDate(){
@@ -62,8 +63,8 @@ class WorkoutIndexItem extends React.Component {
         </div>
         <div className="workout-mini-stats">
           <a href={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</a>
-          <ul><li>{this.props.workout.distance}{this.props.workout.distance_unit}</li><li>{this.props.workout.elevation}{this.props.workout.elevation_unit}</li></ul>
-          <p><a href={`/workouts/${this.props.workout.id}`}>{this.props.workout.description}</a><h3>({this.duration()})</h3></p>
+          <ul><li>{this.props.workout.distance}{this.props.workout.distance_unit}</li><li>{this.props.workout.elevation}{this.props.workout.elevation_unit}</li><li><h3>({this.duration()})</h3></li></ul>
+          <p><a href={`/workouts/${this.props.workout.id}`}>{this.props.workout.description}</a></p>
         </div>
         <div className="route-map"></div>
       </div>
