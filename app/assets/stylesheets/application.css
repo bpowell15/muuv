@@ -42,9 +42,9 @@
    -o-background-size: cover;
    background-size: cover;
    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    z-index: -100;
+   width: 100vw;
+   position: absolute;
+   z-index: -100;
  }
  .background-image-8 {
    background: image-url ('background-login2.jpg') no-repeat center center fixed;
