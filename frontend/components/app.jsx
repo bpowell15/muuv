@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 import GreetingContainer from './greeting/greeting_container';
+import Map from './map/map';
 import SplashGreetingContainer from './greeting/splash_greeting_container';
 import SessionModalContainer from './session_form/session_modal_container';
 import HookGreetingContainer from './greeting/hook_greeting_container';
@@ -28,6 +29,7 @@ class App extends React.Component{
 
   render(){
 
+
     return (
         <div>
 
@@ -35,15 +37,15 @@ class App extends React.Component{
 
           <main className="main-page">
             <div>
-
-              <AuthRoute path="/login" component={SessionFormContainer} />
-              <AuthRoute path="/signup" component={SessionFormContainer} />
             </div>
             <HookGreetingContainer />
             <Switch>
+              <AuthRoute path="/login" component={SessionFormContainer} />
+              <AuthRoute path="/signup" component={SessionFormContainer} />
               <ProtectedRoute path="/workouts/new"
                 component={WorkoutCreateForm}/>
               <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
+              <Route exact path="/routes/new" component={Map} />
             </Switch>
           </main>
         </div>
