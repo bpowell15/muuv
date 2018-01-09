@@ -1,8 +1,17 @@
 import React from 'react'
 
 class WorkoutShow extends React.Component {
-  render () {
+  constructor(props){
+    super(props);
+  }
 
+  clickMap(){
+
+  }
+
+
+
+  render () {
   }
 }
 
