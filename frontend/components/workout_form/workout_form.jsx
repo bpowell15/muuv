@@ -15,7 +15,9 @@ class WorkoutForm extends React.Component {
       date: "",
       time: "",
       title: "",
-      description: ""
+      description: "",
+      elevation_unit: 'feet',
+      distance_unit: 'miles'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -34,9 +36,13 @@ class WorkoutForm extends React.Component {
 
   update(field) {
     return(
-      e => this.setState({
-        [field]: e.currentTarget.value
-      })
+      e => {
+        return (
+          this.setState({
+            [field]: e.currentTarget.value
+          })
+        );
+      }
     );
   }
 
@@ -52,23 +58,31 @@ class WorkoutForm extends React.Component {
             <label className="input-label">Distance</label><br></br>
             <div className="distance">
               <input type="number" max='9999' min='0' onChange={this.update('distance')} value={this.state.distance} />
-              <Dropdown className="unit-dropdown distance-drop" options={['kilometers', 'meters', 'miles', 'yards']} onChange={this._onSelect} value={this.state.distance_unit} placeholder="miles" />
+                <select className="select-dropdown" onChange={this.update('distance_unit')} value={this.state.distance_unit}>
+                  <option value="kilometers">kilometers</option>
+                  <option value="meters">meters</option>
+                  <option selected value="miles">miles</option>
+                  <option value="yards">yards</option>
+                </select>
               </div>
           </div>
 
           <div className="duration-input">
             <label className="input-label">Duration</label><br></br>
             <div className="distance">
-              <input type="number" max='9999' min='0'className="hour-input" onChange={this.update('duration_hours')} value={this.state.durationHours} placeholder="hr"  />
-              <input type="number" max='59' min='0' className="minute-input" onChange={this.update('duration_minutes')} value={this.state.durationMinutes} placeholder="m" />
-              <input type="number" max='59' min='0' className="second-input" onChange={this.update('duration_seconds')} value={this.state.durationHours} placeholder="s" />
+              <input type="number" max='9999' min='00'className="hour-input" onChange={this.update('duration_hours')} value={this.state.durationHours} placeholder="hr"  />
+              <input type="number" max='59' min='00' className="minute-input" onChange={this.update('duration_minutes')} value={this.state.durationMinutes} placeholder="m" />
+              <input type="number" max='59' min='00' className="second-input" onChange={this.update('duration_seconds')} value={this.state.durationHours} placeholder="s" />
             </div>
           </div>
             <div className="elevation-input">
               <label className="input-label">Elevation</label><br></br>
                 <div className="distance">
                 <input type="number" max='99999' min='0' onChange={this.update('elevation')} value={this.state.elevation} />
-                <Dropdown className="unit-dropdown" options={['meters', 'feet']} onChange={this._onSelect} value={this.state.distance_unit} placeholder="feet" />
+                  <select className="select-dropdown" onChange={this.update('elevation_unit')} value={this.state.elevation_unit}>
+                    <option value="meters">meters</option>
+                    <option selected value="feet">feet</option>
+                  </select>
                 </div>
           </div>
         </div>
@@ -78,8 +92,12 @@ class WorkoutForm extends React.Component {
         <div className="row">
           <div className="activity_type">
             <label className="input-label">Sport</label>
-            <Dropdown className="sport-dropdown" options={['Ride', 'Run', 'Swim', 'Code']} onChange={this._onSelect} value={this.state.sport} placeholder="Run" />
-
+            <select className="select-dropdown sport-select" onChange={this.update('sport')} value={this.state.sport}>
+              <option selected value="Ride">Ride</option>
+              <option value="Run">Run</option>
+              <option value="Swim">Swim</option>
+              <option value="Code">Code</option>
+            </select>
 
           </div>
           <div className="date-time">

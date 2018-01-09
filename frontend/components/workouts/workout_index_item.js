@@ -45,7 +45,6 @@ class WorkoutIndexItem extends React.Component {
   }
 
   parseDate(){
-    debugger
     return (moment(this.props.workout.date).calendar());
   }
 

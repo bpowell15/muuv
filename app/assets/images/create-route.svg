@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="96" width="24" viewBox="0 0 24 96">
+ <g fill-rule="evenodd" fill="none">
+  <g>
+   <g stroke-width="2" stroke="#ccc" transform="translate(3 3)">
+    <polygon points="9 0 18 18 9 12 0 18"/>
+   </g>
+   <g stroke-width="2" stroke="#666" transform="translate(3 27)">
+    <polygon points="9 0 18 18 9 12 0 18"/>
+   </g>
+   <g transform="translate(1 49)" fill="#fff">
+    <polygon points="11 0 22 22 11 14.667 0 22"/>
+   </g>
+   <g transform="translate(1 73)" fill="#FC4C02">
+    <polygon points="11 0 22 22 11 14.667 0 22"/>
+   </g>
+  </g>
+ </g>
+</svg>
