@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import SessionModalContainer from '../session_form/session_modal_container';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class Greeting extends React.Component {
   constructor(props){
@@ -38,16 +39,22 @@ class Greeting extends React.Component {
 
 sessionLinks(){
   if (this.props.currentUser) {
-    return this.currentUserLinks(this.props.logout);
+      return <NavBarContainer />;
   } else if ( this.props.location.pathname === '/login' ) {
     return  (
-      <button className="login-signup"
-        onClick={this.clearErrorsOpenModal}>Sign up
-      </button>
+      <header className="inner-nav-bar">
+        <Link to="/" className="header-link"><h1>muuv</h1></Link>
+        <button className="login-signup"
+          onClick={this.clearErrorsOpenModal}>Sign up
+        </button>
+      </header>
     );
   } else if (this.props.location.pathname === '/signup') {
     return (
-      <Link to="/login" className="login-signup">Log In</Link>
+      <header className="inner-nav-bar">
+        <Link to="/" className="header-link"><h1>muuv</h1></Link>;
+        <Link to="/login" className="login-signup">Log In</Link>
+      </header>
     );
   }
   else {

@@ -501,7 +501,7 @@ letter-spacing: -1px;
   justify-content: center;
 }
 
-.dropdown {
+.logged-in-dropdown {
   position: relative;
   display: inline-block;
   &:hover .dropdown-sprite {
@@ -650,7 +650,7 @@ letter-spacing: -1px;
 
 .sprites {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 

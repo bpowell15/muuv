@@ -16,8 +16,8 @@ import HookGreetingContainer from './greeting/hook_greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutCreateForm from './workout_form/workout_form_container';
-import BackgroundImage from './background_image';
-// import NavBar from './nav_bar/nav_bar';
+// import BackgroundImage from './background_image';
+
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
 
@@ -30,20 +30,15 @@ class App extends React.Component{
 
     return (
         <div>
-          <header className="inner-nav-bar">
-            <SplashGreetingContainer />
-            <GreetingContainer />
 
-          </header>
+            <GreetingContainer  />
+
           <main className="main-page">
-            <BackgroundImage />
             <div>
 
               <AuthRoute path="/login" component={SessionFormContainer} />
               <AuthRoute path="/signup" component={SessionFormContainer} />
             </div>
-            <Link to='/workouts/new' >Create Workout</Link>
-
             <HookGreetingContainer />
             <Switch>
               <ProtectedRoute path="/workouts/new"
