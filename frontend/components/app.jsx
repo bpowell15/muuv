@@ -17,7 +17,7 @@ import HookGreetingContainer from './greeting/hook_greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutCreateForm from './workout_form/workout_form_container';
-// import BackgroundImage from './background_image';
+import BackgroundImage from './background_image';
 
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
@@ -32,6 +32,11 @@ class App extends React.Component{
 
     return (
         <div>
+          <Switch>
+            <Route exact path="/" component={BackgroundImage} image="background-login2" />
+             <Route exact path="/login" component={BackgroundImage} />
+            <Route exact path="/signup" component={BackgroundImage} />
+          </Switch>
             <GreetingContainer  />
             <HookGreetingContainer />
             <Switch>
@@ -50,9 +55,5 @@ class App extends React.Component{
 export default App;
 
 
-// <Switch>
-//   <Route path="/" component={BackgroundImage} image="background-login2" />
-//   <Route path="/login" component={BackgroundImage} />
-//   <Route path="/signup" component={BackgroundImage} />
-// </Switch>
+
 //

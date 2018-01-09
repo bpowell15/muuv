@@ -51,7 +51,7 @@ class NavBar extends React.Component {
           <div className='create-sprite'></div>
         </div>
         <div className="create-dropdown-content">
-          <Link to="/workouts/new" className="header-button">Create Workout</Link>
+          <Link to="/workouts/new" className="header-button create-route-sprite">Create Workout</Link>
           <Link to="/routes/new" className="header-button">Create Route</Link>
         </div>
       </div>
