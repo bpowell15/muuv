@@ -10,6 +10,9 @@ class Map extends React.Component {
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
   }
+
+
+
   render () {
     return (
       <div id='map-container' ref={ map => this.mapNode = map }></div>
