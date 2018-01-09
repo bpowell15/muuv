@@ -33,9 +33,10 @@ class App extends React.Component{
           <header className="inner-nav-bar">
             <SplashGreetingContainer />
             <GreetingContainer />
-    
+
           </header>
           <main className="main-page">
+            <BackgroundImage />
             <div>
 
               <AuthRoute path="/login" component={SessionFormContainer} />

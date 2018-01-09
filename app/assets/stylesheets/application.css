@@ -31,7 +31,7 @@
    -o-background-size: cover;
    background-size: cover;
  }
- .background-image {
+ body {
    background: image-url ('https://www.amazon.com/drive/v1/nodes/9EIZPjlWTOeh9GF3yIUhBA/contentRedirection?querySuffix=%3FviewBox%3D1780%2C1124&ownerId=AYJA6AO8WZ0Y3&cb=1515455238414') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
