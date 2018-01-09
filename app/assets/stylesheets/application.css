@@ -72,9 +72,11 @@
  }
 
 
- html {
-
- }
+ /* html, body {
+   height: 100%,
+   margin: 0;
+   padding: 0;
+ } */
 
  /* .splash-background{
    background: url('background-login5.jpeg') no-repeat center center fixed;

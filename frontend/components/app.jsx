@@ -32,22 +32,15 @@ class App extends React.Component{
 
     return (
         <div>
-
             <GreetingContainer  />
-
-          <main className="main-page">
-            <div>
-            </div>
             <HookGreetingContainer />
             <Switch>
               <AuthRoute path="/login" component={SessionFormContainer} />
               <AuthRoute path="/signup" component={SessionFormContainer} />
-              <ProtectedRoute path="/workouts/new"
-                component={WorkoutCreateForm}/>
+              <ProtectedRoute path="/workouts/new" component={WorkoutCreateForm}/>
               <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
-              <Route exact path="/routes/new" component={Map} />
+              <ProtectedRoute path="/routes/new" component={Map} />
             </Switch>
-          </main>
         </div>
   );}
 }
