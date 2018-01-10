@@ -1,0 +1,103 @@
+.edit-modal {
+  position: absolute;
+
+  z-index: 1000;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  max-width: 66%;
+  overflow: scroll;
+}
+
+.modal-backdrop {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  z-index: 99;
+  overflow: visible;
+}
+
+.edit-header {
+  background-color: #f7f7f7;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccccd1;
+  h1 {
+    font-size: 30px;
+    font-weight: 300;
+  }
+}
+
+.edit-row-one {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 15px;
+
+}
+
+.edit-workout-form {
+  background-color: #f0f0f0;
+  .edit-description-row {
+    padding: 15px;
+  }
+}
+
+.edit-description-row {
+  display: flex;
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  ul {
+    margin-left: 40px;
+    margin-top: 16px;
+    li {
+      margin-top: 10px;
+    }
+  }
+}
+
+.edit-workout-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-title-input {
+  border: 1px solid #ccccd1;
+  height: 14px;
+  padding: 10px;
+  width: 504px;
+
+}
+
+.edit-sport-select {
+  width: 237px;
+  border-left: 1px solid #ccccd1;
+  height: 36px;
+  margin-top: 2px;
+  margin-left: 40px;
+}
+
+.edit-input-label.sport {
+  margin-left: 40px;
+}
+
+.edit-input-label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #606065;
+}
+
+.modal-close.edit {
+  position: absolute;
+  z-index: 1000;
+  right: 32px;
+  top: 18px;
+}

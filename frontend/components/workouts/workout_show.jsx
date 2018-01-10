@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import WorkoutEditContainer from '../workout_form/workout_edit_container';
 class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      showEdit: false
+    };
     this.handleDelete = this.handleDelete.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
   componentDidMount(){
@@ -21,7 +26,7 @@ class WorkoutShow extends React.Component {
       distance = this.props.workout.distance;
     }
       let hrs = this.props.workout.duration_hours + (this.props.workout.duration_minutes / 60 ) +  (this.props.workout.duration_seconds / 3600)
-      if (hrs >= 0) {
+      if (hrs <= 0) {
         return 0;
       }
       let unitPerHour = distance / hrs;
@@ -76,13 +81,27 @@ class WorkoutShow extends React.Component {
     this.props.deleteWorkout(this.props.workout.id).then(this.props.history.push('/workouts'));
   }
 
+  toggleEdit(){
+    if (!this.state.showEdit) {
+      this.setState({showEdit: true});
+    } else {
+      this.setState({showEdit: false});
+    }
+  }
 
 
   render () {
+      let showEdit;
+      if (!this.state.showEdit) {
+        showEdit = null;
+      } else {
+        showEdit = <WorkoutEditContainer className="editModal" workout = { this.props.workout } toggleEdit={ this.toggleEdit }/>;
+      }
     return(
         <div className="show-page">
+          {showEdit}
           <div className="show-nav">
-            <Link className="edit" to="/workout/update">Edit</Link>
+            <a className="edit" onClick={this.toggleEdit}>Edit</a>
             <a className="delete" onClick={this.handleDelete}>Delete</a>
           </div>
           <div className="workout-show-content">
@@ -91,7 +110,7 @@ class WorkoutShow extends React.Component {
           </header>
           <div className="show-details">
             <div className="show-profile-pic"></div>
-            <div className="workout-details">
+            <div className="workout-details description">
               <h2>{this.parseDate()}</h2><h1>{this.props.workout.title}</h1><p>{this.props.workout.description}</p>
             </div>
             <div className="workout-stats">

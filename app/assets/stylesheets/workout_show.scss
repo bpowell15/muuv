@@ -103,6 +103,10 @@
   }
   p{
     margin-top: 8px;
+    max-width: 90%;
+    max-height: 60px;
+    border-bottom: 1px solid white;
+    overflow: hidden;
   }
 }
 
