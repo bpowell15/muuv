@@ -3,7 +3,7 @@ import WorkoutIndexItem from './workout_index_item';
 
 class WorkoutIndex extends React.Component {
   constructor(props){
-
+    
     super(props);
   }
 
@@ -12,7 +12,7 @@ class WorkoutIndex extends React.Component {
   }
 
   render () {
-    let workouts = this.props.workouts;
+    let workouts = this.props.workouts.slice();
     let chronologicalOrder = workouts.reverse();
     if (workouts.length === 0) {
       return (
@@ -29,7 +29,13 @@ class WorkoutIndex extends React.Component {
           <ul>
           {
             chronologicalOrder.map((workout) => (
-              <WorkoutIndexItem key={workout.id} deletePost={this.props.deleteWorkout} workout={workout} user={this.props.user} />
+              <WorkoutIndexItem
+                key={workout.id}
+                deletePost={this.props.deleteWorkout}
+                workout={workout}
+                user={this.props.user}
+                author={workout.user_id}
+              />
             ))
           }
         </ul>

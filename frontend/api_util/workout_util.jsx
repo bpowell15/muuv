@@ -6,7 +6,7 @@ export const fetchWorkouts = () => {
 };
 
 export const fetchWorkout = (id) => {
-debugger
+
   return $.ajax({
     method: 'GET',
     url: `api/workouts/${id}`

@@ -13,7 +13,7 @@ export const receiveWorkouts = (workouts) => {
 };
 
 export const receiveWorkout = (workout) => {
-  debugger
+
   return {
     type: RECEIVE_WORKOUT,
     workout
@@ -49,7 +49,7 @@ export const fetchWorkouts = () => dispatch => {
 };
 
 export const fetchWorkout = id => dispatch => {
-  debugger
+  
   return WorkoutAPIUtil.fetchWorkout(id).then((workout) => {
     dispatch(receiveWorkout(workout));
   }, (errors) => {

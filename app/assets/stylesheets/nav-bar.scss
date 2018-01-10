@@ -31,7 +31,7 @@
     width: 74px;
     height: 17px;
     font-weight: 500;
-  
+
   }
   .dropdown-content {
     position: absolute;
@@ -154,6 +154,7 @@ align-items: center;
   border-bottom: 1px solid white;
   .create-dropdown-content {
     position: absolute;
+    z-index: 1;
     right: -1px;
     display: flex;
     flex-direction: column;
@@ -178,6 +179,7 @@ align-items: center;
   }
   .user-dropdown-content {
     position: absolute;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     cursor: pointer;

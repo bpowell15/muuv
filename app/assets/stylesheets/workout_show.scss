@@ -1,0 +1,126 @@
+.show-page {
+  display: flex;
+    margin-top: 30px;
+}
+
+.workout-show-content {
+
+  width: 71%;
+  border: 1px solid #e6e6eb;
+  }
+  .workout-header{
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6eb;
+    padding: 9px 0 9px 20px;
+    background-color: #f5f5fa;
+    h2 {
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+  .workout-details {
+    display: flex;
+  }
+}
+
+.workout-stats {
+  width: 100%;
+  height: 130px;
+  border-left: 1px solid #e6e6eb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  ul {
+    padding-left: 15px;
+    display: flex;
+    width:
+    li {
+        padding: 15px 20px;
+    }
+    h1 {
+      font-size:  28px;
+      font-weight: 300;
+      padding-right: 15px;
+    }
+    h2 {
+      color: #99999e;
+      max-width: 100px;
+      font-weight: 600;
+    }
+  }
+}
+
+.show-nav {
+  display: flex;
+  flex-direction: column;
+  margin-left: 116px;
+  margin-right: 15px;
+  a {
+    width: 112px;
+    height: 19px;
+    border: 1px solid #e6e6eb;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 14px 20px 14px 20px;
+    &:visited {
+      color: black
+    }
+    &:hover {
+      border-left: 3px solid #fc4c02;
+      background-color: #e6e6eb;
+      cursor: pointer;
+    }
+
+  }
+}
+
+.show-details {
+  display: flex;
+  justify-content: start;
+}
+
+.show-profile-pic {
+  min-width: 100px;
+  min-height: 100px;
+  background-color: yellow;
+  border-radius: 50%;
+  margin: 15px 20px;
+
+}
+
+.workout-details {
+  padding-top: 20px;
+  min-width: 35%;
+  h2 {
+    color: #666;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 300;
+  }
+  p{
+    margin-top: 8px;
+  }
+}
+
+.stats-low{
+  background-color: #f5f5fa;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    padding-left: 15px;
+    font-size: 24px;
+    font-weight: 300;
+  }
+  h3 {
+    padding-left: 15px;
+    color: #666;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
