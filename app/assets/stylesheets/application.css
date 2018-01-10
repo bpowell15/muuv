@@ -16,6 +16,8 @@
 
 #map-container {
   height: 93vh;
+  position: absolute;
+  z-index: -10;
   width: 100vw;
   margin: 0;
   overflow: hidden;

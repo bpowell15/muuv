@@ -29,13 +29,13 @@ class App extends React.Component{
   }
 
   render(){
-
+    debugger
 
     return (
         <div>
           <Switch>
             <Route exact path="/" component={BackgroundImage} image="background-login2" />
-             <Route exact path="/login" component={BackgroundImage} />
+            <Route exact path="/login" component={BackgroundImage} />
             <Route exact path="/signup" component={BackgroundImage} />
           </Switch>
             <GreetingContainer  />
@@ -44,7 +44,7 @@ class App extends React.Component{
               <AuthRoute path="/login" component={SessionFormContainer} />
               <AuthRoute path="/signup" component={SessionFormContainer} />
               <ProtectedRoute path="/workouts/new" component={WorkoutCreateForm}/>
-              <ProtectedRoute path="/workouts/id" component={WorkoutShowContainer}/>
+              <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer}/>
               <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
               <ProtectedRoute path="/routes/new" component={Map} />
             </Switch>

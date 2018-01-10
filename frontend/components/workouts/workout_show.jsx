@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 class WorkoutShow extends React.Component {
   constructor(props){
+    debugger
     super(props);
+    this.workout = this.props.workout;
   }
+
 
   render () {
     return(

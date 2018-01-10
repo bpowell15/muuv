@@ -4,6 +4,7 @@ import merge from 'lodash/merge';
 
 
 const workoutReducer = (state = {}, action ) => {
+  debugger
   let newState;
   switch (action.type) {
     case RECEIVE_WORKOUTS:

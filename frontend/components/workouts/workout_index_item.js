@@ -1,9 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-
+import { Link } from 'react-router-dom';
 class WorkoutIndexItem extends React.Component {
   constructor(props){
-
     super(props);
   }
 
@@ -46,12 +45,14 @@ class WorkoutIndexItem extends React.Component {
   }
 
   parseDate(){
-    return (moment(this.props.workout.date).calendar());
+    let parseTime = moment(this.props.workout.time).format('hh:mm:ss');
+    let parseDate = moment(this.props.workout.date).format('YYYY-MM-DD');
+    let newDateString = `${parseDate}T${parseTime}`;
+    return (moment(newDateString).calendar());
   }
 
   render () {
     return(
-
       <div className="workoutItem">
       <div className="user-image-type">
         <div className="prof-pic"></div>
@@ -62,9 +63,9 @@ class WorkoutIndexItem extends React.Component {
           <p>{this.parseDate()}</p>
         </div>
         <div className="workout-mini-stats">
-          <a href={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</a>
+          <Link to={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</Link>
           <ul><li>{this.props.workout.distance}{this.props.workout.distance_unit}</li><li>{this.props.workout.elevation}{this.props.workout.elevation_unit}</li><li><h3>({this.duration()})</h3></li></ul>
-          <p><a href={`/workouts/${this.props.workout.id}`}>{this.props.workout.description}</a></p>
+          <p><Link to={`/workouts/${this.props.workout.id}`}>{this.props.workout.description}</Link></p>
         </div>
         <div className="route-map"></div>
       </div>

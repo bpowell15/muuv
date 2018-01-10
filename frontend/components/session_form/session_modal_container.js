@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import { login, logout, signup, clearErrors } from '../../actions/session_actions';
 import SessionModal from './session_modal';
@@ -21,4 +22,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionModal);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionModal));
