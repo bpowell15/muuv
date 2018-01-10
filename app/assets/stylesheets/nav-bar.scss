@@ -3,6 +3,7 @@
   // display: inline-block;
         margin-left: 87px;
         max-width: 114px;
+        height: 55px;
   &:hover{
     border-right: 1px solid #e6e6eb;
     border-left: 1px solid #fc4c02;
@@ -41,7 +42,7 @@
     border-left: 1px solid #e6e6eb;
     border-right: 1px solid #e6e6eb;
     border-bottom: 1px solid #e6e6eb;
-    margin-top: -1px;
+    margin-top: 0px;
     margin-left: -1px;
     a {
       color: #606065;
@@ -139,7 +140,6 @@ align-items: center;
 }
 
 .create-dropdown {
-  position: absolute;
   right: 128px;
   height: 56px;
   width: 35px;
@@ -155,7 +155,7 @@ align-items: center;
   .create-dropdown-content {
     position: absolute;
     z-index: 1;
-    right: -1px;
+    right: 120px;
     display: flex;
     flex-direction: column;
     cursor: pointer;

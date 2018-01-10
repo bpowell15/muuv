@@ -27,7 +27,7 @@
 
 }
 .background-image-1 {
-   background: url('background-login6.jpeg') no-repeat center center fixed;
+   background: url('http://res.cloudinary.com/bpowell15/image/upload/v1515625628/background-login2_dpah4e.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -38,7 +38,7 @@
     z-index: -100;
  }
  .background-image-2  {
-   background: url('background-login2.jpg') no-repeat center center fixed;
+   background: url('http://res.cloudinary.com/bpowell15/image/upload/v1515625628/background-login3_kyhk4o.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -48,8 +48,8 @@
    position: absolute;
    z-index: -100;
  }
- .background-image-8 {
-   background: image-url ('background-login2.jpg') no-repeat center center fixed;
+ /* .background-image-8 {
+   background: url('background-login2.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -58,9 +58,9 @@
     width: 100vw;
     position: absolute;
     z-index: -100;
- }
+ } */
  .background-image-3 {
-   background: url('background-login3.jpg') no-repeat center center fixed;
+   background: url('http://res.cloudinary.com/bpowell15/image/upload/v1515625628/background-login4_u2iltg.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -71,7 +71,7 @@
     z-index: -100;
  }
  .background-image-4 {
-   background: url('background-login4.jpg') no-repeat center center fixed;
+   background: url('http://res.cloudinary.com/bpowell15/image/upload/v1515625628/background-login6_gcuzqx.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;

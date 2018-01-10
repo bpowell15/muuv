@@ -4,6 +4,7 @@ import Dropdown from 'react-dropdown';
 
 class WorkoutForm extends React.Component {
   constructor(props) {
+    debugger
     super(props);
     this.state = {
       distance: 0,
@@ -46,12 +47,29 @@ class WorkoutForm extends React.Component {
     );
   }
 
+
+  renderErrors() {
+
+    if (this.props.errors) {
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="login-error">
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    // return null;
+  }
+
   render () {
     return (
     <div className="page-container">
       <h1>Manual Entry</h1>
       <form id="new-activity" className="create-workout-form" onSubmit={this.handleSubmit}>
-
+        {this.renderErrors()}
         <div className="row">
 
           <div className="distance-input">

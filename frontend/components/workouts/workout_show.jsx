@@ -97,6 +97,7 @@ class WorkoutShow extends React.Component {
       } else {
         showEdit = <WorkoutEditContainer className="editModal" workout = { this.props.workout } toggleEdit={ this.toggleEdit }/>;
       }
+
     return(
         <div className="show-page">
           {showEdit}
