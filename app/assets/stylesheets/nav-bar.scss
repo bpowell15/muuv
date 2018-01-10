@@ -31,14 +31,7 @@
     width: 74px;
     height: 17px;
     font-weight: 500;
-    &:hover {
-      z-index: 100;
-      // border-right: 1px solid #e6e6eb;
-      // border-left: 1px solid #e6e6eb;
-      border-bottom:1px solid white;
-      border-radius: 0;
-      color: #fc4c02;
-    }
+  
   }
   .dropdown-content {
     position: absolute;
@@ -48,7 +41,6 @@
     border-left: 1px solid #e6e6eb;
     border-right: 1px solid #e6e6eb;
     border-bottom: 1px solid #e6e6eb;
-
     margin-top: -1px;
     margin-left: -1px;
     a {
@@ -110,12 +102,13 @@ align-items: center;
 .create-dropdown-content {
   display: none;
   cursor: pointer;
-  margin-top: 41px;
   background-color: white;
-  margin-top: 71px;
+  margin-top: 57px;
   width: 164px;
   /* text-decoration: none; */
-  border: 1px solid #e6e6eb;
+  border-left: 1px solid #e6e6eb;
+  border-right: 1px solid #e6e6eb;
+  border-bottom: 1px solid #e6e6eb;
   &:hover {
     .create-sprite {
       background-color: rgba(252,76,2, .5);
@@ -146,10 +139,11 @@ align-items: center;
 }
 
 .create-dropdown {
+  position: absolute;
+  right: 128px;
   height: 56px;
   width: 35px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -160,19 +154,30 @@ align-items: center;
   border-bottom: 1px solid white;
   .create-dropdown-content {
     position: absolute;
-    right: 120px;
-    z-index: 1;
+    right: -1px;
     display: flex;
     flex-direction: column;
     cursor: pointer;
+  }
+  .create-sprite {
+    background-color: rgba(252,76,2, .5);
+    border-radius: 50%
   }
 }
 
 
 .user-dropdown:hover {
+  border-left: 1px solid #fc4c02;
+  border-right: 1px solid #e6e6eb;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+  .dropdown-sprite {
+    background: image-url('nav_sprite.png') no-repeat 0 -30px;
+    width: 9px;
+    height: 5px;
+  }
   .user-dropdown-content {
     position: absolute;
-    z-index: 100;
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -185,10 +190,11 @@ align-items: center;
   width: 164px;
   background-color: white;
   position: absolute;
-  border: 1px solid #e6e6eb;
+  border-right: 1px solid #e6e6eb;
+  border-bottom: 1px solid #e6e6eb;
+  border-left: 1px solid #e6e6eb;
   right: 156px;
-  margin-top: -1px;
-
+  margin-top: 1px;
   a {
     color: #606065;
     text-decoration: none;
@@ -222,12 +228,12 @@ align-items: center;
 .sprites.dropdown.pic {
   height: 55px;
   width: 67px;
-  &:hover {
-    border-right: 1px solid #e6e6eb;
-    border-right: 1px solid #e6e6eb;
-    border-left: 1px solid #fc4c02;
-    border-bottom: 1px solid white;
-  }
+  // &:hover {
+  //   border-right: 1px solid #e6e6eb;
+  //   border-right: 1px solid #e6e6eb;
+  //   border-left: 1px solid #fc4c02;
+  //   border-bottom: 1px solid white;
+  // }
 }
 
 .sprites.dropdown.create {

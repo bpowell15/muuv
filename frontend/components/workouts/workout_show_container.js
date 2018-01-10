@@ -1,18 +1,21 @@
 import { connect } from 'react-redux';
-import WorkoutIndex from './workout_index';
+import { withRouter } from 'react-router-dom';
 import { fetchWorkout, deleteWorkout } from '../../actions/workout_actions';
+import WorkoutShow from './workout_show';
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state, ownProps) =>{
+  return ({
+    workout: state.workouts[ownProps.match.params.workoutId],
     user: state.session.currentUser
-  };
+  });
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchWorkout: () => dispatch(fetchWorkout()),
-    deleteWorkout: (id) => dispatch(deleteWorkout(id))
-  };
+const mapDispatchToProps = dispatch => {
+  debugger
+  return ({
+    fetchWorkout: workoutId => dispatch(fetchWorkout(workoutId)),
+    deleteWorkout: workoutId => dispatch(deleteWorkout(workoutId))
+  });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(WorkoutIndex);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(WorkoutShow));
