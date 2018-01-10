@@ -1,9 +1,14 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import WorkoutShowContainer from './workout_show_container';
 class WorkoutIndexItem extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      show: false
+    };
+    this.toggleShow = this.toggleShow.bind(this);
   }
 
   duration(){
@@ -51,7 +56,24 @@ class WorkoutIndexItem extends React.Component {
     return (moment(newDateString).calendar());
   }
 
+  toggleShow(){
+
+    this.setState({
+      show: !this.state.show
+    });
+  }
+
   render () {
+    let showContainer;
+
+    if (!this.state.show) {
+      showContainer = null;
+    } else {
+      showContainer = (
+        <WorkoutShowContainer workout={this.props.workout} />
+      );
+    }
+
     return(
       <div className="workoutItem">
       <div className="user-image-type">
@@ -63,13 +85,13 @@ class WorkoutIndexItem extends React.Component {
           <p>{this.parseDate()}</p>
         </div>
         <div className="workout-mini-stats">
-          <Link to={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</Link>
+          <Link to={`/workouts/${this.props.workout.id}`} >{this.props.workout.title}</Link>
           <ul><li>{this.props.workout.distance}{this.props.workout.distance_unit}</li><li>{this.props.workout.elevation}{this.props.workout.elevation_unit}</li><li><h3>({this.duration()})</h3></li></ul>
-          <p><Link to={`/workouts/${this.props.workout.id}`}>{this.props.workout.description}</Link></p>
+          <p><Link to={`/workouts/${this.props.workout.id}`} >{this.props.workout.description}</Link></p>
         </div>
         <div className="route-map"></div>
-      </div>
 
+      </div>
     );
   }
 }

@@ -4,7 +4,6 @@ import merge from 'lodash/merge';
 
 
 const workoutReducer = (state = {}, action ) => {
-  debugger
   let newState;
   switch (action.type) {
     case RECEIVE_WORKOUTS:
@@ -13,6 +12,7 @@ const workoutReducer = (state = {}, action ) => {
       newState = merge({}, state, {[action.workout.id]: action.workout});
       return newState;
     case REMOVE_WORKOUT:
+    debugger
       newState = merge({}, state);
       delete newState[action.workoutID];
       return newState;

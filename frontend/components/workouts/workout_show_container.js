@@ -4,14 +4,15 @@ import { fetchWorkout, deleteWorkout } from '../../actions/workout_actions';
 import WorkoutShow from './workout_show';
 
 const mapStateToProps = (state, ownProps) =>{
+
   return ({
-    workout: state.workouts[ownProps.match.params.workoutId],
+    workout: state.workout[ownProps.match.params.workoutId] || {},
     user: state.session.currentUser
   });
 };
 
 const mapDispatchToProps = dispatch => {
-  debugger
+
   return ({
     fetchWorkout: workoutId => dispatch(fetchWorkout(workoutId)),
     deleteWorkout: workoutId => dispatch(deleteWorkout(workoutId))
