@@ -3,7 +3,6 @@ import WorkoutIndex from './workout_index';
 import { fetchWorkout, deleteWorkout } from '../../actions/workout_actions';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     user: state.session.currentUser
   };
