@@ -260,12 +260,12 @@ class Map extends React.Component {
     this.poly.setMap(this.map);
     this.map.addListener('click', this.addLatLng.bind(this));
 
+
   }
 
 
+
   addLatLng(e){
-    let newState = merge({}, this.state);
-    newState.latLngCoords.concat(e.latLng);
     let path = this.poly.getPath();
     path.push(e.latLng);
   }
@@ -273,7 +273,7 @@ class Map extends React.Component {
 
   render () {
     return (
-      <div id='map-container' ref={ map => this.mapNode = map }></div>
+      <div id='map-container' ref={ map => this.mapNode = map }>	<button id="bike-b">Bike</button></div>
     );
   }
 }

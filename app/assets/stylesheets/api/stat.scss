@@ -37,12 +37,20 @@
 }
 
 .stat{
-  font-size: 30px;
+  display: flex;
+  align-items: baseline;
+  h1{
+  font-size: 24px;
   font-weight: 300;
+  color: black;
+}
+
 }
 
 .second-row {
   margin-top: 10px;
+  font-size: 12px;
+  color: #606065;
 }
 
 .align-div {
