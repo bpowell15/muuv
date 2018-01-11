@@ -13,8 +13,7 @@ class HookGreeting extends React.Component {
     return (
       <div>
         <h1 className="splash-title">muuv</h1>
-        <p className="splash-hook">Connecting athletes,
-          tracking stats.</p>
+        <p className="splash-hook">Track the way you muuv.</p>
       </div>
       );
     }

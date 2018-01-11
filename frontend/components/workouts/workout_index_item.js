@@ -45,6 +45,8 @@ class WorkoutIndexItem extends React.Component {
       return 'bike-sprite';
     } else if (this.props.workout.sport === 'Run') {
       return 'run-sprite';
+    } else if (this.props.workout.sport === 'Code') {
+      return 'code-sprite';
     }
     return 'swim-sprite';
   }

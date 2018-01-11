@@ -76,7 +76,7 @@ class WorkoutEdit extends React.Component {
   }
   render () {
     return (
-      <div className="modal-backdrop">
+      <div className="modal-backdrop animate-opacity">
 
         <a onClick= {this.handleClose} className='modal-close edit'></a>
     <div className="edit-modal">
