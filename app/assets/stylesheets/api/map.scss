@@ -1,0 +1,74 @@
+#map-save {position: absolute;
+border: 1px solid black;
+background-color: red;
+bottom: 50px;
+left: 50px;
+&:hover {
+  cursor: pointer;
+}
+}
+
+.route-form {
+  background-color: white;
+  color: black;
+  position: fixed;
+    bottom: 100px;
+    left: 100px;
+}
+
+.maps-index {
+  display: flex;
+  flex-wrap: wrap;
+  img {
+    padding: 10px;
+  }
+}
+
+.route-index-title {
+  margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+
+.create-route-button {
+  text-decoration: none;
+    background-color: #fc4c02;
+    color: white;
+    padding: 9px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 123px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.routes-feed {
+  max-width: 1240px;
+}
+
+.route-index-header {
+  min-height: 114px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.center-routes {
+  display: flex;
+  justify-content: center;
+}
+
+.route-info {
+  padding-left: 30px;
+  p {
+    font-size: 18px;
+    text-decoration: none;
+    color: #007fb6;
+  }
+}
+
+.title-link {
+  text-decoration: none;
+}

@@ -5,18 +5,19 @@ class Map extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={
-      latLngCoords: []
+    this.state = {
+      title: 'FIRST',
+      distance: 15,
+      elevation: 100,
+      path: null,
+      center: {lat: 40.730610, lng: -73.935242}
     };
-
-
-
-
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
     const mapOptions = {
-      center: {lat: 40.730610, lng: -73.935242},
+      center: this.state.center,
       zoom: 13,
       styles: [
   {
@@ -252,6 +253,11 @@ class Map extends React.Component {
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    let directionsService = new google.maps.DirectionsService;
+    let directionsDisplay = new google.maps.DirectionsRenderer(
+
+    );
+
     this.poly = new google.maps.Polyline({
       strokeColor: '#fc4c02',
       strokeOpacity: 1.0,
@@ -260,20 +266,80 @@ class Map extends React.Component {
     this.poly.setMap(this.map);
     this.map.addListener('click', this.addLatLng.bind(this));
 
+    let bikeLayer = new google.maps.BicyclingLayer();
+    bikeLayer.setMap(this.map);
 
+    let elevator = new google.maps.ElevationService;
+    let infowindow = new google.maps.InfoWindow({map: this.map});
+
+    // this.map.addListener('click', function(e) {
+    //
+    //   this.displayLocationElevation(e.latLng, elevator, infowindow).bind(this);
+    // });
   }
-
+  //
+  // displayLocationElevation(location, elevator, infowindow) {
+  //   //initiate the local request
+  //
+  //   elevator.getElevationForLocations({
+  //     'locations': [location]
+  //   }, function(results, status) {
+  //     infowindow.setPosition(location);
+  //     if (status === 'OK') {
+  //       //retreive the first result
+  //       if (results[0]) {
+  //         //open the infowindow indicating the elvation at the clicked position
+  //         infowindow.setContent('The elevation at this point is' + results[0].elevation + 'meters');
+  //       } else {
+  //         infowindow.setContent('no results found');
+  //       }
+  //     } else {
+  //       infowindow.setContent('Elevation service failed due to: ' + status);
+  //     }
+  //   });
+  // }
 
 
   addLatLng(e){
     let path = this.poly.getPath();
     path.push(e.latLng);
+    this.setState({path: path});
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+
+    let route = {
+      title: this.state.title,
+      polyline: this.state.path,
+      elevation: this.state.elevation,
+      distance: this.state.distance
+    };
+
+    this.props.createRoute(route).then(this.props.history.push('/routes'));
+  }
+
+  update(field) {
+    return(
+      e => {
+        return (
+          this.setState({
+            [field]: e.currentTarget.value
+          })
+        );
+      }
+    );
   }
 
 
   render () {
-    return (
-      <div id='map-container' ref={ map => this.mapNode = map }>	<button id="bike-b">Bike</button></div>
+    return (<div>
+      <div id='map-container' ref={ map => this.mapNode = map }></div>
+      <div className="route-form">
+        <button id="map-save" onClick={this.handleSubmit}>Save</button>
+        <input type="text" onChange={this.update('title')} value={this.state.title}></input>
+      </div>
+      </div>
     );
   }
 }

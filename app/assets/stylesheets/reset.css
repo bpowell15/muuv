@@ -54,3 +54,8 @@ button {
  font-size:1em;
  color:blue;
 }
+
+a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: none;
+}

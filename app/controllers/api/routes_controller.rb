@@ -1,4 +1,4 @@
-class RoutesController < ApplicationController
+class Api::RoutesController < ApplicationController
   def index
     @user = current_user
     @routes = Route.all.where(user_id: @user.id)
@@ -14,9 +14,11 @@ class RoutesController < ApplicationController
     @user = current_user
     @route = Route.new(route_params)
     @route.user_id = @user.id
+
     if @route.save
       render :show
     else
+
       render json: @route.errors.full_messages, status: 400
     end
   end
@@ -29,6 +31,7 @@ class RoutesController < ApplicationController
 
   private
   def route_params
+
    params.require(:routes).permit(:title, :polyline, :distance, :elevation)
  end
 
