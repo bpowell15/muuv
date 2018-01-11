@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 import GreetingContainer from './greeting/greeting_container';
-import Map from './map/map';
+import MapContainer from './map/map_container';
 import SplashGreetingContainer from './greeting/splash_greeting_container';
 import SessionModalContainer from './session_form/session_modal_container';
 import HookGreetingContainer from './greeting/hook_greeting_container';
@@ -18,6 +18,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutCreateForm from './workout_form/workout_form_container';
 import WorkoutShowContainer from './workouts/workout_show_container';
+import RouteIndexContainer from './routes/routes_index_container';
 import BackgroundImage from './background_image';
 
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
@@ -46,7 +47,8 @@ class App extends React.Component{
               <ProtectedRoute path="/workouts/new" component={WorkoutCreateForm}/>
               <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer}/>
               <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
-              <ProtectedRoute path="/routes/new" component={Map} />
+              <ProtectedRoute path="/routes/new" component={MapContainer} />
+              <ProtectedRoute path="/routes/" component={RouteIndexContainer} />
             </Switch>
         </div>
   );}
