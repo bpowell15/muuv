@@ -1,18 +1,17 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
-class Map extends React.Component {
+class Mapp extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      title: null,
+      title: 'FIRST',
       distance: 15,
       elevation: 100,
       path: null,
       center: {lat: 40.730610, lng: -73.935242}
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -257,89 +256,32 @@ class Map extends React.Component {
     let directionsDisplay = new google.maps.DirectionsRenderer(
 
     );
-
+    let decodedPoly = google.maps.geometry.encoding.decodePath(this.props.polyline)
     this.poly = new google.maps.Polyline({
       strokeColor: '#fc4c02',
       strokeOpacity: 1.0,
       strokeWeight: 3,
+      path: decodedPath,
+      clickable: false
     });
     this.poly.setMap(this.map);
     this.map.addListener('click', this.addLatLng.bind(this));
 
     let bikeLayer = new google.maps.BicyclingLayer();
     bikeLayer.setMap(this.map);
-
-    let elevator = new google.maps.ElevationService;
-
-    // this.map.addListener('click', function(e) {
-    //
-    //   this.displayLocationElevation(e.latLng, elevator, infowindow).bind(this);
-    // });
-  }
-  //
-  // displayLocationElevation(location, elevator, infowindow) {
-  //   //initiate the local request
-  //
-  //   elevator.getElevationForLocations({
-  //     'locations': [location]
-  //   }, function(results, status) {
-  //     infowindow.setPosition(location);
-  //     if (status === 'OK') {
-  //       //retreive the first result
-  //       if (results[0]) {
-  //         //open the infowindow indicating the elvation at the clicked position
-  //         infowindow.setContent('The elevation at this point is' + results[0].elevation + 'meters');
-  //       } else {
-  //         infowindow.setContent('no results found');
-  //       }
-  //     } else {
-  //       infowindow.setContent('Elevation service failed due to: ' + status);
-  //     }
-  //   });
-  // }
-
-
+}
   addLatLng(e){
     let path = this.poly.getPath();
     path.push(e.latLng);
     this.setState({path: path});
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-
-    let route = {
-      title: this.state.title,
-      polyline: this.state.path,
-      elevation: this.state.elevation,
-      distance: this.state.distance
-    };
-
-    this.props.createRoute(route).then(this.props.history.push('/routes'));
-  }
-
-  update(field) {
-    return(
-      e => {
-        return (
-          this.setState({
-            [field]: e.currentTarget.value
-          })
-        );
-      }
-    );
-  }
 
 
   render () {
-    return (<div>
+    return (
       <div id='map-container' ref={ map => this.mapNode = map }></div>
-      <div className="route-form">
-        <input type="text" onChange={this.update('title')} value={this.state.title} placeholder="Add a title"></input>
-        <button id="map-save" onClick={this.handleSubmit}>Save</button>
-      </div>
-    </div>
     );
   }
 }
-export default Map;
+export default Mapp;

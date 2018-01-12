@@ -3,8 +3,10 @@ class Api::WorkoutsController < ApplicationController
 
   def index
 
-    @user = current_user
-    @workouts = Workout.all.where(user_id: @user.id)
+    user = current_user
+    # @workouts = Workout.all.where(user_id: @user.id)
+    @workouts = user.workouts.includes(:route)
+
   end
 
   def create
@@ -37,12 +39,14 @@ class Api::WorkoutsController < ApplicationController
   def show
 
     @workout = Workout.find(params[:id])
+
+
   end
 
   private
 
   def workout_params
-    
+
     params.require(:workout).permit(:title, :description, :duration_hours, :duration_minutes, :duration_seconds, :distance, :elevation, :date, :time, :sport, :distance_unit, :elevation_unit)
   end
 end

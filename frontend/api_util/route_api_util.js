@@ -5,7 +5,7 @@ export const fetchRoutes = () => (
   })
 );
 
-export const fetchSingleRoute = (routeId) => (
+export const fetchRoute = (routeId) => (
   $.ajax({
     method: "GET",
     url: `/api/routes/${routeId}`
@@ -13,7 +13,7 @@ export const fetchSingleRoute = (routeId) => (
 );
 
 export const createRoute = (routes) => {
-  
+
   return (
       $.ajax({
         method: "POST",

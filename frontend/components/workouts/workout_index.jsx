@@ -3,6 +3,7 @@ import WorkoutIndexItem from './workout_index_item';
 import WorkoutStats from './workout_stats';
 class WorkoutIndex extends React.Component {
   constructor(props){
+    
     super(props);
   }
 
@@ -35,6 +36,7 @@ class WorkoutIndex extends React.Component {
                 workout={workout}
                 user={this.props.user}
                 author={workout.user_id}
+                fetchRoute={this.props.fetchRoute}
               />
             ))
           }

@@ -24,5 +24,6 @@
 
 class Workout < ApplicationRecord
   validates :title, :description, :distance, :duration_minutes, :duration_seconds, :duration_minutes, :sport, :date, :time, presence: true
+  belongs_to :route, optional: true
   belongs_to :user
 end

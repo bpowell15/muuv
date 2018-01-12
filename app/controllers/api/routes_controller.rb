@@ -1,7 +1,8 @@
 class Api::RoutesController < ApplicationController
   def index
-    @user = current_user
-    @routes = Route.all.where(user_id: @user.id)
+    # @user = current_user
+    @routes = Route.all
+    # .where(user_id: @user.id)
     render :index
   end
 
