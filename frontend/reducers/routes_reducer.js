@@ -17,7 +17,8 @@ const routeReducer = (state ={}, action) => {
       return newState;
     case REMOVE_ROUTE:
       newState = merge({}, state);
-      delete newState[action.routeId];
+      debugger
+      delete newState[action.routeID];
       return newState;
     default:
       return state;
