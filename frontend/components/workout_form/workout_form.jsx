@@ -4,7 +4,7 @@ import Dropdown from 'react-dropdown';
 
 class WorkoutForm extends React.Component {
   constructor(props) {
-    
+
     super(props);
     this.state = {
       distance: 0,
@@ -18,13 +18,19 @@ class WorkoutForm extends React.Component {
       title: "",
       description: "",
       elevation_unit: 'feet',
-      distance_unit: 'miles'
+      distance_unit: 'miles',
+      route_id: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.routesSelector = this.routesSelector.bind(this);
   }
 
+  componentDidMount(){
+    this.props.fetchRoutes();
+  }
 
   handleSubmit(e){
+    debugger
     e.preventDefault();
     const workout = this.state;
     this.props.processForm(workout).then(() => {
@@ -62,6 +68,18 @@ class WorkoutForm extends React.Component {
       );
     }
     // return null;
+  }
+
+
+  routesSelector(){
+    return (
+    <select className="select-dropdown route" onChange={this.update('route_id')} value={this.state.route_id}>
+        {this.props.routeIds.map((id)=> (
+          <option selected value={id}>{id}</option>
+        )
+      )}
+    </select>
+  );
   }
 
   render () {
@@ -124,6 +142,11 @@ class WorkoutForm extends React.Component {
               <input className="date-time-input" id="time" type="time" onChange={this.update('time')} placeholder="" />
 
           </div>
+          <div className="route-div">
+          <label className="input-label">Route
+            <div>{this.routesSelector()}</div>
+          </label>
+        </div>
         </div>
 
         <div className="row workout-title">
@@ -138,7 +161,6 @@ class WorkoutForm extends React.Component {
           <label className="input-label">Description</label>
               <textarea className="workout-description" onChange={this.update('description')} value={this.state.description} placeholder="How did it go? See anything cool?"></textarea>
         </div>
-
         <div className="input-seperator"></div>
 
         <div className="row submit-workout">

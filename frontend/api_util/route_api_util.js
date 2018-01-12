@@ -13,7 +13,7 @@ export const fetchRoute = (routeId) => (
 );
 
 export const createRoute = (routes) => {
-
+  
   return (
       $.ajax({
         method: "POST",

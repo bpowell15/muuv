@@ -70,8 +70,8 @@
 .logged-in-navbar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   padding-left: 117px;
+  padding-right: 117px;
   border-bottom: 1px solid #e6e6eb;
   max-height: 55px;
 }
@@ -81,7 +81,7 @@ display: flex;
 justify-content: space-between;
 // margin-right: 120px;
 align-items: center;
-margin-right: 237px;
+// margin-right: 237px;
 }
 
 .left-links {

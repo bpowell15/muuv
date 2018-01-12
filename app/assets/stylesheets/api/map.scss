@@ -32,9 +32,20 @@
     }
 }
 
+.route-div {
+  margin-left: 50px;
+}
+
+.select-dropdown.route {
+  border-left: 1px solid #ccccd1;
+  height: 33px;
+}
+
 .maps-index {
   display: flex;
   flex-wrap: wrap;
+  // justify-content:;
+  // padding-right: 110px;
   img {
     padding: 10px;
   }
