@@ -109,3 +109,30 @@
   float: left;
     margin-left: -67px;
 }
+
+.workout-route-item {
+  display: flex;
+  align-items: center;
+
+
+}
+
+.wrk-route-img {
+  align-self: center;
+  transform: scale(.5);
+  margin-left: 140px;
+}
+
+.empty-routes-feed {
+
+    position: fixed;
+left: 115px;
+top: 114px;
+height: 300px;
+display: flex;
+flex-direction: column;
+  h1{
+    font-size: 30px;
+    font-weight: 300;
+  }
+}

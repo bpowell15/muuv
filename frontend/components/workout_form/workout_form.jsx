@@ -4,6 +4,7 @@ import Dropdown from 'react-dropdown';
 
 class WorkoutForm extends React.Component {
   constructor(props) {
+    
     super(props);
     this.state = {
       distance: 0,

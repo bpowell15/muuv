@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import WorkoutEditContainer from '../workout_form/workout_edit_container';
+import Mapp from '../map/mapp';
 class WorkoutShow extends React.Component {
   constructor(props){
+
     super(props);
     this.state = {
       showEdit: false
@@ -77,6 +79,15 @@ class WorkoutShow extends React.Component {
     }
   }
 
+  // showMap(){
+  //   
+  //   if (this.props.workout){
+  //   return (
+  //   <Mapp polyline={this.props.workout.route.polyline}/>
+  //   );
+  // }
+  // }
+
   handleDelete(){
     this.props.deleteWorkout(this.props.workout.id).then(this.props.history.push('/workouts'));
   }
@@ -125,6 +136,9 @@ class WorkoutShow extends React.Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="show-route">
+
         </div>
       </div>
     );
