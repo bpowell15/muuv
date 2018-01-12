@@ -14,7 +14,6 @@ export const fetchWorkout = (id) => {
 };
 
 export const createWorkout = (workout) => {
-  debugger
   return $.ajax({
     method: 'POST',
     url: 'api/workouts',
