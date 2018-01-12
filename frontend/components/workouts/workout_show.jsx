@@ -5,7 +5,7 @@ import WorkoutEditContainer from '../workout_form/workout_edit_container';
 import Mapp from '../map/mapp';
 class WorkoutShow extends React.Component {
   constructor(props){
-
+    debugger
     super(props);
     this.state = {
       showEdit: false
@@ -16,7 +16,9 @@ class WorkoutShow extends React.Component {
 
   componentDidMount(){
     this.props.fetchWorkout(this.props.match.params.workoutId);
+    this.props.fetchRoute(this.props.workout.route_id);
   }
+
 
   averageSpeed(){
     let distance;
@@ -80,7 +82,7 @@ class WorkoutShow extends React.Component {
   }
 
   // showMap(){
-  //   
+  //
   //   if (this.props.workout){
   //   return (
   //   <Mapp polyline={this.props.workout.route.polyline}/>
@@ -100,6 +102,18 @@ class WorkoutShow extends React.Component {
     }
   }
 
+  toggleRender(){
+    if (this.props.workout.route) {
+      return (
+        <img className="wrk-route-image" src={`https://maps.googleapis.com/maps/api/staticmap?size=511x511&scale=2&path=weight:3%7Ccolor:0x0000ff%7Cenc:${this.props.workout.route.polyline}&key=AIzaSyC3Supo7gTtIjC8R6iANlG-BVdpKOOzG38&style=element:geometry%7Ccolor:0xebe3cd&style=element:labels.text.fill%7Ccolor:0x523735&style=element:labels.text.stroke%7Ccolor:0xf5f1e6&style=feature:administrative%7Celement:geometry.stroke%7Ccolor:0xc9b2a6&style=feature:administrative.land_parcel%7Cvisibility:off&style=feature:administrative.land_parcel%7Celement:geometry.stroke%7Ccolor:0xdcd2be&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xae9e90&style=feature:administrative.neighborhood%7Cvisibility:off&style=feature:landscape.natural%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:poi%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:poi%7Celement:labels.text%7Cvisibility:off&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x93817c&style=feature:poi.park%7Celement:geometry.fill%7Ccolor:0xa5b076&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x447530&style=feature:road%7Celement:geometry%7Ccolor:0xf5f1e6&style=feature:road%7Celement:labels%7Cvisibility:off&style=feature:road.arterial%7Celement:geometry%7Ccolor:0xfdfcf8&style=feature:road.highway%7Celement:geometry%7Ccolor:0xf8c967&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0xe9bc62&style=feature:road.highway.controlled_access%7Celement:geometry%7Ccolor:0xe98d58&style=feature:road.highway.controlled_access%7Celement:geometry.stroke%7Ccolor:0xdb8555&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x806b63&style=feature:transit.line%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:transit.line%7Celement:labels.text.fill%7Ccolor:0x8f7d77&style=feature:transit.line%7Celement:labels.text.stroke%7Ccolor:0xebe3cd&style=feature:transit.station%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:water%7Celement:geometry.fill%7Ccolor:0xb9d3c2&style=feature:water%7Celement:labels.text%7Cvisibility:off&style=feature:water%7Celement:labels.text.fill`}></img>
+    );
+    } else {
+      return <img></img>;
+    }
+  }
+
+
+
 
   render () {
       let showEdit;
@@ -108,8 +122,9 @@ class WorkoutShow extends React.Component {
       } else {
         showEdit = <WorkoutEditContainer className="editModal" workout = { this.props.workout } toggleEdit={ this.toggleEdit }/>;
       }
-
+      debugger
     return(
+      <div className='info-section'>
         <div className="show-page">
           {showEdit}
           <div className="show-nav">
@@ -137,9 +152,10 @@ class WorkoutShow extends React.Component {
             </div>
           </div>
         </div>
-        <div className="show-route">
-
-        </div>
+      </div>
+      <div className="show-route">
+        {this.toggleRender()}
+      </div>
       </div>
     );
   }
