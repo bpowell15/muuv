@@ -82,9 +82,11 @@
 }
 
 .show-profile-pic {
-  min-width: 100px;
+  background: image-url('gucci.jpg');
+  background-size: 150px;
+  background-position: -1px 105px;
   min-height: 100px;
-  background-color: yellow;
+  min-width: 100px;
   border-radius: 50%;
   margin: 15px 20px;
 
