@@ -33,6 +33,7 @@
   ul {
     padding-left: 15px;
     display: flex;
+    justify-content: space-evenly;
     width:
     li {
         padding: 15px 20px;
@@ -110,6 +111,11 @@
   }
 }
 
+
+.everypage {
+
+}
+
 .stats-low{
   background-color: #f5f5fa;
   height: 50%;
@@ -120,11 +126,20 @@
     padding-left: 15px;
     font-size: 24px;
     font-weight: 300;
+    align-self: center;
   }
   h3 {
     padding-left: 15px;
     color: #666;
     font-size: 12px;
     font-weight: 600;
+    align-self: center;
   }
 }
+
+@media (min-width: 1600px) {
+  .everypage{
+      padding-left: 200px;
+      padding-right: 200px;
+  }
+ }

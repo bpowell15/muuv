@@ -33,7 +33,7 @@ class App extends React.Component{
 
 
     return (
-        <div>
+        <div className="everypage">
           <Switch>
             <Route exact path="/" component={BackgroundImage} image="background-login2" />
             <Route exact path="/login" component={BackgroundImage} />

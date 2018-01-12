@@ -140,7 +140,8 @@ align-items: center;
 }
 
 .create-dropdown {
-  right: 128px;
+  position: relative;
+  right: 0px;
   height: 56px;
   width: 35px;
   display: flex;
@@ -155,7 +156,7 @@ align-items: center;
   .create-dropdown-content {
     position: absolute;
     z-index: 1;
-    right: 120px;
+    right: -1px;
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -168,6 +169,7 @@ align-items: center;
 
 
 .user-dropdown:hover {
+  position: relative;
   border-left: 1px solid #fc4c02;
   border-right: 1px solid #e6e6eb;
   border-bottom: 1px solid white;
@@ -195,7 +197,7 @@ align-items: center;
   border-right: 1px solid #e6e6eb;
   border-bottom: 1px solid #e6e6eb;
   border-left: 1px solid #e6e6eb;
-  right: 156px;
+  right: -1px;
   margin-top: 1px;
   a {
     color: #606065;
