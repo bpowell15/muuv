@@ -18,7 +18,7 @@
   height: 93vh;
   position: absolute;
   z-index: 0;
-  min-width: 1622px;
+  min-width: 100vw;
   margin: 0;
   overflow: hidden;
 }
