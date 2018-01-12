@@ -30,7 +30,6 @@ class WorkoutForm extends React.Component {
   }
 
   handleSubmit(e){
-    debugger
     e.preventDefault();
     const workout = this.state;
     this.props.processForm(workout).then(() => {
@@ -55,7 +54,6 @@ class WorkoutForm extends React.Component {
 
 
   renderErrors() {
-
     if (this.props.errors) {
       return(
         <ul>

@@ -12,7 +12,6 @@ class WorkoutIndex extends React.Component {
   }
 
   render () {
-    debugger
     let workouts = this.props.workouts.slice();
     let chronologicalOrder = workouts.reverse();
     if (workouts.length === 0) {
