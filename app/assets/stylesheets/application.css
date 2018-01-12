@@ -70,7 +70,7 @@
     position: absolute;
     z-index: -100;
  }
- .background-image-4 {
+ /* .background-image-4 {
    background: url('http://res.cloudinary.com/bpowell15/image/upload/v1515625628/background-login6_gcuzqx.jpg') no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
@@ -80,7 +80,7 @@
     width: 100vw;
     position: absolute;
     z-index: -100;
- }
+ } */
 
 
 
