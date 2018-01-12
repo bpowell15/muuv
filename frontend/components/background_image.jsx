@@ -6,7 +6,7 @@ class BackgroundImage extends React.Component {
   }
 
   randomImage(){
-    let num = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+    let num = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     if (this.props.image) {
       return (
         <section className="background-image"></section>
