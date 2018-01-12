@@ -6,10 +6,13 @@ class RouteIndex extends React.Component {
   constructor(props){
     super(props);
 
+
   }
   componentDidMount (){
     this.props.fetchRoutes();
   }
+
+
   render () {
     let routes = this.props.routes.slice();
     let orderedRoutes = routes.reverse();

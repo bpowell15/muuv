@@ -4,14 +4,16 @@ import {Link} from 'react-router-dom';
 
 class RouteIndexItem extends React.Component {
   constructor(props){
-
     super(props);
+
     this.handleDelete = this.handleDelete.bind(this);
   }
   handleDelete(){
-    
-    this.props.deleteRoute(this.props.route.id).then(this.props.history.push('/routes/9'));
+    this.props.deleteRoute(this.props.route.id);
   }
+
+
+
   render () {
     return (
     <div className="routeItem">
