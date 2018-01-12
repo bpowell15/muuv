@@ -58,6 +58,7 @@ export const fetchWorkout = id => dispatch => {
 };
 
 export const createWorkout = workout => dispatch => {
+  debugger
   return WorkoutAPIUtil.createWorkout(workout).then((payload) => {
     dispatch(receiveWorkout(payload));
   }, (errors) => {
@@ -66,7 +67,7 @@ export const createWorkout = workout => dispatch => {
 };
 
 export const updateWorkout = workout => dispatch => {
-  
+
   return WorkoutAPIUtil.updateWorkout(workout).then((payload) => {
     dispatch(receiveWorkout(payload));
   }, (errors) => {

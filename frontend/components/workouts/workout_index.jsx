@@ -3,7 +3,7 @@ import WorkoutIndexItem from './workout_index_item';
 import WorkoutStats from './workout_stats';
 class WorkoutIndex extends React.Component {
   constructor(props){
-    
+
     super(props);
   }
 
@@ -12,6 +12,7 @@ class WorkoutIndex extends React.Component {
   }
 
   render () {
+    debugger
     let workouts = this.props.workouts.slice();
     let chronologicalOrder = workouts.reverse();
     if (workouts.length === 0) {

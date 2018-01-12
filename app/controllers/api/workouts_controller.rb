@@ -10,6 +10,7 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def create
+    debugger
     @user = current_user
     @workout = Workout.new(workout_params)
     @workout.user_id = @user.id
@@ -47,6 +48,6 @@ class Api::WorkoutsController < ApplicationController
 
   def workout_params
 
-    params.require(:workout).permit(:title, :description, :duration_hours, :duration_minutes, :duration_seconds, :distance, :elevation, :date, :time, :sport, :distance_unit, :elevation_unit)
+    params.require(:workout).permit(:title, :description, :duration_hours, :duration_minutes, :duration_seconds, :distance, :elevation, :date, :time, :sport, :distance_unit, :elevation_unit, :route_id)
   end
 end
