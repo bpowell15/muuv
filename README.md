@@ -8,4 +8,4 @@ Muuv acts as a journal for recording personal workouts
 [CHECK IT OUT HERE](https://www.muuv.herokuapp.com)
 
 ![Route Creator](https://i.imgur.com/XQhRIhw.png "Route Creation")
-![Workout Entry](https://i.imgur.com/RbBeVx6.png "Workout Entry")
+![Workout Entry](https://i.imgur.com/p1F9nK5.png "Workout Entry")
