@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_ROUTES,
   RECEIVE_ROUTE,
+  RECEIVE_ELEVATION,
   REMOVE_ROUTE } from '../actions/route_actions';
 
 
@@ -19,6 +20,9 @@ const routeReducer = (state ={}, action) => {
       newState = merge({}, state);
 
       delete newState[action.routeID];
+      return newState;
+    case RECEIVE_ELEVATION:
+      newState = merge({}, state, ({[action.route.elevation]: action.elevation}));
       return newState;
     default:
       return state;

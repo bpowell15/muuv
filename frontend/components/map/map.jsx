@@ -303,6 +303,8 @@ class Map extends React.Component {
     let path = this.poly.getPath();
     path.push(e.latLng);
     this.setState({path: path});
+    debugger
+    this.props.fetchElevation(this.state.path);
   }
 
   handleSubmit(e){

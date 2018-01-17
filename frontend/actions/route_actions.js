@@ -2,6 +2,7 @@ import * as RouteAPIUtil from '../api_util/route_api_util';
 export const RECEIVE_ROUTES = 'RECEIVE_ROUTES';
 export const RECEIVE_ROUTE = 'RECEIVE_ROUTE';
 export const REMOVE_ROUTE = 'REMOVE_ROUTE';
+export const RECEIVE_ELEVATION = 'RECEIVE_ELEVATION';
 export const RECEIVE_ROUTE_ERRORS = 'RECEIVE_ROUTE_ERRORS';
 
 
@@ -33,10 +34,25 @@ export const receiveErrors = (errors) => {
   };
 };
 
+export const receiveElevation = (elevation) => {
+  return {
+    type: RECEIVE_ELEVATION,
+    elevation
+  };
+};
+
 
 export const fetchRoutes = () => dispatch => {
   return RouteAPIUtil.fetchRoutes().then((routes) => {
     dispatch(receiveRoutes(routes));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
+  });
+};
+
+export const fetchElevation = (polyline) => dispatch => {
+  return RouteAPIUtil.fetchElevation(polyline).then((elevation) => {
+    dispatch(receiveRoutes(elevation));
   }, (errors) => {
     dispatch(receiveErrors(errors));
   });

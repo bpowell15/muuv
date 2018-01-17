@@ -288,3 +288,17 @@ row.workout {
   width: 237px;
   border-left: 1px solid #ccccd1;
 }
+
+.create-workout-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  ul {
+    align-self: center;
+    width: max-content;
+    position: absolute;
+    z-index: 5;
+    margin-left: -176px;
+    margin-top: 124px;
+  }
+}

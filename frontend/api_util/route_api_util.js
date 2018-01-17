@@ -12,8 +12,16 @@ export const fetchRoute = (routeId) => (
   })
 );
 
+export const fetchElevation = (polyline) => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: "https://maps.googleapis.com/maps/api/elevation/json?locations=enc:" + polyline + "&key=AIzaSyC3Supo7gTtIjC8R6iANlG-BVdpKOOzG38"
+    })
+);};
+
 export const createRoute = (routes) => {
-  
+
   return (
       $.ajax({
         method: "POST",

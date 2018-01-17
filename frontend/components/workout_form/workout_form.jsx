@@ -56,6 +56,7 @@ class WorkoutForm extends React.Component {
   renderErrors() {
     if (this.props.errors) {
       return(
+
         <ul>
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`} className="login-error">
@@ -63,6 +64,7 @@ class WorkoutForm extends React.Component {
             </li>
           ))}
         </ul>
+  
       );
     }
     // return null;
@@ -82,7 +84,7 @@ class WorkoutForm extends React.Component {
 
   render () {
     return (
-    <div className="page-container">
+    <div className="page-container" onClick={this.props.clearErrors}>
       <h1>Manual Entry</h1>
       <form id="new-activity" className="create-workout-form" onSubmit={this.handleSubmit}>
         {this.renderErrors()}

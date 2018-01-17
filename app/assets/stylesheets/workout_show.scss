@@ -1,11 +1,13 @@
 .show-page {
+  position: relative;
   display: flex;
     margin-top: 30px;
 }
 
 .workout-show-content {
-
-  width: 71%;
+  position: absolute;
+  right: 115px;
+  width: 1037px;
   border: 1px solid #e6e6eb;
   }
   .workout-header{
@@ -52,6 +54,8 @@
 }
 
 .show-nav {
+  position: absolute;
+  z-index: 65;
   display: flex;
   flex-direction: column;
   margin-left: 116px;
@@ -113,6 +117,10 @@
   }
 }
 
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
 
 .everypage {
 
@@ -139,6 +147,24 @@
   }
 }
 
+.route-img-title {
+  height: 18px;
+  padding: 9px 20px;
+  width: 997px;
+  position: absolute;
+  right: 116px;
+  z-index: 5;
+  background-color: #f5f5fa;
+  /* justify-self: unset; */
+  // margin-left: 77px;
+  border-bottom: 1px solid #e6e6eb;
+  font-size: 18px;
+  font-weight: 300;
+
+}
+
+
+
 // @media (min-width: 1600px) {
 //   // .everypage{
 //   //     padding-left: 200px;
@@ -153,14 +179,51 @@
  //    left: 209px;
  //  }
  // }
+ @keyframes fadeIn {
+   from {
+     opacity: 0;
+   }
 
+   to {
+     opacity: 1;
+   }
+ }
+
+ .fadeIn {
+   animation-name: fadeIn;
+ }
  .wrk-route-image {
+   position: absolute;
+   right: 115px;
+   border: 1px solid #e6e6eb;
    align-self: center;
-   margin-left: 153px;
+   // margin-left: 153px;
    transform: 0;
  }
 
  .show-route {
+   top: 169px;
    display: flex;
     justify-content: center;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    .wrk-route-image {
+    cursor: pointer;
+  }
+  .route-img-title {
+    cursor: pointer;
+  }
+ }
+
+ .show-route.show {
+   height: 702px;
+   top:0;
+   // top: 85px;
+   z-index: 50;
+   // left: 132px;
+   .route-img-title {
+     border-top: 1px solid #e6e6eb;
+     // margin-left: 76px;
+   }
  }

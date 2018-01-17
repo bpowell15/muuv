@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Map from './map';
-import { createRoute }  from '../../actions/route_actions';
+import { createRoute, fetchElevation }  from '../../actions/route_actions';
+
 
 const mapStateToProps = (state) => {
 
@@ -12,7 +13,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createRoute: (route) => dispatch(createRoute(route))
+    createRoute: (route) => dispatch(createRoute(route)),
+    fetchElevation: (polyline) => dispatch(fetchElevation(polyline))
   };
 };
 
