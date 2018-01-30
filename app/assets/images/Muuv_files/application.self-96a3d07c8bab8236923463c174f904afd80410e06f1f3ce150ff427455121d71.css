@@ -30,10 +30,9 @@ html, html a {
     /* text-shadow: 1px 1px 1px rgba(0,0,0,0.004); */
 }
 
-.nav-bar {
-  background-color: white;
-  margin: 0;
-}
+
+
+
 .inner-nav-bar {
   max-width: 600px;
   min-height: 55px;

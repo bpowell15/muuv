@@ -110,7 +110,7 @@ class WorkoutIndexItem extends React.Component {
             </div>
 
           </div>
-          {this.routeImage()}
+          <Link to={`/workouts/${this.props.workout.id}`} >{this.routeImage()}</Link>
         </div>
       );
     }

@@ -25,7 +25,7 @@ input::-webkit-inner-spin-button {
 }
 
 .workout-feed {
-  margin-left: 99px;
+  // margin-left: 99px;
 }
 
 .hour-input, .minute-input, .second-input {
@@ -36,7 +36,7 @@ input::-webkit-inner-spin-button {
 .page-container {
   width: 1248px;
   min-width: 0;
-  padding-left: 195px;
+  // padding-left: 195px;
 
   background-color: white;
   flex-direction: column;
@@ -210,7 +210,7 @@ row.workout {
   height: 1px;
   background-color: #ccccd1;
   margin: 30px 0;
-  width: 1038px
+  width: 1220px
 }
 
 .date-time {
@@ -271,8 +271,8 @@ row.workout {
     // background: image-url('dropdownarrow.svg') no-repeat 96% 0;
     background: image-url('dropdownarrow.svg') 97% 50% no-repeat;
     background-size: 8px 8px;
-    padding-left: 3px;
-    width: 78px;
+    padding: 1px 10px;
+    width: 237px;
     height: 34px;
     box-shadow: none;
     background-color: white;

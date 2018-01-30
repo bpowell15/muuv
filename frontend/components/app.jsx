@@ -33,13 +33,15 @@ class App extends React.Component{
 
 
     return (
-        <div className="everypage">
+      <div>
+        <GreetingContainer  />
           <Switch>
             <Route exact path="/" component={BackgroundImage} image="background-login2" />
             <Route exact path="/login" component={BackgroundImage} />
             <Route exact path="/signup" component={BackgroundImage} />
+            <ProtectedRoute path="/routes/new" component={MapContainer} />
           </Switch>
-            <GreetingContainer  />
+          <div className="everypage">
             <HookGreetingContainer />
             <Switch>
               <AuthRoute path="/login" component={SessionFormContainer} />
@@ -47,10 +49,10 @@ class App extends React.Component{
               <ProtectedRoute path="/workouts/new" component={WorkoutCreateForm}/>
               <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer}/>
               <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
-              <ProtectedRoute path="/routes/new" component={MapContainer} />
               <ProtectedRoute path="/routes/" component={RouteIndexContainer} />
             </Switch>
         </div>
+      </div>
   );}
 }
 

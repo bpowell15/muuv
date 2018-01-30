@@ -78,10 +78,10 @@ class WorkoutEdit extends React.Component {
     return (
       <div className="modal-backdrop animate-opacity">
 
-        <a onClick= {this.handleClose} className='modal-close edit'></a>
-    <div className="edit-modal">
+        <div className="edit-modal">
       <form id="new-activity" className="edit-workout-form" onSubmit={this.handleUpdate}>
       <div className="edit-header">
+        <a onClick= {this.handleClose} className='modal-close edit'></a>
         <h1>Edit Activity</h1>
         <input className="submit-button"type="submit" value="Save & View Activity" />
       </div>

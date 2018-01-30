@@ -7,7 +7,7 @@
   margin-right: auto;
   left: 0;
   right: 0;
-  max-width: 66%;
+  max-width: fit-content;
   overflow: scroll;
 }
 
@@ -45,6 +45,7 @@
 
 .edit-workout-form {
   background-color: #f0f0f0;
+  width: 831px;
   .edit-description-row {
     padding: 15px;
   }
@@ -98,10 +99,11 @@
 }
 
 .modal-close.edit {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
-  right: 245px;
-  top: 189px;
+  // right: 245px;
+  top: 195px;
+  margin-left: 797px;
   background: image-url('modal-close.svg') no-repeat -3px -51px;
     width: 18px;
     height: 18px;

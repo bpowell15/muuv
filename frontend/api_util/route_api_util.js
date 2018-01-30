@@ -20,17 +20,17 @@ export const fetchElevation = (polyline) => {
     })
 );};
 
-export const createRoute = (routes) => {
-
+export const createRoute = (route) => {
+debugger
   return (
       $.ajax({
         method: "POST",
         url: "api/routes",
-        data: {routes:{
-          title: routes.title,
-          distance: routes.distance,
-          elevation: routes.elevation,
-          polyline: google.maps.geometry.encoding.encodePath(routes.polyline)
+        data: {route:{
+          title: route.title,
+          distance: route.distance,
+          elevation: route.elevation,
+          polyline: route.polyline
       }}
     })
   );

@@ -10,12 +10,11 @@ import WorkoutForm from './workout_form';
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.workout,
-    routeIds: Object.keys(state.routes)
+    routes: state.routes
   };
 };
 
 const mapDispatchToProps = (dispatch, { workout }) => {
-
   return {
     processForm: workout => dispatch(createWorkout(workout)),
     clearErrors: () => dispatch(clearErrors()),

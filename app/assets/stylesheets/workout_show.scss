@@ -1,3 +1,9 @@
+.info-section {
+  position: relative;
+  width: 79vw;
+}
+
+
 .show-page {
   position: relative;
   display: flex;
@@ -6,8 +12,8 @@
 
 .workout-show-content {
   position: absolute;
-  right: 115px;
-  width: 1037px;
+  left: 167px;
+  width: 1050px;
   border: 1px solid #e6e6eb;
   }
   .workout-header{
@@ -58,7 +64,7 @@
   z-index: 65;
   display: flex;
   flex-direction: column;
-  margin-left: 116px;
+  // margin-left: 116px;
   margin-right: 15px;
   a {
     width: 112px;
@@ -120,10 +126,12 @@
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
+  width: 78.1vw;
 }
 
 .everypage {
-
+  max-width: 1220px;
+  margin: 0 auto;
 }
 
 .stats-low{
@@ -150,14 +158,18 @@
 .route-img-title {
   height: 18px;
   padding: 9px 20px;
-  width: 997px;
+  // width: 997px;
   position: absolute;
-  right: 116px;
+  left: 0px;
+  width: 1010px;
+  // right: 116px;
   z-index: 5;
   background-color: #f5f5fa;
   /* justify-self: unset; */
   // margin-left: 77px;
   border-bottom: 1px solid #e6e6eb;
+  border-right: 1px solid #e6e6eb;
+  border-left: 1px solid #e6e6eb;
   font-size: 18px;
   font-weight: 300;
 
@@ -194,11 +206,14 @@
  }
  .wrk-route-image {
    position: absolute;
-   right: 115px;
+   // right: 115px;
    border: 1px solid #e6e6eb;
    align-self: center;
    // margin-left: 153px;
    transform: 0;
+   left: 0px;
+   right: 400px;
+   width: 1050px;
  }
 
  .show-route {
@@ -206,7 +221,11 @@
    display: flex;
     justify-content: center;
     position: relative;
+    margin-left: 167px;
+    // margin-left: 283px;
+    // margin-right: 115px;
     height: 300px;
+    width: 1052px;
     overflow: hidden;
     .wrk-route-image {
     cursor: pointer;
