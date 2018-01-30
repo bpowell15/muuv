@@ -1,5 +1,5 @@
 class Route < ApplicationRecord
-  validates :title, :polyline, :distance, :elevation , presence: true
+  validates :title, :polyline, :distance, :elevation, presence: true
   validates :title, uniqueness: true
 
   belongs_to :user

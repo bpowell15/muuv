@@ -20,7 +20,7 @@ class WorkoutForm extends React.Component {
       description: "",
       elevation_unit: 'feet',
       distance_unit: 'miles',
-      route_id: null
+      route_id: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.routesSelector = this.routesSelector.bind(this);
@@ -30,21 +30,19 @@ class WorkoutForm extends React.Component {
     this.props.fetchRoutes();
   }
 
-  updateState(){
-    debugger
-    if (this.state.route_id !== null) {
-      this.state.merge
-      return this.setState({
-        distance: this.props.routes[this.state.route_id].distance,
-        elevation: this.props.routes[this.state.route_id].elevation
-      });
-    }
-  }
+  // updateState(){
+  //
+  //   if (this.state.route_id !== null) {
+  //     this.state.merge
+  //     return this.setState({
+  //       distance: this.props.routes[this.state.route_id].distance,
+  //       elevation: this.props.routes[this.state.route_id].elevation
+  //     });
+  //   }
+  // }
 
   handleSubmit(e){
     e.preventDefault();
-    debugger
-    this.updateState();
     const workout = this.state;
     this.props.processForm(workout).then(() => {
       this.props.history.push('/workouts');
@@ -53,15 +51,29 @@ class WorkoutForm extends React.Component {
   }
 
   update(field) {
-    return(
-      e => {
-        return (
-          this.setState({
-            [field]: e.currentTarget.value
-          })
-        );
-      }
-    );
+    if (field === "route_id"){
+      return(
+        e => {
+          return (
+            this.setState({
+              [field]: e.currentTarget.value,
+              distance: this.props.routes[e.currentTarget.value].distance,
+              elevation: this.props.routes[e.currentTarget.value].elevation
+            })
+          );
+        }
+      );
+    } else {
+      return(
+        e => {
+          return (
+            this.setState({
+              [field]: e.currentTarget.value
+            })
+          );
+        }
+      );
+    }
   }
 
 
@@ -76,20 +88,20 @@ class WorkoutForm extends React.Component {
             </li>
           ))}
         </ul>
-
       );
     }
-    // return null;
   }
+
+
 
 
   routesSelector(){
     let keys = Object.keys(this.props.routes);
     return (
     <select className="select-dropdown route" onChange={this.update('route_id')} value={this.state.route_id}>
-        <option selected>Choose One</option>
+        <option defaultValue>Choose One</option>
         {keys.map((key)=> (
-          <option value={key}>{this.props.routes[key].title}</option>
+          <option value={key} key={this.props.routes[key].id}>{this.props.routes[key].title}</option>
         )
       )}
     </select>
@@ -107,11 +119,11 @@ class WorkoutForm extends React.Component {
           <div className="distance-input">
             <label className="input-label">Distance</label><br></br>
             <div className="distance">
-              <input type="number" max='9999' min='0' step="0.1" onChange={this.update('distance')} value={(this.state.route_id) ? this.props.routes[this.state.route_id].distance : this.state.distance} />
+              <input type="number" max='9999' min='0' step="0.1" onChange={this.update('distance')} value={this.state.distance} />
                 <select className="select-dropdown" onChange={this.update('distance_unit')} value={this.state.distance_unit}>
                   <option value="kilometers">kilometers</option>
                   <option value="meters">meters</option>
-                  <option selected value="miles">miles</option>
+                  <option defaultValue="miles">miles</option>
                   <option value="yards">yards</option>
                 </select>
               </div>
@@ -128,10 +140,10 @@ class WorkoutForm extends React.Component {
             <div className="elevation-input">
               <label className="input-label">Elevation</label><br></br>
                 <div className="distance">
-                <input type="number" max='99999' step="0.1" onChange={this.update('elevation')} value={(this.state.route_id !== null) ? this.props.routes[this.state.route_id].elevation : this.state.elevation} />
+                <input type="number" max='99999' step="0.1" onChange={this.update('elevation')} value={this.state.elevation} />
                   <select className="select-dropdown" onChange={this.update('elevation_unit')} value={this.state.elevation_unit}>
                     <option value="meters">meters</option>
-                    <option selected value="feet">feet</option>
+                    <option defaultValue="feet">feet</option>
                   </select>
                 </div>
           </div>
@@ -143,7 +155,7 @@ class WorkoutForm extends React.Component {
           <div className="activity_type">
             <label className="input-label">Sport</label>
             <select className="select-dropdown sport-select" onChange={this.update('sport')} value={this.state.sport}>
-              <option selected value="Ride">Ride</option>
+              <option defaultValue="Ride">Ride</option>
               <option value="Run">Run</option>
               <option value="Swim">Swim</option>
               <option value="Code">Code</option>

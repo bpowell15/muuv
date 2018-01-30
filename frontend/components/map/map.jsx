@@ -277,7 +277,7 @@ class Map extends React.Component {
     } else {
       //add error
     }
-    debugger
+
     this.addMapListeners();
   }
 
@@ -286,7 +286,7 @@ class Map extends React.Component {
   addMapListeners(){
     google.maps.event.addListener(this.map, 'click', (event)=>{
       this.placeMarker(event.latLng);
-      debugger
+
     });
 
   }
@@ -413,7 +413,7 @@ class Map extends React.Component {
   //   let path = this.poly.getPath();
   //   path.push(e.latLng);
   //   this.setState({path: path});
-  //   // debugger
+  //   //
   //   this.props.fetchElevation(this.state.path);
   // }
 
@@ -447,7 +447,7 @@ class Map extends React.Component {
   render () {
     return (<div>
       <div id='map-container' ref={ map => this.mapNode = map }></div>
-      <div className='instructions'><h3>To Create a Route</h3>
+      <div className='instructions'><h3>To Create A Route</h3>
         <ol>
           <li>Click a starting position</li>
           <li>Click an ending position</li>

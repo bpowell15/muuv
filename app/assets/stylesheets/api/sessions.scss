@@ -109,7 +109,15 @@ letter-spacing: -1px;
 
 }
 
+.delete {
+  border-left: 1px solid #e6e6eb;
+  border-right: 1px solid #e6e6eb;
+  border-bottom: 1px solid #e6e6eb;
+}
 
+.edit {
+  border: 1px solid #e6e6eb;
+}
 
 .inner-nav-bar {
   min-width: 100%;

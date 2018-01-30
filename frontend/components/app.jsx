@@ -42,15 +42,15 @@ class App extends React.Component{
             <ProtectedRoute path="/routes/new" component={MapContainer} />
           </Switch>
           <div className="everypage">
-            <HookGreetingContainer />
-            <Switch>
-              <AuthRoute path="/login" component={SessionFormContainer} />
-              <AuthRoute path="/signup" component={SessionFormContainer} />
-              <ProtectedRoute path="/workouts/new" component={WorkoutCreateForm}/>
-              <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer}/>
-              <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
-              <ProtectedRoute path="/routes/" component={RouteIndexContainer} />
-            </Switch>
+          <HookGreetingContainer />
+          <Switch>
+            <AuthRoute path="/login" component={SessionFormContainer} />
+            <AuthRoute path="/signup" component={SessionFormContainer} />
+            <ProtectedRoute path="/workouts/new" component={WorkoutCreateForm}/>
+            <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer}/>
+            <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
+            <ProtectedRoute path="/routes" component={RouteIndexContainer} />
+          </Switch>
         </div>
       </div>
   );}

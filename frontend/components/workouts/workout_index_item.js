@@ -2,14 +2,14 @@ import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import WorkoutShowContainer from './workout_show_container';
-import RouteIndexItem from '../routes/route_index_item';
+// import RouteIndexItem from '../routes/route_index_item';
 class WorkoutIndexItem extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      show: false
-    };
-    this.toggleShow = this.toggleShow.bind(this);
+    // this.state = {
+    //   show: false
+    // };
+    // this.toggleShow = this.toggleShow.bind(this);
   }
 
 
@@ -60,12 +60,12 @@ class WorkoutIndexItem extends React.Component {
     return (moment(newDateString).calendar());
   }
 
-  toggleShow(){
-
-    this.setState({
-      show: !this.state.show
-    });
-  }
+  // toggleShow(){
+  //
+  //   this.setState({
+  //     show: !this.state.show
+  //   });
+  // }
   routeImage(){
 
     if (this.props.workout.route) {
@@ -78,19 +78,15 @@ class WorkoutIndexItem extends React.Component {
   }
 
   render () {
-    let showContainer;
+    // let showContainer;
 
-    if (!this.state.show) {
-      showContainer = null;
-    } else {
-      showContainer = (
-        <WorkoutShowContainer workout={this.props.workout} />
-      );
-    }
-
-
-
-
+    // if (!this.state.show) {
+    //   showContainer = null;
+    // } else {
+    //   showContainer = (
+    //     <WorkoutShowContainer workout={this.props.workout} />
+    //   );
+    // }
 
   return(
     <div className="workout-route-item">
@@ -110,7 +106,7 @@ class WorkoutIndexItem extends React.Component {
             </div>
 
           </div>
-          <Link to={`/workouts/${this.props.workout.id}`} >{this.routeImage()}</Link>
+          <Link className="show-link" to={`/workouts/${this.props.workout.id}`} >{this.routeImage()}</Link>
         </div>
       );
     }
