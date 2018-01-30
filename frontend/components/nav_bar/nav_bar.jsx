@@ -22,7 +22,7 @@ class NavBar extends React.Component {
   render () {
     return (
       <div className="logged-in-navbar" >
-        <div name="left-links" >
+        <div className="left-links" >
           <Link to="/workouts" className="header-link">muuv</Link>
         <div className="logged-in-dropdown">
             <h2 className="dropbtn">Dashboard<img className='dropdown-sprite' src="#"></img></h2>
