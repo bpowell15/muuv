@@ -1,4 +1,4 @@
-# MUUV 
+# MUUV
 Single page web-app for tracking workout statistics and routes
 
 Muuv acts as a journal for recording personal workouts
@@ -6,7 +6,7 @@ Muuv acts as a journal for recording personal workouts
 - Create workout routes via the Google Maps Api
 
 
-[CHECK IT OUT HERE](https://www.muuv.herokuapp.com)
+[CHECK IT OUT HERE](https://muuv.herokuapp.com)
 
 ### The Google Maps API allows users to draw and save routes they have or plan to travel during various workouts, it also provides users with information pertaining to the route such as distance and elevation change
   - A series of clicks is used in order to create the route
