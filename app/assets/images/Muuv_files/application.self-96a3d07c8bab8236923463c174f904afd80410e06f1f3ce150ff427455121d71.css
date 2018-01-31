@@ -30,9 +30,16 @@ html, html a {
     /* text-shadow: 1px 1px 1px rgba(0,0,0,0.004); */
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+.nav-bar {
+  background-color: white;
+  margin: 0;
+}
+>>>>>>> d4c4c2ef11152ef6ffd3ce7caf060c4cc955a9b8
 .inner-nav-bar {
   max-width: 600px;
   min-height: 55px;
@@ -44,7 +51,10 @@ html, html a {
 }
 
 .header-link {
+<<<<<<< HEAD
   padding-bottom: 5px;
+=======
+>>>>>>> d4c4c2ef11152ef6ffd3ce7caf060c4cc955a9b8
   text-decoration: none;
   color: #fc4c02;
   font-size: 30px;

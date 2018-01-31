@@ -1,8 +1,8 @@
 # MUUV 
-Single page web-app for tracking workout statistics and routes 
+Single page web-app for tracking workout statistics and routes
 
 Muuv acts as a journal for recording personal workouts
-- Create/Edit/Delete workouts manually 
+- Create/Edit/Delete workouts manually
 - Create workout routes via the Google Maps Api
 
 

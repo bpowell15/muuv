@@ -427,7 +427,6 @@ class Map extends React.Component {
       distance: this.state.distance
     };
 
-    console.log(route.polyline);
     this.props.createRoute(route).then(this.props.history.push('/routes'));
   }
 

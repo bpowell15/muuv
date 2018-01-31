@@ -6,7 +6,10 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+<<<<<<< HEAD
     "chart.js": "^2.7.1",
+=======
+>>>>>>> d4c4c2ef11152ef6ffd3ce7caf060c4cc955a9b8
     "google-maps-react": "^1.1.2",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",
