@@ -3,7 +3,7 @@ import React from 'react'
 
 class ElevationGraph extends React.Component {
   constructor (props) {
-    debugger
+    
     super(props);
     this.elevator = null;
   }

@@ -141,7 +141,7 @@ toggleMap(){
 
 
   chartClassToggle(){
-    debugger
+
     if (this.state.showMap === true){
       return 'elevation-graph map';
     } else {

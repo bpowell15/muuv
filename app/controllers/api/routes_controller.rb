@@ -33,7 +33,7 @@ class Api::RoutesController < ApplicationController
 
   private
   def route_params
-    debugger
+    
    params.require(:route).permit(:title, :polyline, :distance, :elevation, :duration)
  end
 
