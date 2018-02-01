@@ -13,3 +13,39 @@
     }
   }
 }
+
+.route-modal {
+  overflow: hidden;
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  left: 335px;
+  width: 300vw;
+  height: 200vh;
+  background-color: rgba(0, 0, 0, .5);
+  margin-left: -500px;
+  margin-top: -200px;
+  img {
+    max-width: 1052px;
+    margin-left: 594px;
+    margin-top: 200px;
+  }
+  #elevation_chart {
+    // border: 1px solid #e6e6eb;
+    margin-top: 0px;
+    margin-left: 594px;
+  }
+}
+
+.route-modal:hover{
+  cursor: pointer;
+}
+
+
+.routeItem {
+  a:hover {
+    cursor: pointer;
+  }
+}
