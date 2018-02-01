@@ -1,9 +1,26 @@
+.map-errors {
+  position: absolute;
+  background-color: white;
+  color: red;
+  font-size: 18px;
+  left: 11px;
+  /* right: 50%; */
+  top: 275px;
+  padding: 20px;
+  max-width: 260px;
+  overflow-wrap: break-word;
+  -webkit-box-shadow: 0 3px 3px -3px grey;
+  -moz-box-shadow: 0 3px 3px -3px gray;
+  box-shadow: 0 3px 3px -3px grey;
+}
+
 .instructions {
   border-top: 2px solid #fc4c02;
   background-color: white;
   color: #666666;
   font-size: 14px;
   font-weight: 300;
+  min-width: 280px;
   position: absolute;
   z-index: 40;
   top: 110px;
@@ -12,6 +29,12 @@
   -webkit-box-shadow: 0 3px 3px -3px gray;
    -moz-box-shadow: 0 3px 3px -3px gray;
         box-shadow: 0 3px 3px -3px gray;
+  .tip{
+    font-style: italic;
+    color: black;
+    font-weight: 300;
+    font-size: 12px;
+  }
   h3 {
     font-size: 24px;
     font-weight: 100;
@@ -163,6 +186,8 @@ margin-top: -5px;
 }
 
 .title-link {
+  max-width: 187px;
+  overflow: hidden;
   text-decoration: none;
   // margin-bottom: 20px;
   padding: 15px 15px;
@@ -179,6 +204,7 @@ margin-top: -5px;
 
 
 .title-link.date{
+  min-width: 260px;
   padding:8px 15px;
   margin-bottom: 20px;
   background-color: #f0f0f0;

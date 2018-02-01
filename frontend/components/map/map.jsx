@@ -2,7 +2,6 @@ import React from 'react';
 import merge from 'lodash/merge';
 
 const mapOptions = {
-  // center: this.state.center,
   zoom: 13,
   styles: [
 {
@@ -241,7 +240,7 @@ const mapOptions = {
 const bikeLayer = new google.maps.BicyclingLayer();
 const directionsService = new google.maps.DirectionsService();
 const directionsDisplay = new google.maps.DirectionsRenderer({
-  hideBikeLayer: true
+  draggable: true
 });
 const elevationService = new google.maps.ElevationService;
 
@@ -257,13 +256,13 @@ class Map extends React.Component {
       polyline: [],
       waypoints: [],
       center: {lat: 40.730610, lng: -73.935242},
-      layerOn: false,
-      markers: []
-
+      markers: [],
+      errors: [],
+      duration: 0
     };
-    this.toggleBikeLayer = this.toggleBikeLayer.bind(this);
     this.getElevationChange= this.getElevationChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.computeTotalDistance = this.computeTotalDistance.bind(this);
   }
 
   componentDidMount(){
@@ -276,8 +275,6 @@ class Map extends React.Component {
           lng: position.coords.longitude
         });
       });
-    } else {
-      //add error
     }
 
     this.poly = new google.maps.Polyline({
@@ -285,10 +282,6 @@ class Map extends React.Component {
       strokeOpacity: 1.0,
       strokeWeight: 3,
     });
-
-
-    // this.poly.setMap(this.map);
-    this.map.addListener('click', this.addLatLng.bind(this));
 
     this.addMapListeners();
   }
@@ -300,54 +293,68 @@ class Map extends React.Component {
 }
 
 
+
   addMapListeners(){
     google.maps.event.addListener(this.map, 'click', (event)=>{
       this.placeMarker(event.latLng);
-
     });
-
+    this.map.addListener('click', this.addLatLng.bind(this));
+    directionsDisplay.addListener('directions_changed', ()=> {
+      this.computeTotalDistance(directionsDisplay.getDirections());
+    });
   }
 
-  placeMarker(location){
-    if (this.state.markers.length < 2){
-      const marker = new google.maps.Marker({
-        position: location,
-        map: this.map
-      });
-      this.state.markers.push(marker);
-      google.maps.event.addListener(marker, 'click', ()=>{
-        marker.setMap(null);
-        const markerIdx = thisw.state.markers.indexOf(marker);
-        if (markerIdx > -1) {
-          this.state.markers.splice(markerIdx, 1);
-        }
-      });
+  computeTotalDistance(result) {
+      let total = 0;
+      let myRoute = result.routes[0];
+      for (let i = 0; i < myRoute.legs.length; i++) {
+        total += myRoute.legs[i].distance.value;
+      }
+
+      total = Math.round( (total / 1000) * 0.621371 * 10 ) / 10;
+      this.setState({distance: total,
+      path: myRoute.overview_polyline,
+      duration: myRoute.legs[0].duration.text,
+    });
+      elevationService.getElevationAlongPath({
+        'path': myRoute.overview_path,
+        'samples': 256
+      }, this.getElevationChange);
     }
+
+  placeMarker(location){
+    let marker;
+    if (this.state.markers.length < 2 ){
+      marker = new google.maps.Marker({
+       position: location,
+       map: this.map
+     });
+      this.state.markers.push(marker);
+    } else if (this.state.waypoints.length === 23) {
+      if (!this.state.errors.includes('Maximum Waypoints Selected. Save or Start Over. Try Dragging White Circles for Further Manipultaion.')) {
+        this.state.errors.push('Maximum Waypoints Selected. Save or Start Over. Try Dragging White Circles for Further Manipultaion.');
+      }
+      return null;
+    } else {
+      marker = new google.maps.Marker({
+       position: location,
+       map: this.map
+     });
+      let last = this.state.markers.pop();
+      this.state.markers.push(marker);
+      this.state.waypoints.push(last);
+    }
+
     if (this.state.markers.length === 2) {
       this.createRouteRequest();
     }
   }
 
-  // formatWaypoints(){
-  //   let waypoints = this.state.polyline.slice(1, this.state.polyline.length - 1).map((coord)=>{
-  //     return `${coord.lat()}|${coord.lng()}`;
-  //   })
-  //
-  //   console.log(waypoints)
-  // }
-
 
   createRouteRequest(){
-
     this.setState({waypoints: this.state.polyline.b.slice(1, this.state.polyline.b.length).map((coord)=>{
       return {location: new google.maps.LatLng(coord.lat(), coord.lng()), stopover: false};
     }) }) ;
-    debugger
-    // let last = this.state.path.pop();
-    // this.state.path.push(this.waypoints[this.state.waypoints[this.state.waypoints.length - 1]]);
-    //
-    // this.state.waypoints.push(last);
-    debugger
     const routeRequest = {
       origin: this.state.markers[0].getPosition(),
       destination: this.state.markers[1].getPosition(),
@@ -374,7 +381,6 @@ class Map extends React.Component {
         }, this.getElevationChange);
         this.state.markers[0].setMap(null);
         this.state.markers[1].setMap(null);
-        this.setState({markers: []});
       }
     });
   }
@@ -385,73 +391,15 @@ class Map extends React.Component {
       for (let i = 1; i < elevations.length; i++) {
         if (elevations[i].elevation - elevations[i-1].elevation) {
           let change = elevations[i].elevation - elevations[i-1].elevation;
+          if (change > 0) {
           totalElevation += change;
+          }
         }
       }
-
       totalElevation = Math.round(totalElevation * 3.28084);
       this.setState({elevation: totalElevation});
     }
   }
-
-  toggleBikeLayer() {
-   // toggles bicycling layer based on layerOn boolean
-   if (this.state.layerOn) {
-     bikeLayer.setMap(null);
-     this.setState({layerOn: false});
-   } else {
-     bikeLayer.setMap(this.route_map);
-     this.setState({layerOn: true});
-   }
- }
-  //   this.poly = new google.maps.Polyline({
-  //     strokeColor: '#fc4c02',
-  //     strokeOpacity: 1.0,
-  //     strokeWeight: 3,
-  //   });
-  //   this.poly.setMap(this.map);
-  //   let coord = this.map.addListener('click', this.addLatLng.bind(this));
-  //
-  //   let bikeLayer = new google.maps.BicyclingLayer();
-  //   bikeLayer.setMap(this.map);
-  //
-  //   // let elevator = new google.maps.ElevationService;
-  //
-  //   // this.map.addListener('click', function(e) {
-  //   //
-  //   //   this.displayLocationElevation(e.latLng, elevator, infowindow).bind(this);
-  //   // });
-  // }
-  //
-  // displayLocationElevation(location, elevator, infowindow) {
-  //   //initiate the local request
-  //
-  //   elevator.getElevationForLocations({
-  //     'locations': [location]
-  //   }, function(results, status) {
-  //     infowindow.setPosition(location);
-  //     if (status === 'OK') {
-  //       //retreive the first result
-  //       if (results[0]) {
-  //         //open the infowindow indicating the elvation at the clicked position
-  //         infowindow.setContent('The elevation at this point is' + results[0].elevation + 'meters');
-  //       } else {
-  //         infowindow.setContent('no results found');
-  //       }
-  //     } else {
-  //       infowindow.setContent('Elevation service failed due to: ' + status);
-  //     }
-  //   });
-  // }
-
-
-  // addLatLng(e){
-  //   let path = this.poly.getPath();
-  //   path.push(e.latLng);
-  //   this.setState({path: path});
-  //   //
-  //   this.props.fetchElevation(this.state.path);
-  // }
 
   handleSubmit(e){
     e.preventDefault();
@@ -460,11 +408,18 @@ class Map extends React.Component {
       title: this.state.title,
       polyline: this.state.path,
       elevation: this.state.elevation,
-      distance: this.state.distance
+      distance: this.state.distance,
+      duration: this.state.duration
     };
-
+    if (this.state.title === ""){
+      if (this.state.errors.includes('Please Add a Title.') === false)
+      this.state.errors.push('Please Add a Title.');
+    } else {
     this.props.createRoute(route).then(this.props.history.push('/routes'));
   }
+}
+
+
 
   update(field) {
     return(
@@ -478,23 +433,43 @@ class Map extends React.Component {
     );
   }
 
+  renderErrors() {
+    if (this.state.errors.length > 0) {
+      return(
+        <ul className="map-errors">
+          {this.state.errors.map((error, i) => (
+            <li key={`error-${i}`} className="route-error">
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
 
+    this.state.errors = [];
+  }
   render () {
+
+
     return (<div>
       <div id='map-container' ref={ map => this.mapNode = map }></div>
+        {this.renderErrors()}
       <div className='instructions'><h3>To Create A Route</h3>
         <ol>
           <li>Click a starting position</li>
+          <li>Select up to 23 waypoints along route</li>
           <li>Click an ending position</li>
           <li>Add a Title</li>
           <li>Click Save!</li>
+          <li className='tip'>Try dragging the route for further manipultaion</li>
         </ol>
       </div>
       <div className="route-form">
         <div><h2>{this.state.distance} miles</h2><h3>Distance</h3></div>
-        <div><h2>{this.state.elevation} feet</h2><h3>Elevation Change</h3></div>
+        <div><h2>{this.state.elevation} feet</h2><h3>Elevation Gain</h3></div>
+        <div><h2>{this.state.duration}</h2><h3>Estimated Duration</h3></div>
         <div>
-        <input type="text" onChange={this.update('title')} value={this.state.title} placeholder="Add a title"></input>
+        <input type="text" onChange={this.update('title')} value={this.state.title}  maxLength="20" placeholder="Add a title"></input>
         <button id="map-save" onClick={this.handleSubmit}>Save</button>
         </div>
       </div>

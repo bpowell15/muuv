@@ -7,15 +7,11 @@ import momentDurationFormatSetup from 'moment-duration-format';
 class RouteIndexItem extends React.Component {
   constructor(props){
     super(props);
-
     this.handleDelete = this.handleDelete.bind(this);
   }
   handleDelete(){
     this.props.deleteRoute(this.props.route.id);
   }
-
-
-
 
 
   render () {
@@ -35,7 +31,7 @@ class RouteIndexItem extends React.Component {
             <p className="title-link"><strong>{this.props.route.distance}</strong>mi<br></br><small>Distance</small></p>
             <p className="title-link"><strong>{this.props.route.elevation}</strong> ft<br></br><small>Elevation Gain</small></p>
           </div>
-          <p className="title-link"><small>Est. Duration</small> {moment.duration(((this.props.route.distance/10)* 3600), "seconds").format("h[hrs ]mm[mins ]")}</p>
+          <p className="title-link"><small>Est. Duration</small> {this.props.route.duration || moment.duration(((this.props.route.distance/10)* 3600), "seconds").format("h[hrs ]mm[mins ]")}</p>
           <p className="title-link date">Created On {moment(this.props.route.created_at).format('MMMM Do, YYYY')}</p>
         </div>
     </div>

@@ -100,7 +100,7 @@ class WorkoutIndexItem extends React.Component {
                 <p>{this.parseDate()}</p>
               </div>
               <div className="workout-mini-stats">
-              <Link to={`/workouts/${this.props.workout.id}`} >{this.props.workout.title}</Link>
+              <Link to={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</Link>
               <ul><li>{this.props.workout.distance}{this.props.workout.distance_unit}</li><li>{this.props.workout.elevation}{this.props.workout.elevation_unit}</li><li><h3>({this.duration()})</h3></li></ul>
               <p><Link to={`/workouts/${this.props.workout.id}`} >{this.props.workout.description}</Link></p>
             </div>

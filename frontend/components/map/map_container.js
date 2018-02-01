@@ -5,9 +5,9 @@ import { createRoute, fetchElevation }  from '../../actions/route_actions';
 
 
 const mapStateToProps = (state) => {
-
   return {
-    // errors: state.errors.routes
+
+    errors: state.errors.routes
   };
 };
 

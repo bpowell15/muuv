@@ -30,7 +30,8 @@ export const createRoute = (route) => {
           title: route.title,
           distance: route.distance,
           elevation: route.elevation,
-          polyline: route.polyline
+          polyline: route.polyline,
+          duration: route.duration
       }}
     })
   );
