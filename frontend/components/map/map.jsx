@@ -254,6 +254,8 @@ class Map extends React.Component {
       distance: 0,
       elevation: 0,
       path: [],
+      polyline: [],
+      waypoints: [],
       center: {lat: 40.730610, lng: -73.935242},
       layerOn: false,
       markers: []
@@ -278,9 +280,24 @@ class Map extends React.Component {
       //add error
     }
 
+    this.poly = new google.maps.Polyline({
+      strokeColor: '#fc4c02',
+      strokeOpacity: 1.0,
+      strokeWeight: 3,
+    });
+
+
+    // this.poly.setMap(this.map);
+    this.map.addListener('click', this.addLatLng.bind(this));
+
     this.addMapListeners();
   }
 
+  addLatLng(e){
+  let path = this.poly.getPath();
+  path.push(e.latLng);
+  this.setState({polyline: path});
+}
 
 
   addMapListeners(){
@@ -311,11 +328,30 @@ class Map extends React.Component {
     }
   }
 
+  // formatWaypoints(){
+  //   let waypoints = this.state.polyline.slice(1, this.state.polyline.length - 1).map((coord)=>{
+  //     return `${coord.lat()}|${coord.lng()}`;
+  //   })
+  //
+  //   console.log(waypoints)
+  // }
+
 
   createRouteRequest(){
+
+    this.setState({waypoints: this.state.polyline.b.slice(1, this.state.polyline.b.length).map((coord)=>{
+      return {location: new google.maps.LatLng(coord.lat(), coord.lng()), stopover: false};
+    }) }) ;
+    debugger
+    // let last = this.state.path.pop();
+    // this.state.path.push(this.waypoints[this.state.waypoints[this.state.waypoints.length - 1]]);
+    //
+    // this.state.waypoints.push(last);
+    debugger
     const routeRequest = {
       origin: this.state.markers[0].getPosition(),
       destination: this.state.markers[1].getPosition(),
+      waypoints: this.state.waypoints,
       travelMode: 'BICYCLING'
     };
 
