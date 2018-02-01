@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import WorkoutEditContainer from '../workout_form/workout_edit_container';
 import Mapp from '../map/mapp';
+import ElevationGraph from './elevation_graph';
 class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
@@ -13,6 +14,7 @@ class WorkoutShow extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.toggleMap = this.toggleMap.bind(this);
+    this.chartClassToggle = this.chartClassToggle.bind(this);
   }
 
   componentDidMount(){
@@ -138,15 +140,35 @@ toggleMap(){
   }
 
 
+  chartClassToggle(){
+    debugger
+    if (this.state.showMap === true){
+      return 'elevation-graph map';
+    } else {
+      return 'elevation-graph';
+    }
+  }
+
 
 
   render () {
       let showEdit;
+      let showGraph;
+      let chartToggle;
       if (!this.state.showEdit) {
         showEdit = null;
       } else {
-        showEdit = <WorkoutEditContainer className="editModal" workout = { this.props.workout } toggleEdit={ this.toggleEdit }/>;
+        showEdit = (<WorkoutEditContainer className="editModal" workout = { this.props.workout } toggleEdit={ this.toggleEdit } />
+    );
       }
+
+      if (this.props.workout.route) {
+        showGraph = <ElevationGraph polyline={ this.props.workout.route.polyline } />
+      } else {
+        showGraph = null;
+      }
+
+
 
     return(
       <div className='info-section'>
@@ -181,6 +203,9 @@ toggleMap(){
       <div className={`show-route animated ${this.toggleShow()}`} onClick={this.toggleMap}>
         <div className="route-img-title">{this.toggleTitle()}</div>
         {this.toggleRender()}
+      </div>
+      <div className={this.chartClassToggle()}>
+        {showGraph}
       </div>
     </div>
     );

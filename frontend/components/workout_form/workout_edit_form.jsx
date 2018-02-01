@@ -94,7 +94,7 @@ class WorkoutEdit extends React.Component {
           <div className="activity_type">
             <label className="edit-input-label sport">Sport</label>
             <select className="select-dropdown edit-sport-select" onChange={this.update('sport')} value={this.state.sport}>
-              <option selected value="Ride">Ride</option>
+              <option defaultValue="Ride">Ride</option>
               <option value="Run">Run</option>
               <option value="Swim">Swim</option>
               <option value="Code">Code</option>

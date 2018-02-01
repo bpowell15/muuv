@@ -22,6 +22,20 @@
   }
 }
 
+#elevation_chart {
+  margin-left: 167px;
+  margin-top: 168px;
+  position: relative;
+}
+
+.elevation-graph.map {
+  margin-top: -168px;
+}
+
+.chart-title {
+  position: absolute;
+  z-index: 10;
+}
 #map-save {
   text-decoration: none;
     background-color: #fc4c02;
@@ -37,6 +51,7 @@
   cursor: pointer;
 }
 }
+
 
 .route-form {
   border-bottom: 2px solid #fc4c02;

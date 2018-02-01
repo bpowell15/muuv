@@ -3,7 +3,11 @@
   <head>
     <title>Muuv</title>
     <%= csrf_meta_tags %>
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+</script>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Supo7gTtIjC8R6iANlG-BVdpKOOzG38&libraries=geometry"%>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
