@@ -3,7 +3,7 @@ import React from 'react'
 
 class ElevationGraph extends React.Component {
   constructor (props) {
-    
+
     super(props);
     this.elevator = null;
   }
@@ -15,16 +15,11 @@ class ElevationGraph extends React.Component {
 
 
   drawChart(){
-    // console.log(chart)
     let path = google.maps.geometry.encoding.decodePath(this.props.polyline)
-    // console.log(path[0].lat())
     let pathRequest = {
       path: path,
       samples: 256
     };
-
-    // console.log(pathRequest)
-
      this.elevator.getElevationAlongPath(pathRequest, this.plotElevation);
   }
 
@@ -34,7 +29,6 @@ class ElevationGraph extends React.Component {
     }
 
     let elevations = results;
-    console.log(elevations)
     let data = new google.visualization.DataTable();
     data.addColumn('string', 'Sample');
     data.addColumn('number', 'Elevation');
@@ -57,7 +51,6 @@ class ElevationGraph extends React.Component {
         },
       title: {
         text:'Elevation Change',
-        // fontWeight: '300'
       },
       gridlines: {
         color: '#ccccd1'

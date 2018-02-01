@@ -31,7 +31,7 @@ class NavBar extends React.Component {
               Activity Feed
             </Link>
             <Link to="/routes" className="dashboard-button">
-              My Routes
+              Routes
             </Link>
           </div>
         </div>

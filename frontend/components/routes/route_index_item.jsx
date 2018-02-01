@@ -20,7 +20,7 @@ class RouteIndexItem extends React.Component {
   }
 
   showModal(){
-    debugger
+    
       if (!this.state.showModal){
       this.setState({showModal: true});
     } else {
