@@ -457,7 +457,7 @@ class Map extends React.Component {
       <div className='instructions'><h3>To Create A Route</h3>
         <ol>
           <li>Click a starting position</li>
-          <li>Select up to 23 waypoints along route</li>
+          <li>Select waypoints along route</li>
           <li>Click an ending position</li>
           <li>Add a Title</li>
           <li>Click Save!</li>

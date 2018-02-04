@@ -102,7 +102,7 @@ letter-spacing: -1px;
   position: relative;
   display: flex;
   align-items: baseline;
-  justify-content: space-evenly;
+  justify-content: space-around;
   min-width: 100%;
   background-color: white;
   h3 {
@@ -128,13 +128,13 @@ letter-spacing: -1px;
   min-width: 100%;
   min-height: 55px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   background-color: white;
   // min-width: 100%;
   // min-height: 55px;
   // display: flex;
-  // justify-content: space-evenly;
+  // justify-content: space-around;
   // align-items: center;
   // background-color: white
   h3 {
@@ -574,6 +574,8 @@ letter-spacing: -1px;
 
 
 
+
+
 .dropdown-sprite {
   background: image-url('nav_sprite.png') no-repeat 0 0;
   width: 9px;
@@ -669,7 +671,7 @@ letter-spacing: -1px;
 
 .sprites {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
