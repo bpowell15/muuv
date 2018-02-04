@@ -2,6 +2,7 @@ import React from 'react';
 import merge from 'lodash/merge';
 
 const mapOptions = {
+  center: {lat: 40.730610, lng: -73.935242},
   zoom: 13,
   styles: [
 {
