@@ -14,6 +14,29 @@
   }
 }
 
+.modal-items {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  min-height: max-content;
+  padding-left: 200px;
+  img {
+    margin-right: 0;
+    min-width: 1052px;
+    align-self: center;
+    // margin-left: 594px;
+    margin-top: 200px;
+    // margin: 0 auto;
+  }
+  #elevation_chart {
+    align-self: center;
+    // border: 1px solid #e6e6eb;
+    margin-top: 0px;
+    // margin-left: 594px;
+    // margin: 0 auto;
+  }
+}
+
 .route-modal {
   overflow: hidden;
   z-index: 10;
@@ -27,16 +50,7 @@
   background-color: rgba(0, 0, 0, .5);
   margin-left: -500px;
   margin-top: -200px;
-  img {
-    max-width: 1052px;
-    margin-left: 594px;
-    margin-top: 200px;
-  }
-  #elevation_chart {
-    // border: 1px solid #e6e6eb;
-    margin-top: 0px;
-    margin-left: 594px;
-  }
+
 }
 
 .route-modal:hover{

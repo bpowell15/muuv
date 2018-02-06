@@ -165,7 +165,7 @@ toggleMap(){
         <div className="route-img-title">{this.toggleTitle()}</div>
         {this.toggleRender()}
       </div>
-      <div className={this.chartClassToggle()}>
+      <div className={`workshow ${this.chartClassToggle()}`} >
         {showGraph}
       </div>
       </div>

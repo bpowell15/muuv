@@ -46,9 +46,13 @@
 }
 
 #elevation_chart {
-  margin-left: 167px;
+  // margin-left: 167px;
   margin-top: 168px;
   position: relative;
+}
+
+.workshow > #elevation_chart {
+  margin-left: 167px;
 }
 
 .elevation-graph.map {
