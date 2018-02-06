@@ -39,6 +39,7 @@ class RouteIndex extends React.Component {
             <RouteIndexItem key={route.id}
               deleteRoute={this.props.deleteRoute}
               route={route}
+              user ={this.props.user}
               />
           ))
         }

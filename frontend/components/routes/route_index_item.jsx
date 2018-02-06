@@ -20,7 +20,7 @@ class RouteIndexItem extends React.Component {
   }
 
   showModal(){
-    
+
       if (!this.state.showModal){
       this.setState({showModal: true});
     } else {
@@ -28,11 +28,22 @@ class RouteIndexItem extends React.Component {
     }
   }
 
+  toggleDelete(){
+    debugger
+    if (this.props.route.user_id === this.props.user.id) {
+      return (
+        <div onClick={this.handleDelete}>Delete</div>
+      )
+    } else {
+      return null;
+    }
+  }
+
 
   render () {
     let modal;
     if (this.state.showModal){
-      modal = <RouteShow route = {this.props.route} />;
+      modal = <RouteShow route = {this.props.route} user = {this.props.user} />;
     } else {
       modal = null;
     }
@@ -47,7 +58,7 @@ class RouteIndexItem extends React.Component {
         <div className="route-info">
           <div className="first-line">
             <a onClick={this.showModal}><h3 className="title-link">{this.props.route.title}</h3></a>
-            <div onClick={this.handleDelete}>Delete</div>
+            {this.toggleDelete()}
           </div>
           <div className="routestats">
             <p className="title-link"><strong>{this.props.route.distance}</strong>mi<br></br><small>Distance</small></p>
