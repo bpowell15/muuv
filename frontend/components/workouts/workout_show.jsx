@@ -149,6 +149,29 @@ toggleMap(){
     }
   }
 
+  map(){
+    let showGraph;
+
+    if (this.props.workout.route) {
+      showGraph = <ElevationGraph polyline={ this.props.workout.route.polyline } />
+    } else {
+      showGraph = null;
+    }
+
+    if (this.props.workout.route) {
+      return (
+        <div>
+      <div className={`show-route animated ${this.toggleShow()}`} onClick={this.toggleMap}>
+        <div className="route-img-title">{this.toggleTitle()}</div>
+        {this.toggleRender()}
+      </div>
+      <div className={this.chartClassToggle()}>
+        {showGraph}
+      </div>
+      </div>
+    )
+  }
+}
 
 
   render () {
@@ -171,6 +194,7 @@ toggleMap(){
 
 
     return(
+      <div>
       <div className='info-section'>
         <div className="show-page">
           {showEdit}
@@ -200,14 +224,9 @@ toggleMap(){
           </div>
         </div>
       </div>
-      <div className={`show-route animated ${this.toggleShow()}`} onClick={this.toggleMap}>
-        <div className="route-img-title">{this.toggleTitle()}</div>
-        {this.toggleRender()}
-      </div>
-      <div className={this.chartClassToggle()}>
-        {showGraph}
-      </div>
+      {this.map()}
     </div>
+  </div>
     );
   }
 }

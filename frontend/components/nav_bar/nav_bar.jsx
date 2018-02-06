@@ -44,6 +44,10 @@ class NavBar extends React.Component {
         </div>
         <div className="user-dropdown-content">
           <a className="header-button" onClick={this.props.logout}>Log Out</a>
+          <a className="header-button" href="http://github.com/bpowell15">Github</a>
+          <a className="header-button" href="http://linkedin.com/in/bpowell15">LinkedIn</a>
+          <a className="header-button" href="https://angel.co/brice-powell?public_profile=1">Angel List</a>
+          <a className="header-button" href="http://bricepowell.com">Portfolio</a>
         </div>
       </div>
       <div className="create-dropdown">

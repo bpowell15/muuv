@@ -20,7 +20,7 @@ import WorkoutCreateForm from './workout_form/workout_form_container';
 import WorkoutShowContainer from './workouts/workout_show_container';
 import RouteIndexContainer from './routes/routes_index_container';
 import BackgroundImage from './background_image';
-import Footer from './nav_bar/footer';
+
 
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
@@ -52,8 +52,8 @@ class App extends React.Component{
             <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
             <ProtectedRoute path="/routes" component={RouteIndexContainer} />
           </Switch>
+          
         </div>
-        <Footer />
       </div>
   );}
 }

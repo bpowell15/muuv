@@ -1,6 +1,8 @@
 import React from 'react';
 import WorkoutIndexItem from './workout_index_item';
 import WorkoutStats from './workout_stats';
+
+
 class WorkoutIndex extends React.Component {
   constructor(props){
 
@@ -23,6 +25,7 @@ class WorkoutIndex extends React.Component {
     );
     }
       return (
+        <div>
         <div className="feed">
         <div className="workout-feed">
           <h1>Activity Feed</h1>
@@ -44,6 +47,7 @@ class WorkoutIndex extends React.Component {
 
       </div>
       <WorkoutStats workouts={this.props.workouts} />
+    </div>
     </div>
     );
   }
