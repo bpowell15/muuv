@@ -22,6 +22,10 @@
   margin: 0;
   overflow: hidden;
 }
+.route-info h3 {
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 footer {
   /* position: fixed; */

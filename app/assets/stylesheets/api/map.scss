@@ -181,6 +181,8 @@ margin-top: -5px;
     font-size: 18px;
     text-decoration: none;
     color: #007fb6;
+    white-space: nowrap;
+    overflow: hidden;
   }
   // p{
   //   font-size: 18px;
@@ -189,6 +191,7 @@ margin-top: -5px;
   // }
 }
 
+
 .title-link {
   max-width: 187px;
   overflow: hidden;
@@ -196,7 +199,6 @@ margin-top: -5px;
   // margin-bottom: 20px;
   padding: 15px 15px;
   // max-width: 300px;
-  // max-height: 18px;
   // overflow: hidden;
   small {
     color: #99999e;
