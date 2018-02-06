@@ -53,19 +53,6 @@ class WorkoutIndexItem extends React.Component {
     return 'swim-sprite';
   }
 
-  parseDate(){
-    let parseTime = moment(this.props.workout.time).format('hh:mm:ss');
-    let parseDate = moment(this.props.workout.date).format('YYYY-MM-DD');
-    let newDateString = `${parseDate}T${parseTime}`;
-    return (moment(newDateString).calendar());
-  }
-
-  // toggleShow(){
-  //
-  //   this.setState({
-  //     show: !this.state.show
-  //   });
-  // }
   routeImage(){
 
     if (this.props.workout.route) {
@@ -97,7 +84,7 @@ class WorkoutIndexItem extends React.Component {
             </div>
               <div className="name-date">
                 <h3>{this.props.user.fname} {this.props.user.lname}</h3>
-                <p>{this.parseDate()}</p>
+                <p>{moment(this.props.workout.date).calendar()}</p>
               </div>
               <div className="workout-mini-stats">
               <Link to={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</Link>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 import merge from 'lodash/merge';
+import Flatpickr from 'react-flatpickr';
+
 
 class WorkoutForm extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class WorkoutForm extends React.Component {
       duration_seconds: 0,
       elevation: 0,
       sport: 'Ride',
-      date: "",
+      date: new Date(),
       time: "",
       title: "",
       description: "",
@@ -23,6 +25,7 @@ class WorkoutForm extends React.Component {
       route_id: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
     this.routesSelector = this.routesSelector.bind(this);
   }
 
@@ -42,6 +45,7 @@ class WorkoutForm extends React.Component {
   // }
 
   handleSubmit(e){
+    console.log(this.state.date)
     e.preventDefault();
     const workout = this.state;
     this.props.processForm(workout).then(() => {
@@ -164,9 +168,15 @@ class WorkoutForm extends React.Component {
           </div>
           <div className="date-time">
             <label className="input-label">Date & Time</label><br></br>
-              <input className="date-time-input" type="date" onChange={this.update('date')} placeholder="" />
-              <input className="date-time-input" id="time" type="time" onChange={this.update('time')} placeholder="" />
-
+              <Flatpickr data-enable-time
+                value={this.state.date}
+                onChange={(date)=>{this.setState({date: date[0]});}}
+                options={{maxDate: new Date(),
+                  altInput: true,
+                  dateFormat: "F j, Y H:i K",
+                  enableTime: true
+                }}
+              />
           </div>
           <div className="route-div">
           <label className="input-label">Route

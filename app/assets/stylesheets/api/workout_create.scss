@@ -24,7 +24,13 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.flatpickr-month, .flatpickr-weekdays, span.flatpickr-weekday, .flatpickr-day.selected {
+  background-color: #fc4b05;
+}
 
+.flatpickr-input {
+  width: 217px;
+}
 .hour-input, .minute-input, .second-input {
       width: 58.3px;
 

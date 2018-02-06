@@ -14,6 +14,7 @@ export const fetchWorkout = (id) => {
 };
 
 export const createWorkout = (workout) => {
+  workout.time = workout.date;
   return $.ajax({
     method: 'POST',
     url: 'api/workouts',
