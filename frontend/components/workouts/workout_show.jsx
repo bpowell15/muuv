@@ -19,7 +19,6 @@ class WorkoutShow extends React.Component {
 
   componentDidMount(){
     this.props.fetchWorkout(this.props.match.params.workoutId);
-    this.props.fetchRoute(this.props.workout.route_id);
   }
 
 
@@ -153,7 +152,7 @@ toggleMap(){
     let showGraph;
 
     if (this.props.workout.route) {
-      showGraph = <ElevationGraph polyline={ this.props.workout.route.polyline } />
+      showGraph = <ElevationGraph distance={ this.props.workout.route.distance } polyline={ this.props.workout.route.polyline } />
     } else {
       showGraph = null;
     }

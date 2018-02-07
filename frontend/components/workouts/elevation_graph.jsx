@@ -3,9 +3,9 @@ import React from 'react'
 
 class ElevationGraph extends React.Component {
   constructor (props) {
-
     super(props);
     this.elevator = null;
+    this.plotElevation = this.plotElevation.bind(this);
   }
 
   componentDidMount(){
@@ -30,11 +30,13 @@ class ElevationGraph extends React.Component {
 
     let elevations = results;
     let data = new google.visualization.DataTable();
-    data.addColumn('string', 'Sample');
+    data.addColumn('string', 'Distance');
     data.addColumn('number', 'Elevation');
     for (let i = 0; i < results.length; i++) {
-      data.addRow(['', elevations[i].elevation]);
+        data.addRow(["", elevations[i].elevation]);
     }
+
+
 
     let chart = new google.visualization.ColumnChart(document.getElementById('elevation_chart'));
     document.getElementById('elevation_chart').style.display = 'block';
@@ -42,8 +44,8 @@ class ElevationGraph extends React.Component {
       height: 300,
       width: 1052,
       legend: 'none',
-      titleY: 'Elevation',
-      titleX: 'Distance',
+      titleY: 'Elevation (ft)',
+      titleX: 'Distance (mi)',
       colors: ['#fc4c02'],
       backgroundColor: {
         stroke: '#e6e6eb',

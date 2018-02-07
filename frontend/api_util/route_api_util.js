@@ -5,20 +5,15 @@ export const fetchRoutes = () => (
   })
 );
 
-export const fetchRoute = (routeId) => (
-  $.ajax({
-    method: "GET",
-    url: `/api/routes/${routeId}`
-  })
-);
-
-export const fetchElevation = (polyline) => {
+export const fetchRoute = (routeId) => {
+  debugger
   return (
     $.ajax({
-      method: 'GET',
-      url: "https://maps.googleapis.com/maps/api/elevation/json?locations=enc:" + polyline + "&key=AIzaSyC3Supo7gTtIjC8R6iANlG-BVdpKOOzG38"
+      method: "GET",
+      url: `/api/routes/${routeId}`
     })
-);};
+  );
+};
 
 export const createRoute = (route) => {
 

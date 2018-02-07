@@ -30,7 +30,7 @@ class WorkoutStats extends React.Component {
 
     var numseconds = ((totalSeconds % 86400) % 3600) % 60;
 
-    return <p className="stat second-row"><h1>{numdays}</h1>days <h1>{numhours}</h1>hrs <h1>{numminutes}</h1>mins <h1>{numseconds}</h1>secs </p>;
+    return <div className="stat second-row"><h1>{numdays}</h1>days <h1>{numhours}</h1>hrs <h1>{numminutes}</h1>mins <h1>{numseconds}</h1>secs </div>;
 
 
   }
@@ -87,12 +87,12 @@ class WorkoutStats extends React.Component {
       <div className="stat-totals">
         <header><h2>Workout Totals</h2></header>
         <div className="top-row">
-        <div><p className="stat"><h1>{this.totalDistance()}</h1>mi</p><p>Total Distance</p></div>
-        <div><p className="stat"><h1>{this.totalElevation()}</h1>ft</p><p>Total Elevation</p></div>
-        <div><p className="stat"><h1>{this.averageSpeed()}</h1>mph</p><p>Average Speed</p></div>
+        <div><div className="stat"><h1>{this.totalDistance()}</h1>mi</div><p>Total Distance</p></div>
+        <div><div className="stat"><h1>{this.totalElevation()}</h1>ft</div><p>Total Elevation</p></div>
+        <div><div className="stat"><h1>{this.averageSpeed()}</h1>mph</div><p>Average Speed</p></div>
         </div>
         <div className="align-div">
-          <div className="stat second-row">{this.totalDuration()}<p className="total-time">Total Time</p></div>
+          <div className="stat third-row">{this.totalDuration()}<p className="total-time">Total Time</p></div>
         </div>
       </div>
     );

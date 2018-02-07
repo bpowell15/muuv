@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
   return ({
     fetchWorkout: workoutId => dispatch(fetchWorkout(workoutId)),
     deleteWorkout: workoutId => dispatch(deleteWorkout(workoutId)),
-    fetchRoute: routeId => dispatch(deleteWorkout(routeId))
+    fetchRoute: routeId => dispatch(fetchRoute(routeId))
   });
 };
 
