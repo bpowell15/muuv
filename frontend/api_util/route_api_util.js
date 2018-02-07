@@ -6,7 +6,7 @@ export const fetchRoutes = () => (
 );
 
 export const fetchRoute = (routeId) => {
-  debugger
+  
   return (
     $.ajax({
       method: "GET",

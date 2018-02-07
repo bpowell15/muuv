@@ -45,7 +45,6 @@ class WorkoutForm extends React.Component {
   // }
 
   handleSubmit(e){
-    console.log(this.state.date)
     e.preventDefault();
     const workout = this.state;
     this.props.processForm(workout).then(() => {

@@ -75,7 +75,7 @@ export const updateWorkout = workout => dispatch => {
 };
 
 export const deleteWorkout = id => dispatch => {
-  debugger
+  
   return WorkoutAPIUtil.deleteWorkout(id).then((id) => {
     dispatch(removeWorkout(id));
   }, (errors) => {
