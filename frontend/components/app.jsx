@@ -38,10 +38,10 @@ class App extends React.Component{
       <div>
         <GreetingContainer  />
           <Switch>
-            <Route exact path="/" component={BackgroundImage} image="background-login2" />
             <Route exact path="/login" component={BackgroundImage} />
             <Route exact path="/signup" component={BackgroundImage} />
             <ProtectedRoute path="/routes/new" component={MapContainer} />
+            <AuthRoute exact path="/" component={BackgroundImage} image="background-login2" />
           </Switch>
           <div className="everypage">
             <HookGreetingContainer />
@@ -52,7 +52,6 @@ class App extends React.Component{
             <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer}/>
             <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
             <ProtectedRoute path="/routes" component={RouteIndexContainer} />
-            <AuthRoute path="/" />
           </Switch>
         </div>
       </div>
