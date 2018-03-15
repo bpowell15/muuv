@@ -33,7 +33,17 @@
     color: #666;
     margin-bottom: 5px;
   }
+
+  h2:hover {
+    cursor: pointer;
+  }
+  .highlight {
+    font-weight: 200;
+    color: #fc4c02
+  }
 }
+
+
 
 .feed{
   display: flex;

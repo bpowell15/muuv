@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import WorkoutEditContainer from '../workout_form/workout_edit_container';
-import Mapp from '../map/mapp';
 import ElevationGraph from './elevation_graph';
 class WorkoutShow extends React.Component {
   constructor(props){

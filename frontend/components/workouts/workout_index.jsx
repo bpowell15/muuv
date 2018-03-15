@@ -25,9 +25,9 @@ class WorkoutIndex extends React.Component {
       return (
         <div className="feed">
         <div className="workout-feed">
-          <h1>Activity Feed</h1>
+          <h1 >Activity Feed</h1>
 
-          <ul>
+          <ul style={{overflow: "scroll", maxHeight: "80vh"}}>
           {
             chronologicalOrder.map((workout) => (
               <WorkoutIndexItem

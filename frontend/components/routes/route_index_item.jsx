@@ -29,11 +29,11 @@ class RouteIndexItem extends React.Component {
   }
 
   toggleDelete(){
-    
+
     if (this.props.route.user_id === this.props.user.id) {
       return (
         <div onClick={this.handleDelete}>Delete</div>
-      )
+      );
     } else {
       return null;
     }

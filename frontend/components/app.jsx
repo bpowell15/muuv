@@ -43,7 +43,7 @@ class App extends React.Component{
             <ProtectedRoute path="/routes/new" component={MapContainer} />
           </Switch>
           <div className="everypage">
-          <HookGreetingContainer />
+            <HookGreetingContainer />
           <Switch>
             <AuthRoute path="/login" component={SessionFormContainer} />
             <AuthRoute path="/signup" component={SessionFormContainer} />
@@ -52,7 +52,7 @@ class App extends React.Component{
             <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
             <ProtectedRoute path="/routes" component={RouteIndexContainer} />
           </Switch>
-          
+
         </div>
       </div>
   );}
