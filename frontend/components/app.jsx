@@ -22,6 +22,7 @@ import RouteIndexContainer from './routes/routes_index_container';
 import BackgroundImage from './background_image';
 
 
+
 import { AuthRoute, ProtectedRoute } from '../api_util/route_util';
 
 
@@ -51,8 +52,8 @@ class App extends React.Component{
             <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer}/>
             <ProtectedRoute path="/workouts" component={WorkoutIndexContainer} />
             <ProtectedRoute path="/routes" component={RouteIndexContainer} />
+            <AuthRoute path="/" />
           </Switch>
-
         </div>
       </div>
   );}
