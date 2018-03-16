@@ -22,12 +22,13 @@ class WorkoutIndex extends React.Component {
       </div>
     );
     }
+
       return (
         <div className="feed">
         <div className="workout-feed">
           <h1 >Activity Feed</h1>
 
-          <ul style={{overflow: "scroll", maxHeight: "80vh"}}>
+          <ul style={{overflow: "scroll", maxHeight: "85vh"}}>
           {
             chronologicalOrder.map((workout) => (
               <WorkoutIndexItem

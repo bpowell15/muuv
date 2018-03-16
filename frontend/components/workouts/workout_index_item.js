@@ -6,10 +6,13 @@ import WorkoutShowContainer from './workout_show_container';
 class WorkoutIndexItem extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //   show: false
-    // };
+
+    this.state = {
+      showCommentBox: false
+    };
     // this.toggleShow = this.toggleShow.bind(this);
+    this.addLike = this.addLike.bind(this);
+    this.showCommentBox = this.showCommentBox.bind(this);
   }
 
 
@@ -64,7 +67,33 @@ class WorkoutIndexItem extends React.Component {
     }
   }
 
+  addLike(){
+    console.log('+1like')
+  }
+
+  showCommentBox(){
+    debugger
+    console.log('show')
+    this.setState({
+      showCommentBox: !this.state.showCommentBox
+    });
+  }
+
+
+
   render () {
+    let commentBox;
+    if (this.state.showCommentBox) {
+      commentBox = (
+          <form>
+
+            <label className="comment-label"><span style={{display: 'flex', justifyContent: 'space-between'}}>Leave a Comment <span className="cancel" onClick={this.showCommentBox}>cancel</span></span>
+              <textarea rows="8" cols="50"></textarea>
+              <button>Submit</button>
+            </label>
+          </form>
+      );
+    }
     // let showContainer;
 
     // if (!this.state.show) {
@@ -89,9 +118,13 @@ class WorkoutIndexItem extends React.Component {
               <div className="workout-mini-stats">
               <Link to={`/workouts/${this.props.workout.id}`}>{this.props.workout.title}</Link>
               <ul><li>{this.props.workout.distance}{this.props.workout.distance_unit}</li><li>{this.props.workout.elevation}{this.props.workout.elevation_unit}</li><li><h3>({this.duration()})</h3></li></ul>
-              <p><Link to={`/workouts/${this.props.workout.id}`} >{this.props.workout.description}</Link></p>
+              <p style={{borderBottom: "1px solid #e6e6ec", paddingBottom: "5px"}}><Link to={`/workouts/${this.props.workout.id}`} >{this.props.workout.description}</Link></p>
             </div>
-
+            <div className="social-links">
+              <a onClick={this.addLike}><i className="fas fa-thumbs-up"></i></a>
+              <a onClick={this.showCommentBox}><i className="fas fa-comments"></i></a>
+            </div>
+            {commentBox}
           </div>
           <Link className="show-link" to={`/workouts/${this.props.workout.id}`} >{this.routeImage()}</Link>
         </div>

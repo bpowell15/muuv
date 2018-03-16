@@ -4,7 +4,7 @@ class Api::WorkoutsController < ApplicationController
   def index
 
     user = current_user
-    # @workouts = Workout.all.where(user_id: @user.id)
+    # @allWorkouts = Workout.all
     @workouts = user.workouts.includes(:route)
 
   end

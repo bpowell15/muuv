@@ -1,1 +1,51 @@
 // Place all the styles related to the Workouts controller here.
+.social-links {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  color: #e6e6ec;
+  width: 280px;
+  svg {
+    &:hover {
+      cursor: pointer;
+      color: black;
+    }
+  }
+}
+
+.comment-label {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 1px solid #e6e6ed;
+  margin-top: 10px;
+  width: 280px;
+  font-size: 13px;
+  line-height: 1.38em;
+  textarea {
+    outline: none !important;
+    border: 1px solid #e6e6ed;
+    resize: none;
+    margin-top: 5px;
+  }
+  button {
+    padding: 15px;
+    color: white;
+    background-color: #fc4b05;
+    font-size: 15px;
+    font-weight: 500;
+    &:hover {
+      cursor: pointer;
+      background-color: #c93d02;
+    }
+  }
+
+}
+
+span.cancel {
+  color: #e6e6ec;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+}

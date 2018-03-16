@@ -191,19 +191,19 @@
  //    left: 209px;
  //  }
  // }
- @keyframes fadeIn {
-   from {
-     opacity: 0;
-   }
-
-   to {
-     opacity: 1;
-   }
- }
-
- .fadeIn {
-   animation-name: fadeIn;
- }
+ // @keyframes fadeIn {
+ //   from {
+ //     opacity: 0;
+ //   }
+ //
+ //   to {
+ //     opacity: 1;
+ //   }
+ // }
+ //
+ // .fadeIn {
+ //   animation-name: fadeIn;
+ // }
  .wrk-route-image {
    position: absolute;
    // right: 115px;
@@ -212,6 +212,7 @@
    // margin-left: 153px;
    transform: 0;
    left: 0px;
+   top: 37px;
    right: 400px;
    width: 1050px;
  }
@@ -225,18 +226,23 @@
     // margin-left: 283px;
     // margin-right: 115px;
     height: 300px;
+    &:hover {
+      height: 310px;
+    }
+    transition: 1s;
+    transition-timing-function: linear ;
     width: 1052px;
     overflow: hidden;
     .wrk-route-image {
-    cursor: pointer;
-  }
-  .route-img-title {
-    cursor: pointer;
-  }
+      cursor: pointer;
+    }
+    .route-img-title {
+      cursor: pointer;
+    }
  }
 
  .show-route.show {
-   height: 702px;
+   height: 747px;
    top:0;
    // top: 85px;
    z-index: 50;

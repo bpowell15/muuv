@@ -164,6 +164,7 @@ toggleMap(){
         {this.toggleRender()}
       </div>
       <div className={`workshow ${this.chartClassToggle()}`} >
+        <h1 className="ele-title">Elevation Change</h1>
         {showGraph}
       </div>
       </div>

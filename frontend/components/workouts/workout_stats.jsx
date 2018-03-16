@@ -109,7 +109,6 @@ class WorkoutStats extends React.Component {
   }
 
   statSwitch(workouts, type){
-    console.log(type)
     this.setState({
       currentStats: workouts,
       highlight: type
@@ -119,9 +118,10 @@ class WorkoutStats extends React.Component {
   render () {
     return (
       <div className="stat-totals">
-        <header style={{display: "flex", marginBottom: "10px"}}><h2 className={this.state.highlight === 'all' ? "highlight" : ""} onClick={()=>{this.statSwitch(this.props.workouts, 'all')}}>Workout Totals</h2>
+        <header style={{display: "flex", marginBottom: "10px"}}><h2 className={this.state.highlight === 'all' ? "highlight" : ""} onClick={()=>{this.statSwitch(this.props.workouts, 'all')}}>All Activity</h2>
                 <h2 className={this.state.highlight === 'ride' ? "highlight" : ""} style={{marginLeft: "20px"}} onClick={()=>{this.statSwitch(this.state.ride, 'ride')}}>Rides</h2>
                 <h2 className={this.state.highlight === 'run' ? "highlight" : ""} style={{marginLeft: "20px"}} onClick={()=>{this.statSwitch(this.state.run, 'run')}}>Runs</h2>
+                <h2 style={{marginLeft: "40px", fontWeight:"300"}}><span>Entries: </span>{this.state.currentStats.length}</h2>
         </header>
         <div className="top-row">
         <div><div className="stat"><h1>{this.totalDistance(this.state.currentStats)}</h1>mi</div><p>Total Distance</p></div>

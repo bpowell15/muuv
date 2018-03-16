@@ -14,6 +14,12 @@
   box-shadow: 0 3px 3px -3px grey;
 }
 
+.help {
+  position: absolute;
+  top: 100px;
+  left: 13px;
+}
+
 .instructions {
   border-top: 2px solid #fc4c02;
   background-color: white;
@@ -45,12 +51,40 @@
   }
 }
 
+
+.ele-title {
+  background-color: #f5f5fa;
+  position: absolute;
+  left: 168px;
+  width: 1010px;
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e6e6ec;
+  border-top: 1px solid #e6e6ec;
+  }
+.statdrop {
+  position: absolute;
+    top: 7px;
+    left: 289px;
+    background-color: white;
+    padding: 10px;
+}
 #elevation_chart {
   // margin-left: 167px;
   margin-top: 168px;
   position: relative;
+  // &:hover {
+  //   margin-top: -40px;
+  //   transition: 3s;
+  //   transition-timing-function: ease-in-out;
+  // }
+  margin-bottom: 50px;
 }
-
+.workshow {
+  position: relative;
+}
 .workshow > #elevation_chart {
   margin-left: 167px;
 }

@@ -259,11 +259,13 @@ class Map extends React.Component {
       center: {lat: 40.730610, lng: -73.935242},
       markers: [],
       errors: [],
-      duration: 0
+      duration: 0,
+      instructions: true
     };
     this.getElevationChange= this.getElevationChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.computeTotalDistance = this.computeTotalDistance.bind(this);
+    this.toggleInstructions = this.toggleInstructions.bind(this);
   }
 
   componentDidMount(){
@@ -420,6 +422,12 @@ class Map extends React.Component {
   }
 }
 
+toggleInstructions(){
+  this.setState({
+    instructions: !this.state.instructions
+  });
+}
+
 
 
   update(field) {
@@ -450,21 +458,34 @@ class Map extends React.Component {
     this.state.errors = [];
   }
   render () {
-
+    let instructions;
+    if (this.state.instructions) {
+      instructions = (
+        <div className='instructions'><h3>To Create A Route</h3>
+          <ol>
+            <li>Click a starting position</li>
+            <li>Select waypoints along route</li>
+            <li>Click an ending position</li>
+            <li>Add a Title</li>
+            <li>Click Save!</li>
+            <li className='tip'>Try dragging the route for further manipultaion</li>
+          </ol>
+          <div style={{postion: "relative"}}>
+          <a onClick={this.toggleInstructions} className='modal-close map'></a>
+        </div>
+        </div>);
+    } else {
+      instructions = (
+        <div className="help">
+          <h3 onClick={this.toggleInstructions}>Need help?</h3>
+        </div>
+      );
+    }
 
     return (<div>
       <div id='map-container' ref={ map => this.mapNode = map }></div>
         {this.renderErrors()}
-      <div className='instructions'><h3>To Create A Route</h3>
-        <ol>
-          <li>Click a starting position</li>
-          <li>Select waypoints along route</li>
-          <li>Click an ending position</li>
-          <li>Add a Title</li>
-          <li>Click Save!</li>
-          <li className='tip'>Try dragging the route for further manipultaion</li>
-        </ol>
-      </div>
+        {instructions}
       <div className="route-form">
         <div><h2>{this.state.distance} miles</h2><h3>Distance</h3></div>
         <div><h2>{this.state.elevation} feet</h2><h3>Elevation Gain</h3></div>
